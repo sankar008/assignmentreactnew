@@ -20,18 +20,20 @@ const AppRouter = () => {
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<ServicesS />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/about-us" element={<About />} />
-        <Route path="/how-it-work" element={<HowItWork />} />
-        <Route path="/benifits" element={<Benifits />} />
-        <Route path="/review" element={<Review />} />
-        <Route path="/faq" element={<Faq />} />
-      </Routes>
+      <div className="mainWarpr">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<ServicesS />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/how-it-work" element={<HowItWork />} />
+          <Route path="/benifits" element={<Benifits />} />
+          <Route path="/review" element={<Review />} />
+          <Route path="/faq" element={<Faq />} />
+        </Routes>
+      </div>
       <Footer />
     </Router>
   );

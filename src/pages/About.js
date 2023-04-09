@@ -15,19 +15,13 @@ const About = () => {
   }, []);
   return (
     <div>
-      <section class="banner-section-three">
+      <section class="banner-section-three" style={{ paddingTop: "6rem" }}>
         <div
           class="pattern-layer-two"
           style={{ backgroundImage: `url(images/background/pattern-21.png)` }}
         ></div>
 
         <div class="auto-container">
-          <ul class="page-breadcrumb">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>About</li>
-          </ul>
           <div class="row clearfix">
             <div class="content-column col-lg-6 col-md-12 col-sm-12">
               <div class="inner-column">

@@ -2619,11 +2619,13 @@ img {
 ====================================================================
 
 ***/
-
+.mainWarpr{
+  padding-top: 5rem;
+}
 .banner-section {
   position: relative;
   overflow: hidden;
-  padding-top: 50px;
+      padding-top: 50px;
   padding-bottom: 50px;
   border-bottom: 5px solid;
   border-image-source: linear-gradient(to left, #9b87ff, #ffc73d);
@@ -6135,6 +6137,8 @@ img {
   padding-bottom: 50px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1);
   height: 100vh;
+      padding-top: 50px;
+      
 }
 
 .banner-section-three .pattern-layer-two {
@@ -18304,4 +18308,10 @@ img {
 
 .main_concepts {
   margin: 80px 0px;
+}
+.feader_fix{
+  position: fixed;
+    width: 100%;
+    z-index: 9999;
+    box-shadow: 0px 0px 19px #9f9f9f;
 }
