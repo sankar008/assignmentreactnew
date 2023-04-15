@@ -140,6 +140,7 @@ const Benifits = () => {
           </div>
         </div>
       </section>
+
       <section className="benifitBody">
         <div class="auto-container">
           <div class="row">
@@ -161,166 +162,204 @@ const Benifits = () => {
             <div class="col-md-2"></div>
           </div>
           <div class="row mb-4">
-            <div class="col-md-5">
-              <div class="icon_side mar_btms">
-                <img src="images/support.png" />
-                <h6>No Plagiarism</h6>
-                <p>Provides absolute comfort to users.</p>
-              </div>
-            </div>
-            <div class="col-md-7">
-              <div class="Text_are ">
-                <h6>No Plagiarism</h6>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-          </div>
+            <div class="col-lg-9">
+              <div class="row mb-4">
+                <div class="col-md-5 mar_bottms_25pxls">
+                  <div class="icon_side mar_btms">
+                    <img src="images/support.png" />
+                    <h6>No Plagiarism</h6>
+                    <p>Provides absolute comfort to users.</p>
+                  </div>
+                </div>
+                <div class="col-md-7 mar_bottms_25pxls">
+                  <div class="Text_are ">
+                    <h6>No Plagiarism</h6>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book. It has survived not only five
+                      centuries, but also the leap into electronic typesetting,
+                      remaining essentially unchanged.
+                    </p>
+                  </div>
+                </div>
 
-          <div class="row mb-4">
-            <div class="col-md-7">
-              <div class="Text_are mar_btms">
-                <h6>24/7 support</h6>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
+                <div class="col-md-7 mar_bottms_25pxls">
+                  <div class="Text_are mar_btms">
+                    <h6>24/7 support</h6>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book. It has survived not only five
+                      centuries, but also the leap into electronic typesetting,
+                      remaining essentially unchanged.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-5 mar_bottms_25pxls">
+                  <div class="icon_side">
+                    <img src="images/support.png" />
+                    <h6>24/7 support</h6>
+                    <p>Get help and find answers</p>
+                  </div>
+                </div>
+                <div class="col-md-5 mar_bottms_25pxls">
+                  <div class="icon_side mar_btms">
+                    <img src="images/support.png" />
+                    <h6>On-time Submission</h6>
+                    <p>Time of the submission, On-Point</p>
+                  </div>
+                </div>
+                <div class="col-md-7 mar_bottms_25pxls">
+                  <div class="Text_are">
+                    <h6>On-time Submission</h6>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book. It has survived not only five
+                      centuries, but also the leap into electronic typesetting,
+                      remaining essentially unchanged.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-7 mar_bottms_25pxls">
+                  <div class="Text_are mar_btms">
+                    <h6>Rewrites that satisfy</h6>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book. It has survived not only five
+                      centuries, but also the leap into electronic typesetting,
+                      remaining essentially unchanged.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-5 mar_bottms_25pxls">
+                  <div class="icon_side">
+                    <img src="images/support.png" />
+                    <h6>Rewrites that satisfy</h6>
+                    <p>Rewriting until you are satisfied</p>
+                  </div>
+                </div>
+                <div class="col-md-5 mar_bottms_25pxls">
+                  <div class="icon_side mar_btms">
+                    <img src="images/support.png" />
+                    <h6>Confidentiality</h6>
+                    <p>Managing data confidentiality</p>
+                  </div>
+                </div>
+                <div class="col-md-7 mar_bottms_25pxls">
+                  <div class="Text_are">
+                    <h6>Confidentiality</h6>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book. It has survived not only five
+                      centuries, but also the leap into electronic typesetting,
+                      remaining essentially unchanged.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-7 mar_bottms_25pxls">
+                  <div class="Text_are mar_btms">
+                    <h6> Grade Boosting solutions</h6>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book. It has survived not only five
+                      centuries, but also the leap into electronic typesetting,
+                      remaining essentially unchanged.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-5 mar_bottms_25pxls">
+                  <div class="icon_side">
+                    <img src="images/support.png" />
+                    <h6> Grade Boosting solutions</h6>
+                    <p>Take your time during exams</p>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div class="col-md-5">
-              <div class="icon_side">
-                <img src="images/support.png" />
-                <h6>24/7 support</h6>
-                <p>Get help and find answers</p>
+            <div class="col-lg-3">
+              <div class="belifit_right">
+                <div class="recent_dtls">
+                  <h4>Top Services</h4>
+                </div>
+                <div class="blog_main">
+                  <div class="blog_images">
+                    <img src="images/assignment.png" />
+                  </div>
+                  <div class="blogs_txts">
+                    <h5>Assignment Help</h5>
+                  </div>
+                </div>
+                <div class="blog_main">
+                  <div class="blog_images">
+                    <img src="images/assignment.png" />
+                  </div>
+                  <div class="blogs_txts">
+                    <h5>Essay Writing</h5>
+                  </div>
+                </div>
+                <div class="blog_main">
+                  <div class="blog_images">
+                    <img src="images/assignment.png" />
+                  </div>
+                  <div class="blogs_txts">
+                    <h5>Live Session</h5>
+                  </div>
+                </div>
+                <div class="blog_main">
+                  <div class="blog_images">
+                    <img src="images/assignment.png" />
+                  </div>
+                  <div class="blogs_txts">
+                    <h5>Lab Report</h5>
+                  </div>
+                </div>
+                <div class="blog_main">
+                  <div class="blog_images">
+                    <img src="images/assignment.png" />
+                  </div>
+                  <div class="blogs_txts">
+                    <h5>Project Report Writing</h5>
+                  </div>
+                </div>
+                <div class="blog_main">
+                  <div class="blog_images">
+                    <img src="images/assignment.png" />
+                  </div>
+                  <div class="blogs_txts">
+                    <h5>Assignment Help</h5>
+                  </div>
+                </div>
+                <div class="blog_main">
+                  <div class="blog_images">
+                    <img src="images/assignment.png" />
+                  </div>
+                  <div class="blogs_txts">
+                    <h5>Assignment Help</h5>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-
-          <div class="row mb-4">
-            <div class="col-md-5">
-              <div class="icon_side mar_btms">
-                <img src="images/support.png" />
-                <h6>On-time Submission</h6>
-                <p>Time of the submission, On-Point</p>
-              </div>
-            </div>
-            <div class="col-md-7">
-              <div class="Text_are">
-                <h6>On-time Submission</h6>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row mb-4">
-            <div class="col-md-7">
-              <div class="Text_are mar_btms">
-                <h6>Rewrites that satisfy</h6>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-
-            <div class="col-md-5">
-              <div class="icon_side">
-                <img src="images/support.png" />
-                <h6>Rewrites that satisfy</h6>
-                <p>Rewriting until you are satisfied</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row mb-4">
-            <div class="col-md-5">
-              <div class="icon_side mar_btms">
-                <img src="images/support.png" />
-                <h6>Confidentiality</h6>
-                <p>Managing data confidentiality</p>
-              </div>
-            </div>
-            <div class="col-md-7">
-              <div class="Text_are">
-                <h6>Confidentiality</h6>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row mb-4">
-            <div class="col-md-7">
-              <div class="Text_are mar_btms">
-                <h6> Grade Boosting solutions</h6>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-
-            <div class="col-md-5">
-              <div class="icon_side">
-                <img src="images/support.png" />
-                <h6> Grade Boosting solutions</h6>
-                <p>Take your time during exams</p>
+              <div class="this_heding mt-5">
+                <h4>Order Tutorial </h4>
+                <a href="#">
+                  <button class="order_btns">Order Now</button>
+                </a>
               </div>
             </div>
           </div>

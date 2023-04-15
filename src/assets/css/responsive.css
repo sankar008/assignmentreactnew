@@ -207,6 +207,9 @@
   }
 }
 @media only screen and (max-width: 1024px) {
+  .how_work_mobile_banner{
+    height: 100%;
+  }
   .listar-feature-right-border {
     display: none;
   }
@@ -2278,13 +2281,13 @@
     margin-top: 100px !important;
   }
   .page_Benifits {
-    margin-top: 100px !important;
+    margin-top: 20px !important;
   }
   .page_faq {
-    margin-top: 100px !important;
+    margin-top: 20px !important;
   }
   .how_work_mobile {
-    margin-top: 100px !important;
+    margin-top: 20px !important;
   }
   .icon_side {
     height: auto;
@@ -2293,7 +2296,7 @@
     height: auto;
   }
   .mar_btms {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
   }
   .submenuMO {
     display: block;

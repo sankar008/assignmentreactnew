@@ -10,7 +10,7 @@ const HowItWork = () => {
   }, []);
   return (
     <div>
-      <section className="page_howit_work how_work_mobile banner-section-three">
+      <section className="page_howit_work how_work_mobile banner-section-three how_work_mobile_banner ">
         <div
           class="pattern-layer-two"
           style={{ backgroundImage: `url(images/background/pattern-21.png)` }}
@@ -49,8 +49,8 @@ const HowItWork = () => {
                       typeSpeed={70}
                       deleteSpeed={50}
                       delaySpeed={1000}
-                      // onLoopDone={handleDone}
-                      // onType={handleType}
+                    // onLoopDone={handleDone}
+                    // onType={handleType}
                     />{" "}
                   </span>
                   <br />
@@ -141,7 +141,7 @@ const HowItWork = () => {
         </div>
       </section>
 
-      <section class="benefit-section how_its_works pt-5" id="how">
+      <section class="benefit-section how_its_works_sectiob pt-5" id="how">
         <div class="background-layer-one"></div>
         <div class="background-layer-two"></div>
         <div class="auto-container">
@@ -164,180 +164,147 @@ const HowItWork = () => {
             <div class="pset">
               <div class="container">
                 <div class="row listar-feature-items">
-                  <div
-                    class="col-xs-12 col-lg-3 col-sm-6 col-md-6 listar-feature-item-wrapper listar-feature-with-image listar-height-changed"
-                    data-aos="fade-zoom-in"
-                    data-aos-group="features"
-                    data-line-height="25.2px"
-                  >
-                    <div class="listar-feature-item listar-feature-has-link">
-                      <a href="#"></a>
-
-                      <div class="listar-feature-item-inner">
-                        <div class="listar-feature-right-border"></div>
-
-                        <div class="listar-feature-block-content-wrapper">
-                          <div class="listar-feature-icon-wrapper">
-                            <div class="listar-feature-icon-inner">
-                              <div>
-                                <img
-                                  alt="Businesses"
-                                  class="listar-image-icon"
-                                  src="https://cdn-icons-png.flaticon.com/512/9051/9051831.png"
-                                />
-                              </div>
+                  <div className="col-lg-9">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="work_define" >
+                          <div class="icon_center">
+                            <div class="top_icon">
+                              <img src="images/copy-writing.png" alt="" />
                             </div>
                           </div>
-
-                          <div class="listar-feature-content-wrapper">
-                            <div class="listar-feature-item-title listar-feature-counter-added">
-                              <span>
-                                <span>01</span>
-                                Sign up
-                              </span>
+                          <div class="work_content">
+                            <h3>Sign Up</h3>
+                            <p>
+                              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, et similique harum pariatur, assumenda ratione voluptates nam quos id earum quasi ab asperiores eos facere saepe optio perferendis? Fugit, itaque!
+                            </p>
+                          </div>
+                          <div class="button_signup">
+                            <a href="#"><button class="arrow_btn"><img src="images/right-arrow.png" alt="" /></button></a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="work_define" >
+                          <div class="icon_center">
+                            <div class="top_icon">
+                              <img src="images/copy-writing.png" alt="" />
                             </div>
-
-                            <div class="listar-feature-item-excerpt">
-                              Start publish listings to show everyone the
-                              details and goodies of your establishment.{" "}
+                          </div>
+                          <div class="work_content">
+                            <h3>Sign Up</h3>
+                            <p>
+                              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, et similique harum pariatur, assumenda ratione voluptates nam quos id earum quasi ab asperiores eos facere saepe optio perferendis? Fugit, itaque!
+                            </p>
+                          </div>
+                          <div class="button_signup">
+                            <a href="#"><button class="arrow_btn"><img src="images/right-arrow.png" alt="" /></button></a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="work_define" >
+                          <div class="icon_center">
+                            <div class="top_icon">
+                              <img src="images/copy-writing.png" alt="" />
                             </div>
+                          </div>
+                          <div class="work_content">
+                            <h3>Sign Up</h3>
+                            <p>
+                              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, et similique harum pariatur, assumenda ratione voluptates nam quos id earum quasi ab asperiores eos facere saepe optio perferendis? Fugit, itaque!
+                            </p>
+                          </div>
+                          <div class="button_signup">
+                            <a href="#"><button class="arrow_btn"><img src="images/right-arrow.png" alt="" /></button></a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="work_define" >
+                          <div class="icon_center">
+                            <div class="top_icon">
+                              <img src="images/copy-writing.png" alt="" />
+                            </div>
+                          </div>
+                          <div class="work_content">
+                            <h3>Sign Up</h3>
+                            <p>
+                              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, et similique harum pariatur, assumenda ratione voluptates nam quos id earum quasi ab asperiores eos facere saepe optio perferendis? Fugit, itaque!
+                            </p>
+                          </div>
+                          <div class="button_signup">
+                            <a href="#"><button class="arrow_btn"><img src="images/right-arrow.png" alt="" /></button></a>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="listar-feature-fix-bottom-padding listar-fix-feature-arrow-button-height"></div>
                   </div>
 
-                  <div
-                    class="col-xs-12 col-lg-3 col-sm-6 col-md-6 listar-feature-item-wrapper listar-feature-with-image listar-height-changed"
-                    data-aos="fade-zoom-in"
-                    data-aos-group="features"
-                    data-line-height="25.2px"
-                  >
-                    <div class="listar-feature-item listar-feature-has-link">
-                      <a href="#"></a>
-
-                      <div class="listar-feature-item-inner">
-                        <div class="listar-feature-right-border"></div>
-
-                        <div class="listar-feature-block-content-wrapper">
-                          <div class="listar-feature-icon-wrapper">
-                            <div class="listar-feature-icon-inner">
-                              <div>
-                                <img
-                                  alt="Customers"
-                                  class="listar-image-icon"
-                                  src="https://cdn-icons-png.flaticon.com/512/3414/3414151.png"
-                                />
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="listar-feature-content-wrapper">
-                            <div class="listar-feature-item-title listar-feature-counter-added">
-                              <span>
-                                <span>02</span>
-                                Place your order
-                              </span>
-                            </div>
-
-                            <div class="listar-feature-item-excerpt">
-                              Easily find interesting places by local experts,
-                              save time by checking listing features.{" "}
-                            </div>
-                          </div>
+                  <div className="col-lg-3">
+                    <div class="this_heding">
+                      <h4>Our Work Update </h4>
+                    </div>
+                    <div class="news_dtls">
+                      <div class="new_nws_img">
+                        <img src="images/news.png" />
+                      </div>
+                      <div class="news_text">
+                        <div class="news_hed">
+                          <a href="#">Chemestry</a>
+                          
                         </div>
+                        <a href="#">There May Be No Consoles In The Future Ea Exec Says</a>
+                        <p>26-03-2023</p>
                       </div>
                     </div>
-                    <div class="listar-feature-fix-bottom-padding listar-fix-feature-arrow-button-height"></div>
-                  </div>
-
-                  <div
-                    class="col-xs-12 col-lg-3 col-sm-6 col-md-6 margin_auto_600 listar-feature-item-wrapper listar-feature-with-image listar-height-changed"
-                    data-aos="fade-zoom-in"
-                    data-aos-group="features"
-                    data-line-height="25.2px"
-                  >
-                    <div class="listar-feature-item listar-feature-has-link">
-                      <a href="#"></a>
-
-                      <div class="listar-feature-item-inner">
-                        <div class="listar-feature-right-border"></div>
-
-                        <div class="listar-feature-block-content-wrapper">
-                          <div class="listar-feature-icon-wrapper">
-                            <div class="listar-feature-icon-inner">
-                              <div>
-                                <img
-                                  alt="Feedback"
-                                  class="listar-image-icon"
-                                  src="https://cdn-icons-png.flaticon.com/512/3412/3412953.png"
-                                />
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="listar-feature-content-wrapper">
-                            <div class="listar-feature-item-title listar-feature-counter-added">
-                              <span>
-                                <span>03</span>
-                                Payment{" "}
-                              </span>
-                            </div>
-
-                            <div class="listar-feature-item-excerpt">
-                              Visitors discuss listings to share experiences, so
-                              businesses get reputation consolidated.{" "}
-                            </div>
-                          </div>
+                    <div class="news_dtls">
+                      <div class="new_nws_img">
+                        <img src="images/news.png" />
+                      </div>
+                      <div class="news_text">
+                        <div class="news_hed">
+                          <a href="#">Phisic </a>
+                         
                         </div>
+                        <a href="#">There May Be No Consoles In The Future Ea Exec Says</a>
+                        <p>26-03-2023</p>
                       </div>
                     </div>
-                    <div class="listar-feature-fix-bottom-padding listar-fix-feature-arrow-button-height"></div>
-                  </div>
-
-                  <div
-                    class="col-xs-12 col-lg-3 col-sm-6 col-md-6 margin_auto_600 listar-feature-item-wrapper listar-feature-with-image listar-height-changed matops_50px"
-                    data-aos="fade-zoom-in"
-                    data-aos-group="features"
-                    data-line-height="25.2px"
-                  >
-                    <div class="listar-feature-item listar-feature-has-link">
-                      <a href="#"></a>
-
-                      <div class="listar-feature-item-inner">
-                        <div class="listar-feature-right-border"></div>
-
-                        <div class="listar-feature-block-content-wrapper">
-                          <div class="listar-feature-icon-wrapper">
-                            <div class="listar-feature-icon-inner">
-                              <div>
-                                <img
-                                  alt="Feedback"
-                                  class="listar-image-icon"
-                                  src="https://cdn-icons-png.flaticon.com/512/3412/3412953.png"
-                                />
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="listar-feature-content-wrapper">
-                            <div class="listar-feature-item-title listar-feature-counter-added">
-                              <span>
-                                <span>04</span>
-                                Get Solution{" "}
-                              </span>
-                            </div>
-
-                            <div class="listar-feature-item-excerpt">
-                              Visitors discuss listings to share experiences, so
-                              businesses get reputation consolidated.{" "}
-                            </div>
-                          </div>
+                    <div class="news_dtls">
+                      <div class="new_nws_img">
+                        <img src="images/news.png" />
+                      </div>
+                      <div class="news_text">
+                        <div class="news_hed">
+                          <a href="#">English </a>
+                          
                         </div>
+                        <a href="#">There May Be No Consoles In The Future Ea Exec Says</a>
+                        <p>26-03-2023</p>
                       </div>
                     </div>
-                    <div class="listar-feature-fix-bottom-padding listar-fix-feature-arrow-button-height"></div>
+                    <div class="news_dtls">
+                      <div class="new_nws_img">
+                        <img src="images/news.png" />
+                      </div>
+                      <div class="news_text">
+                        <div class="news_hed">
+                          <a href="#">Math</a>
+                          
+                        </div>
+                        <a href="#">There May Be No Consoles In The Future Ea Exec Says</a>
+                        <p>26-03-2023</p>
+                      </div>
+                    </div>
+
+                    <div class="this_heding mt-5">
+                      <h4>Order Tutorial </h4>
+
+                      <a href="#"><button class="order_btns">Order Now</button></a>
+                    </div>
+
+
                   </div>
                 </div>
               </div>

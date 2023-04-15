@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
+    "react-animated-progress-bar": "^1.1.2",
     "react-dom": "^18.2.0",
     "react-marquee-master": "^1.4.5",
     "react-modern-drawer": "^1.2.0",
