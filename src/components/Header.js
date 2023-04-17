@@ -126,7 +126,7 @@ const Header = () => {
                         <NavLink to="/how-it-work">How Its Work</NavLink>
                       </li>
                       <li class="dropdown dropbtn">
-                        <Link to="/services">Services </Link>
+                        <Link to="#">Services </Link>
 
                         <div class="dropdown-content">
                           <a href="#">Link 1</a>
@@ -274,7 +274,7 @@ const Header = () => {
             </li>
 
             <li class="dropdown">
-              <Link className="arrowDwn" to="/services">
+              <Link className="arrowDwn" to="#">
                 Services{" "}
                 <span
                   class="fa fa-angle-down"
