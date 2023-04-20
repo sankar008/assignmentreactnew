@@ -4037,7 +4037,14 @@ img {
   border-radius: 50px;
   background: #43b97e;
 }
-
+.freeQuot{
+     background-color: #ffe111;
+    padding: 5px 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    display: none;
+}
 .skills .skill-item .skill-bar .bar-inner .bar {
   position: absolute;
   left: 0px;

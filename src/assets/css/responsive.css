@@ -207,7 +207,7 @@
   }
 }
 @media only screen and (max-width: 1024px) {
-  .how_work_mobile_banner{
+  .how_work_mobile_banner {
     height: 100%;
   }
   .listar-feature-right-border {
@@ -2276,6 +2276,7 @@
     background: #fff;
     z-index: 999;
     box-shadow: 0px 0px 20px #ccc;
+    top: 20px;
   }
   .page_Benifits {
     margin-top: 100px !important;
@@ -2318,5 +2319,26 @@
   .innerBanner h1 {
     color: #fff;
     text-align: center;
+  }
+  .progress-bar {
+    width: 100% !important;
+  }
+  .orderNowM {
+    background-color: #25a465;
+    padding: 2px 15px;
+    display: block;
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    border-radius: 5px;
+    line-height: 26px;
+  }
+  .textG {
+    line-height: 0;
+    margin-bottom: 0;
+  }
+  .freeQuot {
+    display: block;
   }
 }

@@ -10,10 +10,17 @@ const Header = () => {
   };
   return (
     <div>
-      <div className="">
+      <div className="freeQuot">
         <div className="container">
           <div className="row">
-            <div className=""></div>
+            <div className="col-8">
+              <p className="textG">Guaranteed Higher Grade!</p>
+            </div>
+            <div className="col-4">
+              <Link to="/" className="orderNowM">
+                Order Now
+              </Link>
+            </div>
           </div>
         </div>
       </div>
