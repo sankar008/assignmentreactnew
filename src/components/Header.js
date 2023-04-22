@@ -13,10 +13,10 @@ const Header = () => {
       <div className="freeQuot">
         <div className="container">
           <div className="row">
-            <div className="col-8">
+            <div className="col-7">
               <p className="textG">Guaranteed Higher Grade!</p>
             </div>
-            <div className="col-4">
+            <div className="col-5">
               <Link to="/" className="orderNowM">
                 Order Now
               </Link>
