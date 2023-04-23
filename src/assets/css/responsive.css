@@ -2338,6 +2338,7 @@
   .textG {
     line-height: 0;
     margin-bottom: 0;
+    font-size: 13px;
   }
   .freeQuot {
     display: block;
