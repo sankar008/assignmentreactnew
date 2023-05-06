@@ -9,6 +9,7 @@ import Blog from "../pages/Blog";
 import Faq from "../pages/Faq";
 import HowItWork from "../pages/HowItWork";
 import Login from "../pages/Login";
+import Orderpage from "../pages/Orderpage";
 import Review from "../pages/Review";
 import ServicesS from "../pages/Services";
 import Signup from "../pages/Signup";
@@ -32,6 +33,7 @@ const AppRouter = () => {
           <Route path="/benifits" element={<Benifits />} />
           <Route path="/review" element={<Review />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/order" element={<Orderpage />} />
         </Routes>
       </div>
       <Footer />

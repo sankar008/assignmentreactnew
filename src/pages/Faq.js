@@ -266,59 +266,65 @@ const Faq = () => {
 
             <div class="sidebar-side ektra_bgshadow col-lg-3 col-md-3 col-sm-12 ">
               <aside class="sidebar sticky-top">
-                <div class="sidebar-widget popular-posts">
-                  <div class="sidebar-title">
-                    <h4>Recent Post</h4>
+                <div class="belifit_right">
+                  <div class="recent_dtls">
+                    <h4>Top Services</h4>
                   </div>
-                  <div class="widget-content">
-                    <article class="post">
-                      <figure class="post-thumb">
-                        <img src="images/resource/post-thumb-3.jpg" alt="" />
-                        <a href="#" class="overlay-box">
-                          <span class="icon fa fa-link"></span>
-                        </a>
-                      </figure>
-                      <div class="text">
-                        <a href="#">Is Baking a Good career? 15 Reasons </a>
-                      </div>
-                      <div class="post-info">Admin, 10 Feb 2023</div>
-                    </article>
-                    <article class="post">
-                      <figure class="post-thumb">
-                        <img src="images/resource/post-thumb-4.jpg" alt="" />
-                        <a href="#" class="overlay-box">
-                          <span class="icon fa fa-link"></span>
-                        </a>
-                      </figure>
-                      <div class="text">
-                        <a href="#">Is Baking a Good career? 15 Reasons </a>
-                      </div>
-                      <div class="post-info">Admin, 10 Feb 2023</div>
-                    </article>
-                    <article class="post">
-                      <figure class="post-thumb">
-                        <img src="images/resource/post-thumb-5.jpg" alt="" />
-                        <a href="#" class="overlay-box">
-                          <span class="icon fa fa-link"></span>
-                        </a>
-                      </figure>
-                      <div class="text">
-                        <a href="#">Is Baking a Good career? 15 Reasons </a>
-                      </div>
-                      <div class="post-info">Admin, 10 Feb 2023</div>
-                    </article>
-                    <article class="post">
-                      <figure class="post-thumb">
-                        <img src="images/resource/post-thumb-4.jpg" alt="" />
-                        <a href="#" class="overlay-box">
-                          <span class="icon fa fa-link"></span>
-                        </a>
-                      </figure>
-                      <div class="text">
-                        <a href="#">Is Baking a Good career? 15 Reasons </a>
-                      </div>
-                      <div class="post-info">Admin, 10 Feb 2023</div>
-                    </article>
+                  <div class="blog_main">
+                    <div class="blog_images">
+                      <img src="images/assignment.png" />
+                    </div>
+                    <div class="blogs_txts">
+                      <h5>Assignment Help</h5>
+                    </div>
+                  </div>
+                  <div class="blog_main">
+                    <div class="blog_images">
+                      <img src="images/assignment.png" />
+                    </div>
+                    <div class="blogs_txts">
+                      <h5>Essay Writing</h5>
+                    </div>
+                  </div>
+                  <div class="blog_main">
+                    <div class="blog_images">
+                      <img src="images/assignment.png" />
+                    </div>
+                    <div class="blogs_txts">
+                      <h5>Live Session</h5>
+                    </div>
+                  </div>
+                  <div class="blog_main">
+                    <div class="blog_images">
+                      <img src="images/assignment.png" />
+                    </div>
+                    <div class="blogs_txts">
+                      <h5>Lab Report</h5>
+                    </div>
+                  </div>
+                  <div class="blog_main">
+                    <div class="blog_images">
+                      <img src="images/assignment.png" />
+                    </div>
+                    <div class="blogs_txts">
+                      <h5>Project Report Writing</h5>
+                    </div>
+                  </div>
+                  <div class="blog_main">
+                    <div class="blog_images">
+                      <img src="images/assignment.png" />
+                    </div>
+                    <div class="blogs_txts">
+                      <h5>Assignment Help</h5>
+                    </div>
+                  </div>
+                  <div class="blog_main">
+                    <div class="blog_images">
+                      <img src="images/assignment.png" />
+                    </div>
+                    <div class="blogs_txts">
+                      <h5>Assignment Help</h5>
+                    </div>
                   </div>
                 </div>
               </aside>

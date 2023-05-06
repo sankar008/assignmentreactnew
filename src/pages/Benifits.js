@@ -357,9 +357,9 @@ const Benifits = () => {
               </div>
               <div class="this_heding mt-5">
                 <h4>Order Tutorial </h4>
-                <a href="#">
+                <Link to="/order">
                   <button class="order_btns">Order Now</button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

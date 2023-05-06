@@ -143,7 +143,7 @@ const Review = () => {
       <section class="main_concepts review_bg">
         <div class="auto-container">
           <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-7">
               <div class="sec-title centered">
                 <h2>Words From Customers</h2>
                 <div class="text">
@@ -152,83 +152,7 @@ const Review = () => {
                   dolor in reprehenderit in
                 </div>
               </div>
-              <div className="row justify-content-center mb-5">
-                <div className="col-md-2">
-                  <h3>5 Star</h3>
-                </div>
-                <div className="col-md-10">
-                  <ProgressBar
-                    width="600px"
-                    height="20px"
-                    rect
-                    fontColor="gray"
-                    percentage="95"
-                    rectPadding="1px"
-                    rectBorderRadius="20px"
-                    trackPathColor="transparent"
-                  />
-                </div>
-                <div className="col-md-2">
-                  <h3>4 Star</h3>
-                </div>
-                <div className="col-md-10">
-                  <ProgressBar
-                    width="600px"
-                    height="20px"
-                    rect
-                    fontColor="gray"
-                    percentage="70"
-                    rectPadding="1px"
-                    rectBorderRadius="20px"
-                    trackPathColor="transparent"
-                  />
-                </div>
-                <div className="col-md-2">
-                  <h3>3 Star</h3>
-                </div>
-                <div className="col-md-10">
-                  <ProgressBar
-                    width="600px"
-                    height="20px"
-                    rect
-                    fontColor="gray"
-                    percentage="60"
-                    rectPadding="1px"
-                    rectBorderRadius="20px"
-                    trackPathColor="transparent"
-                  />
-                </div>
-                <div className="col-md-2">
-                  <h3>2 Star</h3>
-                </div>
-                <div className="col-md-10">
-                  <ProgressBar
-                    width="600px"
-                    height="20px"
-                    rect
-                    fontColor="gray"
-                    percentage="40"
-                    rectPadding="1px"
-                    rectBorderRadius="20px"
-                    trackPathColor="transparent"
-                  />
-                </div>
-                <div className="col-md-2">
-                  <h3>1 Star</h3>
-                </div>
-                <div className="col-md-10">
-                  <ProgressBar
-                    width="600px"
-                    height="20px"
-                    rect
-                    fontColor="gray"
-                    percentage="20"
-                    rectPadding="1px"
-                    rectBorderRadius="20px"
-                    trackPathColor="transparent"
-                  />
-                </div>
-              </div>
+
               <div class="row">
                 <div class="col-md-6">
                   <div class="site_review">
@@ -719,7 +643,84 @@ const Review = () => {
               </div>
             </div>
 
-            <div class="sidebar-side ektra_bgshadow col-lg-3 col-md-12 col-sm-12">
+            <div class="sidebar-side ektra_bgshadow col-lg-5 col-md-12 col-sm-12">
+              <div className="row justify-content-center mb-5">
+                <div className="col-md-2">
+                  <h3>5 Star</h3>
+                </div>
+                <div className="col-md-10">
+                  <ProgressBar
+                    width="400px"
+                    height="20px"
+                    rect
+                    fontColor="gray"
+                    percentage="95"
+                    rectPadding="1px"
+                    rectBorderRadius="20px"
+                    trackPathColor="transparent"
+                  />
+                </div>
+                <div className="col-md-2">
+                  <h3>4 Star</h3>
+                </div>
+                <div className="col-md-10">
+                  <ProgressBar
+                    width="400px"
+                    height="20px"
+                    rect
+                    fontColor="gray"
+                    percentage="70"
+                    rectPadding="1px"
+                    rectBorderRadius="20px"
+                    trackPathColor="transparent"
+                  />
+                </div>
+                <div className="col-md-2">
+                  <h3>3 Star</h3>
+                </div>
+                <div className="col-md-10">
+                  <ProgressBar
+                    width="400px"
+                    height="20px"
+                    rect
+                    fontColor="gray"
+                    percentage="60"
+                    rectPadding="1px"
+                    rectBorderRadius="20px"
+                    trackPathColor="transparent"
+                  />
+                </div>
+                <div className="col-md-2">
+                  <h3>2 Star</h3>
+                </div>
+                <div className="col-md-10">
+                  <ProgressBar
+                    width="400px"
+                    height="20px"
+                    rect
+                    fontColor="gray"
+                    percentage="40"
+                    rectPadding="1px"
+                    rectBorderRadius="20px"
+                    trackPathColor="transparent"
+                  />
+                </div>
+                <div className="col-md-2">
+                  <h3>1 Star</h3>
+                </div>
+                <div className="col-md-10">
+                  <ProgressBar
+                    width="400px"
+                    height="20px"
+                    rect
+                    fontColor="gray"
+                    percentage="20"
+                    rectPadding="1px"
+                    rectBorderRadius="20px"
+                    trackPathColor="transparent"
+                  />
+                </div>
+              </div>
               <aside class="sidebar sticky-top">
                 <div class="sidebar-widget popular-posts">
                   <div class="sidebar-title">
