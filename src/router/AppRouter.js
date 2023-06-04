@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Home from "../components/Home";
@@ -13,6 +14,7 @@ import Orderpage from "../pages/Orderpage";
 import Review from "../pages/Review";
 import ServicesS from "../pages/Services";
 import Signup from "../pages/Signup";
+import UserDashboard from "../pages/UserDashboard";
 const AppRouter = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,6 +22,7 @@ const AppRouter = () => {
 
   return (
     <Router>
+      <ToastContainer />
       <Header />
       <div className="mainWarpr">
         <Routes>
@@ -34,6 +37,7 @@ const AppRouter = () => {
           <Route path="/review" element={<Review />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/order" element={<Orderpage />} />
+          <Route path="/account" element={<UserDashboard />} />
         </Routes>
       </div>
       <Footer />

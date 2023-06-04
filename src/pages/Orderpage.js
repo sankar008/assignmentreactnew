@@ -7,131 +7,452 @@ const Orderpage = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <>
-      <section class="banner-section" style={{ height: "auto" }}>
-        <div class="auto-container">
-          <div class="pattern-layer-six"></div>
-          <div class="pattern-layer-seven"></div>
-          <div class="pattern-layer-eight"></div>
-          <div class="row clearfix justify-content-center">
-            <div class="content-column col-lg-7 col-md-12 col-sm-12">
-              <div class="form-column" style={{ marginBottom: 25 }}>
-                <div
-                  class="inner-columna wow fadeInRight animated"
-                  data-wow-delay="0ms"
-                  data-wow-duration="1500ms"
-                >
-                  <div class="color-box"></div>
-                  <h3 className="mb-3">Place your order here!</h3>
+    <div>
+      <section className="Order_section">
+        <div className="container">
 
-                  <div class="trial-form">
-                    <div className="row">
-                      <div className="col-md-12">
-                        <div class="form-group">
-                          <label>Email</label>
-                          <input
-                            type="email"
-                            name="email"
-                            value=""
-                            placeholder="Email"
-                            required=""
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row mt-3 ">
-                      <div className="col-md-12">
-                        <label>Enter Your Assignment Description</label>
-                        <div class="form-group border_textArea">
-                          <textarea
-                            name=""
-                            id=""
-                            cols="30"
-                            rows="2"
-                            placeholder="Text here"
-                          ></textarea>
-                          <div class="form-group up_load">
-                            <input
-                              className="choose_option"
-                              type="file"
-                              name="email"
-                              value=""
-                              placeholder="Choose Assistant Deadline"
-                              required=""
-                            />
-                            <div className="input_overlay">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="#777777"
-                                class="bi bi-file-earmark-pdf"
-                                viewBox="0 0 16 16"
-                              >
-                                <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
-                                <path d="M4.603 14.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.697 19.697 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.188-.012.396-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.066.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.712 5.712 0 0 1-.911-.95 11.651 11.651 0 0 0-1.997.406 11.307 11.307 0 0 1-1.02 1.51c-.292.35-.609.656-.927.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.266.266 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.71 12.71 0 0 1 1.01-.193 11.744 11.744 0 0 1-.51-.858 20.801 20.801 0 0 1-.5 1.05zm2.446.45c.15.163.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.876 3.876 0 0 0-.612-.053zM8.078 7.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z" />
-                              </svg>{" "}
-                              Upload
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row mt-3 ">
-                      <div className="col-md-12"></div>
-                    </div>
-                    <div class="form-group">
-                      <label>Subject</label>
-                      <input
-                        type="text"
-                        name="subject"
-                        value=""
-                        placeholder="Subject"
-                        required=""
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label>Phone number</label>
-                      <input
-                        type="text"
-                        name="subject"
-                        value=""
-                        placeholder="Phone number"
-                        required=""
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label>Deadline</label>
-                      <input
-                        type="date"
-                        name=""
-                        value=""
-                        placeholder="Deadline"
-                        required=""
-                      />
-                    </div>
-                    <div class="form-group counters">
-                      <label>No. of pages </label>
-                      <div class="number">
-                        <span class="minus">-</span>
-                        <input type="text" value="1" />
-                        <span class="plus">+</span>
-                      </div>
-                    </div>
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <div className="order_header"></div>
+              <h3 className="order_header_titel">Hire Expert Tutors for</h3>
+            </div>
+          </div>
+          <div className="row justify-content-center mb-5">
+            <div className="col-lg-4 col-md-4">
+              <div className="order__firststp">
+                <img src="./images/homework.png"></img>
+                <h5>Homework / Assignment</h5>
+                <p>(Post Question, Lab Work, Project)</p>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-4">
+              <div className="order__firststp">
+                <img src="./images/deadline.png"></img>
+                <h5>Schedule 1 to 1 Session</h5>
+                <p>(Get Instant Solution)</p>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-4">
+              <div className="order__firststp">
+                <div className="inco_effct">
+                  <img src="./images/writing.png"></img>
+                </div>
+                <h5>Essay Writing</h5>
+                <p>(Customised Essay Help)</p>
+              </div>
+            </div>
+          </div>
 
-                    <div class="form-group">
-                      <button type="submit" class="theme-btn submit-btn">
-                        <span class="txt">Send now</span>
-                      </button>
-                    </div>
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <div className="order_header"></div>
+              <h3 className="order_header_titel">Post Questions</h3>
+            </div>
+          </div>
+
+          <div className="row justify-content-center">
+            <div className="col-md-4">
+              <div className="drag_input">
+                <input type="file" id="drag"></input>
+                <div className="drag_overlay">
+                  <div className="center_droper">
+                    <img src="./images/page.png"></img>
+                    <p>Drop your filr or <span>Browser</span></p>
                   </div>
                 </div>
               </div>
             </div>
+            <div className="col-md-4">
+              <div className="massg_input">
+                <textarea type="text" id="msag" placeholder="Type your Question here"></textarea>
+              </div>
+            </div>
+            <div className="col-md-8">
+              <div className="big_sercbar">
+                <input type="text" id="search" placeholder="Search your Subject"></input>
+                <div className="src_icons">
+                  <img src="./images/loupe.png"></img>
+                </div>
+                <div className="step_buttn">
+                  <a href="#">
+                    <button className="continue_btn" disabled>Continue</button>
+                  </a>
+                </div>
+              </div>
+
+            </div>
           </div>
+
+          <div className="row mt-5">
+            <div className="col-lg-6">
+              <div className="sign_uplft">
+                <h4>Enter <span className="theme_color">Enail</span> or <span className="theme_color">Phone</span> to <br /> <span>Sign Up/Sigh In</span></h4>
+                <div className="sign_up_field">
+                  <input type="text" id="signUp" placeholder="john@gmail.com"></input>
+                  <div className="sign_icon">
+                    <img src="./images/email.png"></img>
+                  </div>
+                </div>
+                <div className="grup_btn">
+                  <a href="#"><button className="btn_one">Continue</button></a>
+                  <span>or</span>
+                  <a href="#"><button className="buttn_googl"><img src="./images/google.png"></img> Continue With Google</button></a>
+                </div>
+                <h4>Hire <span className="theme_color">Tutors</span> for your <br /> <span>Homework/Assignment</span> <span className="theme_color">help</span></h4>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="fill_imag">
+                <img src="./images/education.png"></img>
+              </div>
+            </div>
+          </div>
+
+
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <div className="order_header"></div>
+              <h3 className="order_header_titel">Subject</h3>
+            </div>
+          </div>
+
+          <div className="row justify-content-center">
+            <div className="col-md-8">
+              <div className="big_sercbar">
+                <select class="form-select form_select_icons" aria-label="Default select example">
+                  <option selected>Computer Network</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                <div className="src_icons">
+                  <img src="./images/loupe.png"></img>
+                </div>
+                <div className="step_buttn">
+                  <a href="#">
+                    <button className="continue_btn" disabled>Continue</button>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <div className="order_header"></div>
+              <h3 className="order_header_titel">Date & Time</h3>
+            </div>
+          </div>
+
+          <div className="row justify-content-center mb-5">
+            <div className="col-lg-3">
+              <div className="timePicer">
+                <span>Select Date</span><br />
+                <img src="./images/calendar.png"></img> <br />
+                <input type="date" id="date_picker" placeholder="01/01/2023"></input>
+              </div>
+            </div>
+
+            <div className="col-lg-3">
+
+              <div className="timePicer">
+                <span>Select Time</span> <br />
+                <img src="./images/chronometer.png"></img> <br />
+                <input type="time" id="time_picker" placeholder="00:00:00"></input>
+              </div>
+
+            </div>
+          </div>
+          <div className="row col-lg-12">
+            <div className="step_buttn">
+              <a href="#">
+                <button className="continue_btn" disabled>Continue</button>
+              </a>
+            </div>
+          </div>
+
+
+          <div className="row justify-content-center mt-5">
+            <div className="col-lg-8">
+              <div className="order_header"></div>
+              <h3 className="order_header_titel">Duration</h3>
+            </div>
+
+            <div className="col-md-7">
+              <div className="rang_toper">
+                <div className="icon_with_timer">
+                  <img src="./images/stopwatch.png"></img>
+                  <span><strong> 30 </strong> Min</span>
+                </div>
+                <div className="icon_with_timer">
+                  <img src="./images/question.png"></img>
+                  <span><strong> 2-3 </strong> Questions</span>
+                </div>
+
+              </div>
+              <div className="rang_body">
+                <input type="range" id="ranger"></input>
+              </div>
+              <div className="rang_value">
+                <span>0</span>
+                <span>30</span>
+                <span>60</span>
+                <span>90</span>
+                <span>120</span>
+                <span>150</span>
+                <span>180</span>
+                <span>210</span>
+              </div>
+            </div>
+            <div class="col-lg-12"><div class="step_buttn"><a href="#"><button class="continue_btn" disabled="">Continue</button></a></div></div>
+          </div>
+
+          <div className="row justify-content-center mt-5">
+            <div className="col-lg-6">
+              <div className="sort_tbl">
+                <div className="flext_liner">
+                  <strong>Order Review</strong>
+                  <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                  </svg> Edit</button>
+                </div>
+                <div className="flext_liner">
+                  <span>Subject</span>
+                  <span className="sub_fw600">Computer Network</span>
+                </div>
+
+                <div className="flext_liner">
+                  <span>Service Type</span>
+                  <span className="sub_fw600">Session</span>
+                </div>
+
+                <div className="flext_liner">
+                  <span>Start Time</span>
+                  <span className="sub_fw600">May 22, 12:28 am</span>
+                </div>
+                <div className="flext_liner">
+                  <span>Duration</span>
+                  <span className="sub_fw600">120 Min</span>
+                </div>
+                <div className="flext_liner ex_border">
+                  <span>No of Question</span>
+                  <span className="sub_fw600">8-9</span>
+                </div>
+                <div className="flext_liner">
+                  <span className="sub_fw600">Payable amount</span>
+                  <span className="sub_fw600"><span className="fz_extra">191 </span>USD</span>
+                </div>
+                <div className="full_butn">
+                  <a href="#"><button>Pay Now</button></a>
+                </div>
+                <div className="face_img_txt">
+                  <img src="./images/sad.png"></img>
+                  <span><strong>575 Tutors</strong> Avilable for Computer Network</span>
+                </div>
+              </div>
+              <div className="subs_input">
+                <div className="subs_toper">
+                  <span><strong>Have Rental Code</strong></span>
+                  <span>Get <span className="color_spanr"> 30% </span> <span className="color_colortxt"> % </span> <span className="color_spanr"> off </span>on your <span className="color_colortxt"> 1st order</span></span>
+                </div>
+                <input type="text" id="cupon" placeholder="Referal Link/ Ceferal Code"></input>
+              </div>
+              <div className="sub_points">
+                <div className="sub_linl">
+                  <img src="./images/pencil.png"></img>
+                  <strong>Unlimited <br /> Rewrite</strong>
+                </div>
+                <div className="border_vartical"></div>
+                <div className="sub_linl">
+                  <img src="./images/money-back.png"></img>
+                  <strong>Money back <br /> Gurentee</strong>
+                </div>
+                <div className="border_vartical"></div>
+                <div className="sub_linl">
+                  <img src="./images/shield.png"></img>
+                  <strong>Payment <br /> Security</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row justify-content-center mt-5">
+            <div className="col-lg-8">
+              <div className="order_header"></div>
+              <h3 className="order_header_titel">Education Lavel</h3>
+            </div>
+            <div className="col-md-8">
+              <div className="row justify-content-center">
+                <div className="col-md-4">
+                  <div className="all_button_group">
+                    <a href="#"><button>High School</button></a>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="all_button_group">
+                    <a href="#"><button>Freshman</button></a>
+                  </div>
+                </div>
+
+                <div className="col-md-4">
+                  <div className="all_button_group">
+                    <a href="#"><button>Pre Final</button></a>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="all_button_group">
+                    <a href="#"><button>Final Year</button></a>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="all_button_group">
+                    <a href="#"><button>Masters</button></a>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="all_button_group">
+                    <a href="#"><button>PHD</button></a>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="all_button_group">
+                    <a href="#"><button>PHD</button></a>
+                  </div>
+                </div>
+                <div class="col-lg-12"><div class="step_buttn"><a href="#"><button class="continue_btn">Continue</button></a></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <div className="order_header"></div>
+              <h3 className="order_header_titel">Easy Details</h3>
+            </div>
+          </div>
+
+          <div className="row justify-content-center">
+            <div className="col-md-4">
+              <div className="drag_input">
+                <input type="file" id="drag"></input>
+                <div className="drag_overlay">
+                  <div className="center_droper">
+                    <img src="./images/page.png"></img>
+                    <p>Drop your filr or <span>Browser</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="massg_input">
+                <textarea type="text" id="msag" placeholder="Type your Question here"></textarea>
+              </div>
+            </div>
+            <div className="col-md-8">
+              <div className="border_radio">
+                <span><strong>Spaing:</strong> </span>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked></input>
+                  <label class="form-check-label" for="exampleRadios1">
+                    Single
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"></input>
+                  <label class="form-check-label" for="exampleRadios2">
+                    Double
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" ></input>
+                  <label class="form-check-label" for="exampleRadios3">
+                    All
+                  </label>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-lg-12"><div class="step_buttn"><a href="#"><button class="continue_btn">Continue</button></a></div></div>
+          </div>
+
+          <div className="row justify-content-center mt-5">
+            <div className="col-lg-6">
+              <div className="sort_tbl">
+                <div className="flext_liner">
+                  <strong>Order Review</strong>
+                  <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                  </svg> Edit</button>
+                </div>
+                <div className="flext_liner">
+                  <span>Subject</span>
+                  <span className="sub_fw600">Computer Network</span>
+                </div>
+
+                <div className="flext_liner">
+                  <span>Service Type</span>
+                  <span className="sub_fw600">Session</span>
+                </div>
+
+                <div className="flext_liner">
+                  <span>Start Time</span>
+                  <span className="sub_fw600">May 22, 12:28 am</span>
+                </div>
+                <div className="flext_liner">
+                  <span>Duration</span>
+                  <span className="sub_fw600">120 Min</span>
+                </div>
+                <div className="flext_liner ex_border">
+                  <span>No of Question</span>
+                  <span className="sub_fw600">8-9</span>
+                </div>
+                <div className="flext_liner">
+                  <span className="sub_fw600">Payable amount</span>
+                  <span className="sub_fw600"><span className="fz_extra">191 </span>USD</span>
+                </div>
+                <div className="full_butn">
+                  <a href="#"><button>Pay Now</button></a>
+                </div>
+                <div className="face_img_txt">
+                  <img src="./images/sad.png"></img>
+                  <span><strong>575 Tutors</strong> Avilable for Computer Network</span>
+                </div>
+              </div>
+              <div className="subs_input">
+                <div className="subs_toper">
+                  <span><strong>Have Rental Code</strong></span>
+                  <span>Get <span className="color_spanr"> 30% </span> <span className="color_colortxt"> % </span> <span className="color_spanr"> off </span>on your <span className="color_colortxt"> 1st order</span></span>
+                </div>
+                <input type="text" id="cupon" placeholder="Referal Link/ Ceferal Code"></input>
+              </div>
+              <div className="sub_points">
+                <div className="sub_linl">
+                  <img src="./images/pencil.png"></img>
+                  <strong>Unlimited <br /> Rewrite</strong>
+                </div>
+                <div className="border_vartical"></div>
+                <div className="sub_linl">
+                  <img src="./images/money-back.png"></img>
+                  <strong>Money back <br /> Gurentee</strong>
+                </div>
+                <div className="border_vartical"></div>
+                <div className="sub_linl">
+                  <img src="./images/shield.png"></img>
+                  <strong>Payment <br /> Security</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
