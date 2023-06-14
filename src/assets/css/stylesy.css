@@ -13,3 +13,17 @@
 .userDashborad .nav-link svg {
   margin-right: 10px;
 }
+.profile-box .tab-content {
+  background-color: aliceblue;
+}
+.userDashborad {
+  margin: 141px 0px 0px 0px;
+}
+.chekp {
+  width: 100%;
+  text-align: end;
+  color: #62c500;
+}
+.chekp svg {
+  font-size: 30px;
+}

@@ -1,7 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { User, Key, Bookmark } from "react-feather";
+import { User, Key, Bookmark, Mail, BookOpen, Briefcase } from "react-feather";
+import EditProfile from "./EditProfile";
+import * as API from "../api/index";
+import OrderList from "./OrderList";
+import { useEffect } from "react";
+import { useState } from "react";
+const initialData = {
+  name: "",
+  emailId: "",
+};
 const UserDashboard = () => {
+  const [userData, setUserData] = useState([]);
+  const [formData, setFormData] = useState(initialData);
+  const user_details_by = async () => {
+    const header = localStorage.getItem("_tokenCode");
+    try {
+      const response = await API.get_userDetails(
+        localStorage.getItem("_userId"),
+        header
+      );
+      setUserData(response.data.data);
+      setFormData(response.data.data);
+      console.log("response", response);
+    } catch (error) {}
+  };
+  useEffect(() => {
+    user_details_by();
+  }, []);
+
   return (
     <>
       <section class="user-profile-section">
@@ -33,50 +60,14 @@ const UserDashboard = () => {
               <div class="image">
                 <img src="images/resource/user.jpg" alt="" />
               </div>
-              <h4>Siropa Tamim</h4>
+              <h4>{userData.name === "" ? "" : userData.name}</h4>
               <div class="text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod <br /> tempor incididunt ut labore et dolore
               </div>
-              <div class="rating">
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star-o"></span>
-                <strong>4.9</strong>
-                <i>(70 Review)</i>
-              </div>
-              <ul class="social-box">
-                <li class="twitter">
-                  <a
-                    target="_blank"
-                    href="http://twitter.com/"
-                    class="fa fa-twitter"
-                  ></a>
-                </li>
-                <li class="pinterest">
-                  <a
-                    target="_blank"
-                    href="http://pinterest.com/"
-                    class="fa fa-pinterest-p"
-                  ></a>
-                </li>
-                <li class="facebook">
-                  <a
-                    target="_blank"
-                    href="http://facebook.com/"
-                    class="fa fa-facebook-f"
-                  ></a>
-                </li>
-                <li class="dribbble">
-                  <a
-                    target="_blank"
-                    href="http://dribbble.com/"
-                    class="fa fa-dribbble"
-                  ></a>
-                </li>
-              </ul>
+              <p>
+                <Mail size="25" /> <strong>{userData.emailId}</strong>
+              </p>
             </div>
             <div className="userDashborad">
               <nav>
@@ -96,6 +87,33 @@ const UserDashboard = () => {
                   </button>
                   <button
                     class="nav-link"
+                    id="nav-order-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#nav-order"
+                    type="button"
+                    role="tab"
+                    aria-controls="nav-profile"
+                    aria-selected="false"
+                  >
+                    <BookOpen color="#fbb039" size={26} />
+                    Your Order
+                  </button>
+
+                  <button
+                    class="nav-link"
+                    id="nav-contact-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#nav-contact"
+                    type="button"
+                    role="tab"
+                    aria-controls="nav-contact"
+                    aria-selected="false"
+                  >
+                    <Briefcase color="#fbb039" size={26} />
+                    wallet ($ 100)
+                  </button>
+                  <button
+                    class="nav-link"
                     id="nav-profile-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#nav-profile"
@@ -107,39 +125,24 @@ const UserDashboard = () => {
                     <Key color="#fbb039" size={26} />
                     Changes Password
                   </button>
-                  <button
-                    class="nav-link"
-                    id="nav-contact-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#nav-contact"
-                    type="button"
-                    role="tab"
-                    aria-controls="nav-contact"
-                    aria-selected="false"
-                  >
-                    <Bookmark color="#fbb039" size={26} />
-                    Transaction history
-                  </button>
                 </div>
               </nav>
-              <div class="tab-content p-3 border bg-light" id="nav-tabContent">
+              <div class="tab-content p-3 border" id="nav-tabContent">
                 <div
                   class="tab-pane fade active show"
                   id="nav-home"
                   role="tabpanel"
                   aria-labelledby="nav-home-tab"
                 >
-                  <p>
-                    <strong>
-                      1 This is some placeholder content the Home tab's
-                      associated content.
-                    </strong>
-                    Clicking another tab will toggle the visibility of this one
-                    for the next. The tab JavaScript swaps classes to control
-                    the content visibility and styling. You can use it with
-                    tabs, pills, and any other <code>.nav</code>-powered
-                    navigation.
-                  </p>
+                  <EditProfile formData={formData} setFormData={setFormData} />
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="nav-order"
+                  role="tabpanel"
+                  aria-labelledby="nav-profile-tab"
+                >
+                  <OrderList />
                 </div>
                 <div
                   class="tab-pane fade"
@@ -147,17 +150,41 @@ const UserDashboard = () => {
                   role="tabpanel"
                   aria-labelledby="nav-profile-tab"
                 >
-                  <p>
-                    <strong>
-                      2 This is some placeholder content the Profile tab's
-                      associated content.
-                    </strong>
-                    Clicking another tab will toggle the visibility of this one
-                    for the next. The tab JavaScript swaps classes to control
-                    the content visibility and styling. You can use it with
-                    tabs, pills, and any other <code>.nav</code>-powered
-                    navigation.
-                  </p>
+                  <div class="contact-form">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Old Password"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        name="emailId"
+                        readOnly
+                        placeholder="New Password"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        name="emailId"
+                        readOnly
+                        placeholder="Confirm Password"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <button
+                        class="theme-btn btn-style-five"
+                        type="submit"
+                        name="submit-form"
+                      >
+                        Update
+                      </button>
+                    </div>
+                  </div>
                 </div>
                 <div
                   class="tab-pane fade"
@@ -165,17 +192,7 @@ const UserDashboard = () => {
                   role="tabpanel"
                   aria-labelledby="nav-contact-tab"
                 >
-                  <p>
-                    <strong>
-                      3 This is some placeholder content the Contact tab's
-                      associated content.
-                    </strong>
-                    Clicking another tab will toggle the visibility of this one
-                    for the next. The tab JavaScript swaps classes to control
-                    the content visibility and styling. You can use it with
-                    tabs, pills, and any other <code>.nav</code>-powered
-                    navigation.
-                  </p>
+                  <h4>Coming soon</h4>
                 </div>
               </div>
             </div>
