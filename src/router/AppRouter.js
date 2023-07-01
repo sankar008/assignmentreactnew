@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -16,6 +22,9 @@ import ServicesS from "../pages/Services";
 import Signup from "../pages/Signup";
 import UserDashboard from "../pages/UserDashboard";
 const AppRouter = () => {
+  const param = useParams();
+  //const location = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

@@ -1957,7 +1957,9 @@ a > .theme-dark code {
   }
 }
 .theme-dark
-  .form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+  .form-control:hover:not(:disabled):not(
+    [readonly]
+  )::-webkit-file-upload-button {
   background-color: #dbe2e9;
 }
 .theme-dark .form-control-plaintext {
@@ -2452,7 +2454,9 @@ a > .theme-dark code {
 }
 .theme-dark
   .input-group
-  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(
+    .valid-feedback
+  ):not(.invalid-tooltip):not(.invalid-feedback) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   margin-left: -1px;
@@ -7017,8 +7021,7 @@ fieldset:disabled .theme-dark .btn {
   padding: 0 1rem;
 }
 
-
-.buttonS{
+.buttonS {
   background-color: #0d6efd;
   padding: 3px 7px;
   font-size: 13px;
@@ -7028,7 +7031,7 @@ fieldset:disabled .theme-dark .btn {
   cursor: pointer;
   margin-right: 8px;
 }
-.buttonSr{
+.buttonSr {
   background-color: #fd0d0d;
   padding: 3px 7px;
   font-size: 13px;
@@ -7037,10 +7040,10 @@ fieldset:disabled .theme-dark .btn {
   border-radius: 5px;
   cursor: pointer;
 }
-.comandBtn{
+.comandBtn {
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 .theme-dark .sidebar-wrapper .menu .sidebar-link {
   align-items: center;
@@ -7841,7 +7844,8 @@ fieldset:disabled .theme-dark .btn {
 .theme-dark .was-validated :invalid ~ .invalid-tooltip {
   display: block;
 }
-.buttonS{
+
+.buttonS {
   background-color: #0d6efd;
   padding: 3px 7px;
   font-size: 13px;
@@ -7851,7 +7855,7 @@ fieldset:disabled .theme-dark .btn {
   cursor: pointer;
   margin-right: 8px;
 }
-.buttonSr{
+.buttonSr {
   background-color: #fd0d0d;
   padding: 3px 7px;
   font-size: 13px;
@@ -7860,8 +7864,8 @@ fieldset:disabled .theme-dark .btn {
   border-radius: 5px;
   cursor: pointer;
 }
-.comandBtn{
+.comandBtn {
   display: flex;
   justify-content: flex-end;
-    align-items: center;
+  align-items: center;
 }
