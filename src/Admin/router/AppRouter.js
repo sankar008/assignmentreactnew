@@ -12,6 +12,7 @@ import { io } from "socket.io-client";
 import { SOCEKT, URL } from "../Api/constant";
 import { useEffect } from "react";
 import Categoris from "../page/Cartegoriy/Categoris";
+import Blog from "../page/Blog/Blog";
 const AdminRoute = () => {
   const [notification, setNotification] = useState([]);
   const socket = io(SOCEKT);
@@ -73,6 +74,7 @@ const AdminRoute = () => {
                 <Route path="/table" element={<Table />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/categories" element={<Categoris />} />
+                <Route path="/blog" element={<Blog />} />
               </Routes>
             </div>
           </>

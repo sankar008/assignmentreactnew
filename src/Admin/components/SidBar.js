@@ -168,9 +168,9 @@ const SidBar = ({ isOpen, setdarkMode, darkMode }) => {
               </NavLink>
             </li>
             <li class="sidebar-item">
-              <NavLink to="#" className="sidebar-link">
+              <NavLink to="/blog" className="sidebar-link">
                 <i class="bi bi-collection-fill"></i>
-                <span>Manage blog data </span>
+                <span>Manage blog </span>
               </NavLink>
             </li>
             <li class="sidebar-item">

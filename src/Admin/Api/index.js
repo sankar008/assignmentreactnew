@@ -99,3 +99,60 @@ export const categori_delete = async (data, header) => {
     return e.response;
   }
 };
+
+export const add_categoris_blog = async (data, header) => {
+  try {
+    const url = c.BLOG;
+    const res = await axios.post(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+export const edit_categoris_blog = async (data, header) => {
+  try {
+    const url = c.BLOG;
+    const res = await axios.patch(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+export const catagori_listing_blog = async (header) => {
+  try {
+    const url = c.BLOG;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+export const catagori_listing_byid_blog = async (data, header) => {
+  try {
+    const url = c.BLOG + "/" + data;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const categori_delete_blog = async (data, header) => {
+  try {
+    const url = c.BLOG + "/" + data;
+    const res = await axios.delete(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};

@@ -40,3 +40,15 @@ h6 {
 .chekp svg {
   font-size: 30px;
 }
+.order__firststp {
+  background-color: #fff;
+}
+.Order_section a h5 {
+  color: #495057;
+}
+.Order_section a p {
+  color: #495057;
+}
+.banner-section .Order_section {
+  padding: 0;
+}
