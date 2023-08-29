@@ -35,7 +35,7 @@ export const admin_mailVerifi = async (data) => {
 
 export const reset_password_buyer = async (data) => {
   try {
-    const url = c.CATEGORY + "/reset-password";
+    const url = c.BLOG_CATEGORY + "/reset-password";
     const res = await axios.post(url, data);
     return res;
   } catch (e) {
@@ -45,7 +45,7 @@ export const reset_password_buyer = async (data) => {
 
 export const add_categoris = async (data, header) => {
   try {
-    const url = c.CATEGORY;
+    const url = c.BLOG_CATEGORY;
     const res = await axios.post(url, data, {
       headers: JSON.parse(header),
     });
@@ -56,7 +56,7 @@ export const add_categoris = async (data, header) => {
 };
 export const edit_categoris = async (data, header) => {
   try {
-    const url = c.CATEGORY;
+    const url = c.BLOG_CATEGORY;
     const res = await axios.patch(url, data, {
       headers: JSON.parse(header),
     });
@@ -67,7 +67,7 @@ export const edit_categoris = async (data, header) => {
 };
 export const catagori_listing = async (header) => {
   try {
-    const url = c.CATEGORY;
+    const url = c.BLOG_CATEGORY;
     const res = await axios.get(url, {
       headers: JSON.parse(header),
     });
@@ -78,7 +78,7 @@ export const catagori_listing = async (header) => {
 };
 export const catagori_listing_byid = async (data, header) => {
   try {
-    const url = c.CATEGORY + "/" + data;
+    const url = c.BLOG_CATEGORY + "/" + data;
     const res = await axios.get(url, {
       headers: JSON.parse(header),
     });
@@ -90,7 +90,7 @@ export const catagori_listing_byid = async (data, header) => {
 
 export const categori_delete = async (data, header) => {
   try {
-    const url = c.CATEGORY + "/" + data;
+    const url = c.BLOG_CATEGORY + "/" + data;
     const res = await axios.delete(url, {
       headers: JSON.parse(header),
     });
@@ -100,10 +100,23 @@ export const categori_delete = async (data, header) => {
   }
 };
 
-export const add_categoris_blog = async (data, header) => {
+export const add_blog = async (data, header) => {
+  console.log("data", data);
   try {
     const url = c.BLOG;
     const res = await axios.post(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const all_blog = async (header) => {
+  try {
+    const url = c.BLOG;
+    const res = await axios.get(url, {
       headers: JSON.parse(header),
     });
     return res;

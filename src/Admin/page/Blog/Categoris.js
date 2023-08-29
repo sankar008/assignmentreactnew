@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import * as API from "../../../Admin/Api/index";
+import * as API from "../../Api/index";
 import Modal from "react-responsive-modal";
 import { toast } from "react-toastify";
 import { ThreeDots } from "react-loader-spinner";
@@ -124,13 +124,13 @@ const Categoris = () => {
     <>
       <section class="section">
         <div class="page-heading">
-          <h3>Manage service categories</h3>
+          <h3>Manage Blog categories</h3>
         </div>
         <div class="card">
           <div class="card-header">
             <div className="row">
               <div className="col-md-11">
-                <h4 class="card-title">categories list</h4>
+                <h4 class="card-title">Blog categories list</h4>
               </div>
               <div className="col-md-4 d-none">
                 <div class="form-group position-relative has-icon-right">

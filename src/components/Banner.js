@@ -12,7 +12,7 @@ const Banner = () => {
           <div class="pattern-layer-seven"></div>
           <div class="pattern-layer-eight"></div>
           <div class="row clearfix">
-            <div class="image-column col-lg-5 col-md-12 col-sm-12">
+            <div class="image-column col-lg-7 col-md-12 col-sm-12">
               <div class="inner-column">
                 <div class="pattern-layer-one d-none"></div>
                 <div class="pattern-layer-two"></div>
@@ -56,38 +56,43 @@ const Banner = () => {
                 </div>
               </div>
             </div>
-            <div class="content-column col-lg-7 col-md-12 col-sm-12">
+            <div class="content-column col-lg-5 col-md-12 col-sm-12">
               <div className="Order_section">
                 <div className="row justify-content-center mb-5">
-                  <div className="col-lg-6 col-md-6">
+                  <div className="col-lg-12 col-md-12">
                     <Link to="/order" state={{ data: 1 }}>
                       <div className="order__firststp">
                         <img src="./images/homework.png"></img>
-                        <h5>Homework / Assignment</h5>
-                        <p>(Post Question, Lab Work, Project)</p>
+                        <div className="content">
+                          <h5>Homework / Assignment</h5>
+                          <p>(Post Question, Lab Work, Project)</p>
+                        </div>
                       </div>
                     </Link>
                   </div>
-                  <div className="col-lg-6 col-md-6">
+                  <div className="col-lg-12 col-md-12">
                     <Link to="/order" state={{ data: 2 }}>
                       <div className="order__firststp">
                         <img src="./images/deadline.png"></img>
-                        <h5>Schedule 1 to 1 Session</h5>
-                        <p>(Get Instant Solution)</p>
+                        <div className="content">
+                          <h5>Schedule 1 to 1 Session</h5>
+                          <p>(Get Instant Solution)</p>
+                        </div>
                       </div>
                     </Link>
                   </div>
-                  <div className="col-lg-6 col-md-6">
+                  <div className="col-lg-12 col-md-12">
                     <Link to="/order" state={{ data: 3 }}>
-                      <div
-                        className="order__firststp"
-                        style={{ marginTop: 25 }}
-                      >
+                      <div className="order__firststp">
                         <div className="inco_effct">
                           <img src="./images/writing.png"></img>
                         </div>
-                        <h5>Essay Writing</h5>
-                        <p>(Customised Essay Help)</p>
+
+                        <div className="content">
+                          {" "}
+                          <h5>Essay Writing</h5>
+                          <p>(Customised Essay Help)</p>
+                        </div>
                       </div>
                     </Link>
                   </div>

@@ -6,6 +6,7 @@ import AppRouter from "./router/AppRouter";
 import "react-toastify/dist/ReactToastify.css";
 import AdminRoute from "./Admin/router/AppRouter";
 import "react-responsive-modal/styles.css";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { useState } from "react";
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);

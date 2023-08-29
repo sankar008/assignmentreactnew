@@ -11,15 +11,14 @@ import { ToastContainer } from "react-toastify";
 import { io } from "socket.io-client";
 import { SOCEKT, URL } from "../Api/constant";
 import { useEffect } from "react";
-import Categoris from "../page/Cartegoriy/Categoris";
+import Categoris from "../page/Blog/Categoris";
 import Blog from "../page/Blog/Blog";
+import AddBlog from "../page/Blog/AddBlog";
 const AdminRoute = () => {
   const [notification, setNotification] = useState([]);
   const socket = io(SOCEKT);
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setdarkMode] = useState(localStorage.getItem("darkThem"));
-
-  console.log("Hello admin");
 
   const [isLogin, setIsLogin] = useState(
     JSON.parse(localStorage.getItem("isLoginCheck"))
@@ -75,6 +74,7 @@ const AdminRoute = () => {
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/categories" element={<Categoris />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/add" element={<AddBlog />} />
               </Routes>
             </div>
           </>
