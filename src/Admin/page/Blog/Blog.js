@@ -7,6 +7,8 @@ import { ThreeDots } from "react-loader-spinner";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { IMG } from "../../Api/constant";
+import { async } from "react-input-emoji";
+import { MESSAGE } from "../../../helpers/commonData";
 
 const initialData = {
   title: "",
@@ -25,6 +27,17 @@ const Blog = () => {
       console.log("response", response);
       setLoader(response.data.data);
       setTableData(response.data.data);
+    } catch (error) {}
+  };
+
+  const blogDelet = async (data) => {
+    const header = localStorage.getItem("_tokenCode");
+    try {
+      const response = await API.delete_blog(data, header);
+      if (response.data.success === 1) {
+        MESSAGE(response.data.msg);
+        getdetailsData();
+      }
     } catch (error) {}
   };
 
@@ -94,6 +107,7 @@ const Blog = () => {
                         <tr>
                           <th>No.</th>
                           <th>Title</th>
+                          <th>Categories</th>
                           <th>Short description</th>
                           <th>Description</th>
                           <th>Image</th>
@@ -107,18 +121,21 @@ const Blog = () => {
                             : tableData.map((item, index) => (
                                 <tr key={index}>
                                   <td class="text-bold-500">{index + 1}</td>
+                                  <td class="text-bold-500 w-25">
+                                    {item.title}{" "}
+                                  </td>
                                   <td class="text-bold-500">{item.title} </td>
-                                  <td class="text-bold-500">
+                                  <td class="text-bold-500 w-25">
                                     {item.shortDes}{" "}
                                   </td>
-                                  <td class="text-bold-500">
+                                  <td class="text-bold-500 w-25">
                                     <div
                                       dangerouslySetInnerHTML={{
                                         __html: item.description,
                                       }}
                                     />
                                   </td>
-                                  <td class="text-bold-500">
+                                  <td class="text-bold-500 w-75">
                                     <img
                                       className="w-25"
                                       src={IMG + item.image}
@@ -126,10 +143,18 @@ const Blog = () => {
                                   </td>
                                   <td>
                                     <div class="buttons">
-                                      <span class="btn icon btn-primary">
-                                        <i class="bi bi-pencil"></i>
-                                      </span>
-                                      <button class="btn icon btn-danger">
+                                      <Link
+                                        to="/blog/edit"
+                                        state={{ dataId: item._id }}
+                                      >
+                                        <span class="btn icon btn-primary">
+                                          <i class="bi bi-pencil"></i>
+                                        </span>
+                                      </Link>
+                                      <button
+                                        onClick={() => blogDelet(item._id)}
+                                        class="btn icon btn-danger"
+                                      >
                                         <i class="bi bi-x"></i>
                                       </button>
                                     </div>

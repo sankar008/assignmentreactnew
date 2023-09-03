@@ -75,6 +75,7 @@ const AdminRoute = () => {
                 <Route path="/categories" element={<Categoris />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/add" element={<AddBlog />} />
+                <Route path="/blog/edit" element={<AddBlog />} />
               </Routes>
             </div>
           </>

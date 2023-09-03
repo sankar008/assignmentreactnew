@@ -2,9 +2,10 @@ import React from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as API from "../../Api/index";
 import { async } from "react-input-emoji";
+import { MESSAGE } from "../../../helpers/commonData";
 const initialData = {
   categoryId: "",
   createdBy: "",
@@ -14,10 +15,13 @@ const initialData = {
 };
 
 const AddBlog = () => {
+  const location = useLocation();
+  console.log("location", location);
   const [formData, setFormData] = useState(initialData);
   const [tableData, setTableData] = useState([]);
   const [imageData, setImageData] = useState("");
   const [editorData, setEditorData] = useState("");
+  const navigate = useNavigate();
 
   const imageUploading = (e) => {
     let images = e.target.files[0];
@@ -27,12 +31,14 @@ const AddBlog = () => {
     };
     reader.readAsDataURL(images);
   };
+
   const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.catagori_listing(header);
       setTableData(response.data.data);
-      console.log("ssresponsess", response);
+      const blog_response = await API.byid_blog(location.state.dataId, header);
+      setFormData(blog_response.data.data);
     } catch (error) {}
   };
 
@@ -51,10 +57,26 @@ const AddBlog = () => {
         shortDes: formData.shortDes,
         description: editorData,
         image: imageData,
+        id: location.state.dataId,
       };
       console.log("reqObj", reqObj);
-      const response = await API.add_blog(reqObj, header);
-      console.log("response", response);
+      if (location.state === null) {
+        console.log("hfhfgjhsj");
+        const response = await API.add_blog(reqObj, header);
+        console.log("response", response);
+        if (response.data.success === 1) {
+          navigate("/blog");
+          MESSAGE(response.data.msg);
+        }
+      } else {
+        console.log("edit");
+        const response = await API.edit_blog(reqObj, header);
+        console.log("response", response);
+        if (response.data.success === 1) {
+          navigate("/blog");
+          MESSAGE(response.data.msg);
+        }
+      }
     } catch (error) {}
   };
 
@@ -65,7 +87,7 @@ const AddBlog = () => {
     <>
       <section class="section">
         <div class="page-heading">
-          <h3>Add Blog</h3>
+          <h3>{location.state === null ? "Add Blog" : "Edit Blog"}</h3>
         </div>
         <div class="card">
           <div class="card-body">
@@ -138,6 +160,7 @@ const AddBlog = () => {
                   <label for="disabledInput">Description</label>
                   <CKEditor
                     editor={ClassicEditor}
+                    data={formData.description}
                     onReady={(editor) => {}}
                     onChange={(event, editor) => {
                       const data = editor.getData();
