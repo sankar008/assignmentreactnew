@@ -1,6 +1,6 @@
 export const CURRENCY = "$";
 export const TIMEZONE = "America/Los_Angeles";
-export const IMG = "";
+export const IMG = "http://document.apibag.in/";
 
 // ? ====== BASE URL ======
 //export const SOCEKT = "http://192.168.1.182:3001";

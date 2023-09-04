@@ -9819,7 +9819,6 @@ img {
 
 .sidebar-page-container .sidebar-side .sidebar {
   padding-top: 20px;
-  z-index: -1;
 }
 
 .sidebar-page-container.style-two {
@@ -18452,7 +18451,7 @@ img {
 .feader_fix {
   position: fixed;
   width: 100%;
-  z-index: 999;
+  z-index: 999999;
   box-shadow: 0px 0px 19px #9f9f9f;
 }
 .top_icon {
@@ -19151,6 +19150,6 @@ img {
 .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
   display: block;
 }
-.userDashborad{
+.userDashborad {
   margin: 60px 0px 0px 0px;
 }

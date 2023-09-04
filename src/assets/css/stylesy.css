@@ -81,3 +81,22 @@ h6 {
   flex-direction: column;
   margin-top: 8px;
 }
+.sidebar .popular-posts .post .post-thumb img {
+  display: block;
+  width: 100%;
+  transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  height: 100%;
+}
+.sidebar .popular-posts .post .post-thumb {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 70px;
+}
