@@ -14,6 +14,8 @@ import { useEffect } from "react";
 import Categoris from "../page/Blog/Categoris";
 import Blog from "../page/Blog/Blog";
 import AddBlog from "../page/Blog/AddBlog";
+import AddServices from "../page/Services/AddServices";
+import ServicesList from "../page/Services/ServicesList";
 const AdminRoute = () => {
   const [notification, setNotification] = useState([]);
   const socket = io(SOCEKT);
@@ -76,6 +78,8 @@ const AdminRoute = () => {
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/add" element={<AddBlog />} />
                 <Route path="/blog/edit" element={<AddBlog />} />
+                <Route path="/services" element={<ServicesList />} />
+                <Route path="/services/add" element={<AddServices />} />
               </Routes>
             </div>
           </>

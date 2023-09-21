@@ -13,6 +13,7 @@ import Home from "../components/Home";
 import About from "../pages/About";
 import Benifits from "../pages/Benifits";
 import Blog from "../pages/Blog";
+import BlogDetails from "../pages/BlogDetails";
 import Faq from "../pages/Faq";
 import HowItWork from "../pages/HowItWork";
 import Login from "../pages/Login";
@@ -40,6 +41,7 @@ const AppRouter = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog-details" element={<BlogDetails />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/how-it-work" element={<HowItWork />} />
           <Route path="/benifits" element={<Benifits />} />

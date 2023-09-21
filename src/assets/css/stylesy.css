@@ -100,3 +100,19 @@ h6 {
   overflow: hidden;
   height: 70px;
 }
+.theme-dark .tab-content > .active {
+  display: block !important;
+}
+.customTab {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px !important;
+}
+.customTab li .nav-link {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 30px;
+  color: #fffc27;
+}

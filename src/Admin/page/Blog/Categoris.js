@@ -11,6 +11,7 @@ const Categoris = () => {
   const [menuFect, setMenuFect] = useState("");
   const [sellerId, setSellerId] = useState("");
   const [modalStatus, setModalStatus] = useState("");
+  const [chooseType, setChooseType] = useState("");
 
   const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
@@ -53,6 +54,7 @@ const Categoris = () => {
       if (modalStatus === "1") {
         const reqObj = {
           name: menuFect,
+          useFor: chooseType,
         };
         const response = await API.add_categoris(reqObj, header);
         if (response.data.success === 1) {
@@ -75,6 +77,7 @@ const Categoris = () => {
         const reqObj = {
           name: menuFect,
           id: sellerId,
+          useFor: chooseType,
         };
         console.log("reqObj", reqObj);
         const response = await API.edit_categoris(reqObj, header);
@@ -123,99 +126,145 @@ const Categoris = () => {
   return (
     <>
       <section class="section">
-        <div class="page-heading">
-          <h3>Manage Blog categories</h3>
-        </div>
         <div class="card">
-          <div class="card-header">
-            <div className="row">
-              <div className="col-md-11">
-                <h4 class="card-title">Blog categories list</h4>
-              </div>
-              <div className="col-md-4 d-none">
-                <div class="form-group position-relative has-icon-right">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search here"
-                    // onChange={searchHandaler}
-                  />
-                  <div class="form-control-icon">
-                    <i class="bi bi-search"></i>
+          <ul class="nav nav-tabs customTab" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="home-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#home"
+                type="button"
+                role="tab"
+                aria-controls="home"
+                aria-selected="true"
+              >
+                Categories
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="profile-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#profile"
+                type="button"
+                role="tab"
+                aria-controls="profile"
+                aria-selected="false"
+              >
+                Sub-Categories
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            >
+              <div class="card-header">
+                <div className="row">
+                  <div className="col-md-11">
+                    <h4 class="card-title">All Categories list</h4>
+                  </div>
+                  <div className="col-md-4 d-none">
+                    <div class="form-group position-relative has-icon-right">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Search here"
+                        // onChange={searchHandaler}
+                      />
+                      <div class="form-control-icon">
+                        <i class="bi bi-search"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-1 text-end">
+                    <button
+                      onClick={() => openModalSellar("1")}
+                      class="btn icon btn-primary"
+                    >
+                      <i class="bi bi-plus"></i>
+                    </button>
                   </div>
                 </div>
               </div>
-              <div className="col-md-1 text-end">
-                <button
-                  onClick={() => openModalSellar("1")}
-                  class="btn icon btn-primary"
-                >
-                  <i class="bi bi-plus"></i>
-                </button>
+              <div class="card-body">
+                <div class="row">
+                  <div className="col-md-12 loaderDoth">
+                    {loader === true ? (
+                      <ThreeDots
+                        height="80"
+                        width="80"
+                        radius="9"
+                        color="#d997a0"
+                        ariaLabel="three-dots-loading"
+                        wrapperStyle={{}}
+                        wrapperClassName="text-center m-auto"
+                        visible={true}
+                      />
+                    ) : (
+                      <div class="table-responsive">
+                        <table class="table table-striped mb-0">
+                          <thead>
+                            <tr>
+                              <th>No.</th>
+                              <th>NAME</th>
+                              <th>ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <>
+                              {tableData.length === 0
+                                ? ""
+                                : tableData.map((item, index) => (
+                                    <tr key={index}>
+                                      <td class="text-bold-500">{index + 1}</td>
+                                      <td class="text-bold-500">
+                                        {item.name}{" "}
+                                      </td>
+
+                                      <td>
+                                        <div class="buttons">
+                                          <span
+                                            onClick={() =>
+                                              openModalSellar(item._id)
+                                            }
+                                            class="btn icon btn-primary"
+                                          >
+                                            <i class="bi bi-pencil"></i>
+                                          </span>
+                                          <button
+                                            onClick={() =>
+                                              menufactheDelete(item._id)
+                                            }
+                                            class="btn icon btn-danger"
+                                          >
+                                            <i class="bi bi-x"></i>
+                                          </button>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  ))}
+                            </>
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div className="col-md-12 loaderDoth">
-                {loader === true ? (
-                  <ThreeDots
-                    height="80"
-                    width="80"
-                    radius="9"
-                    color="#d997a0"
-                    ariaLabel="three-dots-loading"
-                    wrapperStyle={{}}
-                    wrapperClassName="text-center m-auto"
-                    visible={true}
-                  />
-                ) : (
-                  <div class="table-responsive">
-                    <table class="table table-striped mb-0">
-                      <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>NAME</th>
-                          <th>ACTION</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <>
-                          {tableData.length === 0
-                            ? ""
-                            : tableData.map((item, index) => (
-                                <tr key={index}>
-                                  <td class="text-bold-500">{index + 1}</td>
-                                  <td class="text-bold-500">{item.name} </td>
-
-                                  <td>
-                                    <div class="buttons">
-                                      <span
-                                        onClick={() =>
-                                          openModalSellar(item._id)
-                                        }
-                                        class="btn icon btn-primary"
-                                      >
-                                        <i class="bi bi-pencil"></i>
-                                      </span>
-                                      <button
-                                        onClick={() =>
-                                          menufactheDelete(item._id)
-                                        }
-                                        class="btn icon btn-danger"
-                                      >
-                                        <i class="bi bi-x"></i>
-                                      </button>
-                                    </div>
-                                  </td>
-                                </tr>
-                              ))}
-                        </>
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-              </div>
+            <div
+              class="tab-pane fade"
+              id="profile"
+              role="tabpanel"
+              aria-labelledby="profile-tab"
+            >
+              fsdfs
             </div>
           </div>
         </div>
@@ -228,6 +277,18 @@ const Categoris = () => {
             </h5>
           </div>
           <div class="modal-body">
+            <div class="form-group">
+              <label for="basicInput">Choose Type</label>
+              <select
+                class="form-control"
+                onChange={(e) => setChooseType(e.target.value)}
+                value={chooseType}
+              >
+                <option> --- Select --- </option>
+                <option value="2"> Services </option>
+                <option value="1"> Blogs </option>
+              </select>
+            </div>
             <div class="form-group">
               <label for="basicInput">Name</label>
               <input

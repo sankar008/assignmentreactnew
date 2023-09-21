@@ -110,13 +110,13 @@ const SidBar = ({ isOpen, setdarkMode, darkMode }) => {
             <li class="sidebar-item">
               <NavLink to="/categories" className="sidebar-link">
                 <i class="bi bi-stack"></i>
-                <span>Service categories</span>
+                <span>Manage Categories</span>
               </NavLink>
             </li>
             <li class="sidebar-item">
-              <NavLink to="#" className="sidebar-link">
+              <NavLink to="/services" className="sidebar-link">
                 <i class="bi bi-person-fill"></i>
-                <span>Service sub categories</span>
+                <span>Services</span>
               </NavLink>
             </li>
             <li class="sidebar-item">

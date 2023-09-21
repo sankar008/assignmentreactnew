@@ -141,7 +141,7 @@ const Blog = () => {
                         <div class="news-block-two">
                           <div class="inner-box">
                             <div class="image">
-                              <Link to="#">
+                              <Link to={"/blog-details"}>
                                 <img src={IMG + tableData[0].image} alt="" />
                               </Link>
                             </div>
@@ -168,10 +168,12 @@ const Blog = () => {
                                 </li>
                               </ul>
                               <h2 class="fa-2x">
-                                <Link to="#">{tableData[0].title}</Link>
+                                <Link to="/blog-details">
+                                  {tableData[0].title}
+                                </Link>
                               </h2>
                               <div class="text">{tableData[0].shortDes}</div>
-                              <Link to="#" class="learn-more">
+                              <Link to="/blog-details" class="learn-more">
                                 Learn More{" "}
                                 <span class="icon flaticon-right-arrow-1"></span>
                               </Link>
@@ -481,58 +483,47 @@ const Blog = () => {
               </div>
 
               <div class="row">
-                {tableData.length === 0
-                  ? "Loader ... "
-                  : tableData.map((ditem, index) => (
-                      <div class="col-lg-6" key={index}>
-                        <div class="blog-classic mt-0">
-                          <div class="news-block-two">
-                            <div class="inner-box">
-                              <div class="image">
-                                <Link to="#">
-                                  <img
-                                    src={IMG + ditem.image}
-                                    alt={ditem.title}
-                                  />
-                                </Link>
-                              </div>
-                              <div class="lower-content">
-                                <ul class="post-info">
-                                  <li>
-                                    <Link to="#">
-                                      <span class="icon fa fa-user"></span>Admin
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="#">
-                                      <span class="icon fa fa-calendar"></span>
-                                      {moment(ditem.createdAt).format(
-                                        "MMMM Do YYYY"
-                                      )}
-                                      Feb 2023
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="#">
-                                      <span class="icon fa fa-bookmark-o"></span>
-                                      E{ditem.categories}
-                                    </Link>
-                                  </li>
-                                </ul>
-                                <h2 class="fa-2x">
-                                  <Link to="#">{ditem.title}</Link>
-                                </h2>
-                                <div class="text">{ditem.shortDes}</div>
-                                <Link to="#" class="learn-more">
-                                  Learn More{" "}
-                                  <span class="icon flaticon-right-arrow-1"></span>
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
+                <div class="col-lg-6">
+                  <div class="blog-classic mt-0">
+                    <div class="news-block-two">
+                      <div class="inner-box">
+                        <div class="image">
+                          <Link to="#">
+                            <img src="" />
+                          </Link>
+                        </div>
+                        <div class="lower-content">
+                          <ul class="post-info">
+                            <li>
+                              <Link to="#">
+                                <span class="icon fa fa-user"></span>Admin
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="#">
+                                <span class="icon fa fa-calendar"></span>
+                                Feb 2023
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="#">
+                                <span class="icon fa fa-bookmark-o"></span>
+                              </Link>
+                            </li>
+                          </ul>
+                          <h2 class="fa-2x">
+                            <Link to="#">sfcsfs</Link>
+                          </h2>
+                          <div class="text">sdsdsdaad</div>
+                          <Link to="#" class="learn-more">
+                            Learn More{" "}
+                            <span class="icon flaticon-right-arrow-1"></span>
+                          </Link>
                         </div>
                       </div>
-                    ))}
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="row">
                 <div class="col-lg-7">

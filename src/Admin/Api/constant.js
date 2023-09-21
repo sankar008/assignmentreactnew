@@ -9,3 +9,4 @@ export const SOCEKT = "";
 export const ADMIN = `${URL}/admin/login`;
 export const BLOG_CATEGORY = `${URL}/category`;
 export const BLOG = `${URL}/blogs`;
+export const SERVICES = `${URL}/service`;

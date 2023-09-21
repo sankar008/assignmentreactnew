@@ -170,3 +170,17 @@ export const delete_blog = async (data, header) => {
     return e.response;
   }
 };
+
+// ? Services Api
+
+export const all_services = async (header) => {
+  try {
+    const url = c.SERVICES;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
