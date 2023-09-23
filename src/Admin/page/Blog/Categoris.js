@@ -12,21 +12,26 @@ const Categoris = () => {
   const [sellerId, setSellerId] = useState("");
   const [modalStatus, setModalStatus] = useState("");
   const [chooseType, setChooseType] = useState("");
+  const [showType, setShow] = useState("");
 
-  const getdetailsData = async () => {
+  const getdetailsData = async (data) => {
+    setShow(data);
+    console.log("data", data);
     const header = localStorage.getItem("_tokenCode");
     try {
-      const response = await API.catagori_listing(header);
+      const response = await API.catagori_listing(header, data);
       console.log("response", response);
       setLoader(response.data.data);
       setTableData(response.data.data);
     } catch (error) {}
   };
 
+  const catagoerisTypeData = () => {};
+
   const menufactheDelete = async (menuFecId) => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const response = await API.categori_delete(menuFecId, header);
+      const response = await API.categori_delete(menuFecId, header, showType);
       if (response.data.success === 1) {
         getdetailsData();
       }
@@ -42,6 +47,9 @@ const Categoris = () => {
     setSellerId(sellerId);
     setOpenModal(true);
     try {
+      const Dataresponse = await API.catagori_listing_sub(header);
+      console.log("Dataresponse", Dataresponse);
+      setTableData(Dataresponse.data.data);
       const response = await API.catagori_listing_byid(sellerId, header);
       setMenuFect(response.data.data.name);
     } catch (error) {}
@@ -49,78 +57,120 @@ const Categoris = () => {
 
   const add_editSellerData = async () => {
     const header = localStorage.getItem("_tokenCode");
-    try {
-      // ? CATAGORI ADD
-      if (modalStatus === "1") {
-        const reqObj = {
-          name: menuFect,
-          useFor: chooseType,
-        };
-        const response = await API.add_categoris(reqObj, header);
-        if (response.data.success === 1) {
-          closeModal();
-          getdetailsData();
-          toast(response.data.msg, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            type: "success",
-            theme: "colored",
-          });
-          setMenuFect("");
+    if (showType === "1") {
+      try {
+        // ? CATAGORI ADD
+        if (modalStatus === "1") {
+          const reqObj = {
+            name: menuFect,
+            useFor: chooseType,
+          };
+          const response = await API.add_categoris(reqObj, header);
+          if (response.data.success === 1) {
+            closeModal();
+            getdetailsData();
+            toast(response.data.msg, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              type: "success",
+              theme: "colored",
+            });
+            setMenuFect("");
+          }
+        } else {
+          const reqObj = {
+            name: menuFect,
+            id: sellerId,
+            useFor: chooseType,
+          };
+          console.log("reqObj", reqObj);
+          const response = await API.edit_categoris(reqObj, header);
+          console.log("response", response);
+          if (response.data.sucess === 1) {
+            closeModal();
+            getdetailsData();
+            toast(response.data.msg, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              type: "success",
+              theme: "colored",
+            });
+            setMenuFect("");
+          }
         }
-      } else {
-        const reqObj = {
-          name: menuFect,
-          id: sellerId,
-          useFor: chooseType,
-        };
-        console.log("reqObj", reqObj);
-        const response = await API.edit_categoris(reqObj, header);
-        console.log("response", response);
-        if (response.data.sucess === 1) {
-          closeModal();
-          getdetailsData();
-          toast(response.data.msg, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            type: "success",
-            theme: "colored",
-          });
-          setMenuFect("");
+      } catch (error) {}
+    } else {
+      try {
+        // ? SUB-CATAGORI ADD
+        if (modalStatus === "1") {
+          const reqObj = {
+            name: menuFect,
+            categoryId: chooseType,
+          };
+          const response = await API.add_categoris(reqObj, header, showType);
+          if (response.data.success === 1) {
+            closeModal();
+            setChooseType("");
+            getdetailsData();
+            toast(response.data.msg, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              type: "success",
+              theme: "colored",
+            });
+            setMenuFect("");
+          }
+        } else {
+          const reqObj = {
+            name: menuFect,
+            id: sellerId,
+            useFor: chooseType,
+          };
+          console.log("reqObj", reqObj);
+          const response = await API.edit_categoris(reqObj, header, showType);
+          console.log("response", response);
+          if (response.data.sucess === 1) {
+            closeModal();
+            getdetailsData();
+            toast(response.data.msg, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              type: "success",
+              theme: "colored",
+            });
+            setMenuFect("");
+          }
         }
-      }
-    } catch (error) {}
+      } catch (error) {}
+    }
   };
-
-  //   const searchHandaler = async (e) => {
-  //     if (e.target.value === "") {
-  //       getdetailsData();
-  //     } else {
-  //       const header = localStorage.getItem("_tokenCode");
-  //       try {
-  //         const response = await API.menufact_search(e.target.value, header);
-
-  //         setTableData(response.data.data);
-  //       } catch (error) {}
-  //     }
-  //   };
 
   const closeModal = () => {
     setOpenModal(false);
   };
 
   useEffect(() => {
-    getdetailsData();
+    getdetailsData("1");
   }, []);
 
   return (
@@ -138,6 +188,7 @@ const Categoris = () => {
                 role="tab"
                 aria-controls="home"
                 aria-selected="true"
+                onClick={() => getdetailsData("1")}
               >
                 Categories
               </button>
@@ -152,6 +203,7 @@ const Categoris = () => {
                 role="tab"
                 aria-controls="profile"
                 aria-selected="false"
+                onClick={() => getdetailsData("2")}
               >
                 Sub-Categories
               </button>
@@ -167,7 +219,10 @@ const Categoris = () => {
               <div class="card-header">
                 <div className="row">
                   <div className="col-md-11">
-                    <h4 class="card-title">All Categories list</h4>
+                    <h4 class="card-title">
+                      All {showType === "1" ? "Categories" : "Sub-Categories"}{" "}
+                      list
+                    </h4>
                   </div>
                   <div className="col-md-4 d-none">
                     <div class="form-group position-relative has-icon-right">
@@ -213,6 +268,7 @@ const Categoris = () => {
                             <tr>
                               <th>No.</th>
                               <th>NAME</th>
+                              {showType === "1" ? <th>Use For</th> : ""}
                               <th>ACTION</th>
                             </tr>
                           </thead>
@@ -226,6 +282,15 @@ const Categoris = () => {
                                       <td class="text-bold-500">
                                         {item.name}{" "}
                                       </td>
+                                      {showType === "1" ? (
+                                        <td class="text-bold-500">
+                                          {item.useFor === "2"
+                                            ? "Services"
+                                            : "Blogs"}{" "}
+                                        </td>
+                                      ) : (
+                                        ""
+                                      )}
 
                                       <td>
                                         <div class="buttons">
@@ -259,8 +324,8 @@ const Categoris = () => {
               </div>
             </div>
             <div
-              class="tab-pane fade"
-              id="profile"
+              class="tab-pane"
+              id="profiled"
               role="tabpanel"
               aria-labelledby="profile-tab"
             >
@@ -272,23 +337,56 @@ const Categoris = () => {
       <Modal open={openModal} onClose={closeModal}>
         <div class="modal-content editSeller">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">
-              {modalStatus === "1" ? "Add Categories " : "Edit Categories "}
-            </h5>
+            {showType === "1" ? (
+              <h5 class="modal-title" id="exampleModalLabel">
+                {modalStatus === "1" ? "Add Categories " : "Edit Categories "}
+              </h5>
+            ) : (
+              <h5 class="modal-title" id="exampleModalLabel">
+                {modalStatus === "1"
+                  ? "Add Sub-Categories "
+                  : "Edit Sub-Categories "}
+              </h5>
+            )}
           </div>
           <div class="modal-body">
-            <div class="form-group">
-              <label for="basicInput">Choose Type</label>
-              <select
-                class="form-control"
-                onChange={(e) => setChooseType(e.target.value)}
-                value={chooseType}
-              >
-                <option> --- Select --- </option>
-                <option value="2"> Services </option>
-                <option value="1"> Blogs </option>
-              </select>
-            </div>
+            {showType === "1" ? (
+              <div class="form-group">
+                <label for="basicInput">Choose Type</label>
+                <select
+                  class="form-control"
+                  onChange={(e) => setChooseType(e.target.value)}
+                  value={chooseType}
+                >
+                  <option> --- Select --- </option>
+                  <option value="2"> Services </option>
+                  <option value="1"> Blogs </option>
+                </select>
+              </div>
+            ) : (
+              <div class="form-group">
+                <label for="basicInput">Choose Category</label>
+                <select
+                  class="form-control"
+                  onChange={(e) => setChooseType(e.target.value)}
+                  value={chooseType}
+                >
+                  <option> --- Select --- </option>
+                  {tableData.map((item, index) => (
+                    <>
+                      {item.useFor === "2" ? (
+                        <option key={index} value={item._id}>
+                          {item.name}
+                        </option>
+                      ) : (
+                        ""
+                      )}
+                    </>
+                  ))}
+                </select>
+              </div>
+            )}
+
             <div class="form-group">
               <label for="basicInput">Name</label>
               <input
