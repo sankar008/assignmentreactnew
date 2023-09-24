@@ -44,7 +44,6 @@ export const reset_password_buyer = async (data) => {
 };
 
 export const add_categoris = async (data, header, apiType) => {
-  console.log("apiType", apiType);
   try {
     const url = apiType === "1" ? c.BLOG_CATEGORY : c.SUB_CATEGORY;
     const res = await axios.post(url, data, {
@@ -55,9 +54,9 @@ export const add_categoris = async (data, header, apiType) => {
     return e.response;
   }
 };
-export const edit_categoris = async (data, header) => {
+export const edit_categoris = async (data, header, apiType) => {
   try {
-    const url = c.BLOG_CATEGORY;
+    const url = apiType === "1" ? c.BLOG_CATEGORY : c.SUB_CATEGORY;
     const res = await axios.patch(url, data, {
       headers: JSON.parse(header),
     });
@@ -89,9 +88,12 @@ export const catagori_listing_sub = async (header) => {
     return e.response;
   }
 };
-export const catagori_listing_byid = async (data, header) => {
+export const catagori_listing_byid = async (data, header, apiType) => {
   try {
-    const url = c.BLOG_CATEGORY + "/" + data;
+    const url =
+      apiType === "1"
+        ? c.BLOG_CATEGORY + "/" + data
+        : c.SUB_CATEGORY + "/" + data;
     const res = await axios.get(url, {
       headers: JSON.parse(header),
     });
@@ -101,9 +103,12 @@ export const catagori_listing_byid = async (data, header) => {
   }
 };
 
-export const categori_delete = async (data, header) => {
+export const categori_delete = async (data, header, apiType) => {
   try {
-    const url = c.BLOG_CATEGORY + "/" + data;
+    const url =
+      apiType === "1"
+        ? c.BLOG_CATEGORY + "/" + data
+        : c.SUB_CATEGORY + "/" + data;
     const res = await axios.delete(url, {
       headers: JSON.parse(header),
     });

@@ -125,7 +125,7 @@ const Blog = () => {
                                     {item.title}{" "}
                                   </td>
                                   <td class="text-bold-500">
-                                    {item.categories.name}{" "}
+                                    {item.category.name}{" "}
                                   </td>
                                   <td class="text-bold-500 w-25">
                                     {item.shortDes}{" "}

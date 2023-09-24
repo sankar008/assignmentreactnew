@@ -50,7 +50,14 @@ const Categoris = () => {
       const Dataresponse = await API.catagori_listing_sub(header);
       console.log("Dataresponse", Dataresponse);
       setTableData(Dataresponse.data.data);
-      const response = await API.catagori_listing_byid(sellerId, header);
+      // ? EDIT TIME SHOW
+      const response = await API.catagori_listing_byid(
+        sellerId,
+        header,
+        showType
+      );
+      console.log("response", response.data.data);
+      setChooseType(response.data.data.categoryId);
       setMenuFect(response.data.data.name);
     } catch (error) {}
   };
@@ -65,7 +72,7 @@ const Categoris = () => {
             name: menuFect,
             useFor: chooseType,
           };
-          const response = await API.add_categoris(reqObj, header);
+          const response = await API.add_categoris(reqObj, header, showType);
           if (response.data.success === 1) {
             closeModal();
             getdetailsData();
@@ -89,7 +96,7 @@ const Categoris = () => {
             useFor: chooseType,
           };
           console.log("reqObj", reqObj);
-          const response = await API.edit_categoris(reqObj, header);
+          const response = await API.edit_categoris(reqObj, header, showType);
           console.log("response", response);
           if (response.data.sucess === 1) {
             closeModal();
@@ -139,7 +146,7 @@ const Categoris = () => {
           const reqObj = {
             name: menuFect,
             id: sellerId,
-            useFor: chooseType,
+            categoryId: chooseType,
           };
           console.log("reqObj", reqObj);
           const response = await API.edit_categoris(reqObj, header, showType);
