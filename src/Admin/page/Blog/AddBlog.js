@@ -16,7 +16,6 @@ const initialData = {
 
 const AddBlog = () => {
   const location = useLocation();
-  console.log("location", location);
   const [formData, setFormData] = useState(initialData);
   const [tableData, setTableData] = useState([]);
   const [imageData, setImageData] = useState("");
@@ -38,7 +37,8 @@ const AddBlog = () => {
       const response = await API.catagori_listing(header);
       setTableData(response.data.data);
       const blog_response = await API.byid_blog(location.state.dataId, header);
-      setFormData(blog_response.data.data);
+      console.log("blog_response", blog_response);
+      setFormData(blog_response.data.data[0]);
     } catch (error) {}
   };
 
@@ -49,19 +49,18 @@ const AddBlog = () => {
 
   const dataSubmit = async () => {
     const header = localStorage.getItem("_tokenCode");
+    console.log("ocalStorage.getItem,", localStorage.getItem("_userId"));
     try {
-      const reqObj = {
-        categoryId: formData.categoryId,
-        createdBy: localStorage.getItem("_userId"),
-        title: formData.title,
-        shortDes: formData.shortDes,
-        description: editorData,
-        image: imageData,
-        id: location.state.dataId,
-      };
-      console.log("reqObj", reqObj);
       if (location.state === null) {
-        console.log("hfhfgjhsj");
+        const reqObj = {
+          categoryId: formData.categoryId,
+          createdBy: localStorage.getItem("_userId"),
+          title: formData.title,
+          shortDes: formData.shortDes,
+          description: editorData,
+          image: imageData,
+        };
+        console.log("reqObj", reqObj);
         const response = await API.add_blog(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {
@@ -69,7 +68,15 @@ const AddBlog = () => {
           MESSAGE(response.data.msg);
         }
       } else {
-        console.log("edit");
+        const reqObj = {
+          categoryId: formData.categoryId,
+          createdBy: localStorage.getItem("_userId"),
+          title: formData.title,
+          shortDes: formData.shortDes,
+          description: editorData,
+          image: imageData,
+          id: location.state.dataId,
+        };
         const response = await API.edit_blog(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {
@@ -170,10 +177,7 @@ const AddBlog = () => {
                 </div>
               </div>
               <div className="buttons customBtn mt-3">
-                <button
-                  class="btn btn-primary rounded-pill"
-                  onClick={dataSubmit}
-                >
+                <button class="btn btn-primary" onClick={dataSubmit}>
                   Submit
                   <div class="icon dripicons dripicons-arrow-right"></div>
                 </button>

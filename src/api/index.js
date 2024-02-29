@@ -70,3 +70,44 @@ export const user_profile_update = async (data, header) => {
     return e.response;
   }
 };
+
+export const user_assignment = async (data, header) => {
+  try {
+    const url = c.ASSIGNMENT;
+    const res = await axios.post(url, data, {
+      headers: JSON.parse(header),
+    });
+    console.log('res---------------', res)
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+
+export const verification_otp = async (data, header) => {
+  try {
+    const url = c.VERIFICATION;
+    console.log('url', url)
+    const res = await axios.patch(url, data, {
+      headers: JSON.parse(header),
+    });
+    console.log('res---------------', res)
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const EDIT_DATE_TIME = async (data, header) => {
+  try {
+    const url = c.ASSIGNMENT;
+    const res = await axios.patch(url, data, {
+      headers: JSON.parse(header),
+    });
+    console.log('res---------------', res)
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};

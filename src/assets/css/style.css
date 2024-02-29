@@ -18749,7 +18749,7 @@ img {
 }
 .massg_input textarea {
   width: 100%;
-  height: 200px;
+  /* height: 200px; */
   border: 1px solid #ddd;
   padding: 25px;
   border-radius: 6px;
@@ -18768,6 +18768,45 @@ img {
   padding-left: 40px;
   color: #ddd;
 }
+
+.text_input{
+  width: 100%;
+  margin-bottom: 30px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.text_input input{
+  height: 42px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  width: 100%;
+  padding-left: 14px;
+  /* color: #ddd; */
+}
+
+.page_button{
+  background-color: #333333;
+  color: antiquewhite;
+  border-radius: 6px;
+  padding: 4px 10px 9px 10px;
+  line-height: 0.5;
+  font-size: 25px;
+
+}
+.page_input{
+  border: 1px solid #ddd;
+  margin-top: 2px;
+  border-radius: 5px;
+  width: 45px;
+  padding: 5px;
+}
+
+.wordcount{
+  font-size: 25px;
+  padding: 12px;
+}
+
 .big_sercbar input::placeholder {
   color: #ddd;
 }
@@ -18792,6 +18831,10 @@ img {
   position: relative;
   margin: 20px 0px 30px;
 }
+
+
+
+
 .sign_up_field input {
   width: 100%;
   border: 1px solid #ddd;
@@ -18799,6 +18842,53 @@ img {
   height: 42px;
   padding-left: 40px;
 }
+.OTP_field{
+  width: 45%;
+  position: relative;
+  margin: 20px 0px 30px;
+   display:  flex ;
+   align-items: center;
+   justify-content: center;
+}
+
+
+
+.sign_uplft_otp{
+  margin-top: 62px;
+}
+
+.otp-input-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+}
+
+.otp-input-container input{
+  width: 3rem !important;
+}
+
+.otp-input {
+  height: 3rem; /* Adjust the height as needed */
+  margin: 0.5rem;
+  font-size: 1rem; /* Adjust the font size as needed */
+  border: 1px solid #ccc; /* Adjust the border color as needed */
+  border-radius: 4px; /* Adjust the border-radius as needed */
+  outline: none;
+  text-align: center;
+}
+
+.otp-input:focus {
+  border-color: #007bff; /* Adjust the border color when focused as needed */
+}
+
+
+
+
+
+
+
+
+
 .sign_icon {
   position: absolute;
   top: 7px;
@@ -18914,6 +19004,8 @@ img {
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: center;
+
 }
 .icon_with_timer strong {
   border-bottom: 1px solid #ddd;
@@ -19152,4 +19244,139 @@ img {
 }
 .userDashborad {
   margin: 60px 0px 0px 0px;
+}
+
+
+/* .all_button_group {
+}
+
+.radioButtonLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.hiddenRadioInput {
+  opacity: 0;
+  position: absolute;
+}
+
+.hiddenRadioInput input[type=radio]:checked + span {
+  border: 1px solid blue;
+} */
+
+
+.radioButtonLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.radioButtonLabel.selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #06c;
+  border-radius: 5px;
+  margin-bottom: 10px;}
+
+.hiddenRadioInput {
+  opacity: 0;
+  position: absolute;
+}
+
+/* .Animals input[type=radio]:checked+label {
+  border-color: #00AD51;
+  background-color: #00AD51;
+  color: #fff;
+} */
+.mainContainer{
+display: flex;
+flex-direction: row;
+}
+
+.file-uploader-wrapper{
+  padding: 10px;
+  height: 268px;
+  border-radius: 6px;
+  border: 1px dashed #ddd;
+}
+
+.previewViewContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* background-color: #007bff; */
+  /* //justify-content: space-between; */
+}
+
+.fileNameText{
+  font-size: 13px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* height: 45px; */
+    width: 360px;
+    margin-top: 10px;
+}
+
+.flexcontainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.nameContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.removeButton{
+  width: 3%;
+  height: 22%;
+  cursor: pointer;
+}
+
+.pdficon{
+ width: 15%;
+ margin: auto;
+ /* display: flex; */
+}
+
+.excelicon{
+
+  width: 7%;
+  margin: auto 19px;
+}
+
+.docicon{
+  width: 7%;
+  margin: auto 19px;
+}
+
+.zipicon{
+  width: 7%;
+  margin: auto 20px;
+}
+
+.previewImages{
+  width: 7%;
+    margin: auto 19px;
+}
+
+.modal .modal-content {
+  margin-top: 166px !important;
 }

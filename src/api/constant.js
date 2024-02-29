@@ -10,3 +10,5 @@ export const URL = "http://document.apibag.in:3001/v1";
 
 export const STUDENT = `${URL}/student`;
 export const ENQIRY = `${URL}/enquiry`;
+export const ASSIGNMENT = `${URL}/assignment`;
+export const VERIFICATION = `${URL}/student/opt/verification`;

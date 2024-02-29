@@ -33,7 +33,7 @@ const Categoris = () => {
     try {
       const response = await API.categori_delete(menuFecId, header, showType);
       if (response.data.success === 1) {
-        getdetailsData();
+        getdetailsData(showType);
       }
     } catch (error) {}
   };
@@ -75,7 +75,7 @@ const Categoris = () => {
           const response = await API.add_categoris(reqObj, header, showType);
           if (response.data.success === 1) {
             closeModal();
-            getdetailsData();
+            getdetailsData(showType);
             toast(response.data.msg, {
               position: "top-right",
               autoClose: 5000,
@@ -100,7 +100,7 @@ const Categoris = () => {
           console.log("response", response);
           if (response.data.sucess === 1) {
             closeModal();
-            getdetailsData();
+            getdetailsData(showType);
             toast(response.data.msg, {
               position: "top-right",
               autoClose: 5000,
@@ -128,7 +128,7 @@ const Categoris = () => {
           if (response.data.success === 1) {
             closeModal();
             setChooseType("");
-            getdetailsData();
+            getdetailsData(showType);
             toast(response.data.msg, {
               position: "top-right",
               autoClose: 5000,
@@ -153,7 +153,7 @@ const Categoris = () => {
           console.log("response", response);
           if (response.data.sucess === 1) {
             closeModal();
-            getdetailsData();
+            getdetailsData(showType);
             toast(response.data.msg, {
               position: "top-right",
               autoClose: 5000,
