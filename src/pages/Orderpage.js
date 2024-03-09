@@ -413,16 +413,17 @@ const Orderpage = () => {
         }
             
             if (signUpOtpElements) {
-                signUpOtpElements.style.display = 'block';
+                signUpOtpElements.style.display = 'flex';
             }
             if (signUpOtpElements2) {
-              signUpOtpElements2.style.display = 'block';
+              signUpOtpElements2.style.display = 'flex';
           }
           if (signUpOtpElements3) {
-            signUpOtpElements3.style.display = 'block';
+            signUpOtpElements3.style.display = 'flex';
         }
-            
-            alert('Enter the correct OTP');
+        MESSAGE(response.data.message, 0);
+
+            // alert('Enter the correct OTP');
         } else{
 
           if (sortTblElements) {
@@ -436,14 +437,15 @@ const Orderpage = () => {
     }
         
         if (signUpOtpElements) {
-            signUpOtpElements.style.display = 'block';
+            signUpOtpElements.style.display = 'flex';
         }
         if (signUpOtpElements2) {
-          signUpOtpElements2.style.display = 'block';
+          signUpOtpElements2.style.display = 'flex';
       }
       if (signUpOtpElements3) {
-        signUpOtpElements3.style.display = 'block';
+        signUpOtpElements3.style.display = 'flex';
     }
+    MESSAGE(response.data.message, 0);
 
         }
         setFinalOrderPage("");
@@ -730,7 +732,7 @@ console.log('id================>', id)
                   </div>
                 </div>
 
-                <div className="col-md-7">
+                {/* <div className="col-md-7">
                   <div className="order_header"></div>
                   <h3 className="order_header_titel">words Count</h3>
                   <div className="icon_with_timer">
@@ -746,7 +748,7 @@ console.log('id================>', id)
                     </span>
                   </div>
 
-                </div>
+                </div> */}
 
                 <div className="col-lg-12">
                   <div className="step_buttn">
@@ -764,7 +766,7 @@ console.log('id================>', id)
                 <div className="col-lg-6">
                   <div className="sign_uplft_otp">
                     <h4>
-                      Enter <span className="theme_color">OTP</span> {" "} <br />
+                      Enter OTP sent to <br/><span className="theme_color"> {emailData}</span> {" "} <br />
                       <span>Put your OTP Here</span>
                     </h4>
 
@@ -845,7 +847,7 @@ console.log('id================>', id)
 
                     <div className="flext_liner">
                       <span>Start Time</span>
-                      <span className="sub_fw600">{selectedDate}
+                      <span className="sub_fw600">{selectedDate}, {selectedTime}
 
                         <button className="ml-1" onClick={handleShow}>
                           <svg
@@ -865,32 +867,38 @@ console.log('id================>', id)
                         </button>
                       </span>
                     </div>
-
-
                     <div className="flext_liner">
+                      <span>Duration</span>
+                      <span className="sub_fw600">{getRangeDate} min</span>
+                    </div>
+                    <div className="flext_liner">
+                      <span>No. Of Questions</span>
+                      <span className="sub_fw600">{questionCount}</span>
+                    </div>
+                    
+                    {/* <div className="flext_liner">
                       <span>Duration</span>
                       <span className="sub_fw600">{getRangeDate} Min</span>
                     </div>
                     <div className="flext_liner ex_border">
                       <span>No of Question</span>
                       <span className="sub_fw600">{questionCount}</span>
-                    </div>
-                    <div className="flext_liner">
+                    </div> */}
+                    {/* <div className="flext_liner">
                       <span className="sub_fw600">Payable amount</span>
                       <span className="sub_fw600">
                         <span className="fz_extra">191 </span>USD
                       </span>
-                    </div>
+                    </div> */}
                     <div className="full_butn">
                       <a href="#">
-                        <button>Pay Now</button>
+                        <button>Book Now</button>
                       </a>
                     </div>
                     <div className="face_img_txt">
                       <img src="./images/sad.png"></img>
                       <span>
-                        <strong>575 Tutors</strong> Avilable for Computer
-                        Network
+                        <strong>575 Tutors</strong> Avilable for {subjectData?.label}
                       </span>
                     </div>
                   </div>
@@ -1156,7 +1164,7 @@ console.log('id================>', id)
                   </div>
                 </div>
 
-                <div className="col-md-7">
+                {/* <div className="col-md-7">
                   <div className="order_header"></div>
                   <h3 className="order_header_titel">words Count</h3>
                   <div className="icon_with_timer">
@@ -1172,7 +1180,7 @@ console.log('id================>', id)
                     </span>
                   </div>
 
-                </div>
+                </div> */}
 
                 <div className="col-lg-12">
                   <div className="step_buttn">
@@ -1190,7 +1198,7 @@ console.log('id================>', id)
                   <div className="col-lg-6">
                     <div className="sign_uplft_otp">
                       <h4>
-                        Enter <span className="theme_color">OTP</span> {" "} <br />
+                        Enter OTP sent to <br/><span className="theme_color">{emailData} </span> {" "} <br />
                         <span>Put your OTP Here</span>
                       </h4>
 
@@ -1205,11 +1213,6 @@ console.log('id================>', id)
                         inputStyle="otp-input"
                         renderInput={(props) => <input {...props} />}
                       />
-
-
-
-
-
 
                       <div className="grup_btn">
                         <button onClick={(e) => SubmitOTP(e)} className="btn_one">
@@ -1270,7 +1273,7 @@ console.log('id================>', id)
 
                       <div className="flext_liner">
                         <span>Start Time</span>
-                        <span className="sub_fw600">{selectedDate}
+                        <span className="sub_fw600">{selectedDate}, {selectedTime}
 
                           <button className="ml-1" onClick={handleShow}>
                             <svg
@@ -1291,31 +1294,37 @@ console.log('id================>', id)
                         </span>
                       </div>
 
-
                       <div className="flext_liner">
+                      <span>Duration</span>
+                      <span className="sub_fw600">{getRangeDate} min</span>
+                    </div>
+                    <div className="flext_liner">
+                      <span>No. Of Questions</span>
+                      <span className="sub_fw600">{questionCount}</span>
+                    </div>
+                      {/* <div className="flext_liner">
                         <span>Duration</span>
                         <span className="sub_fw600">{getRangeDate} Min</span>
                       </div>
                       <div className="flext_liner ex_border">
                         <span>No of Question</span>
                         <span className="sub_fw600">{questionCount}</span>
-                      </div>
-                      <div className="flext_liner">
+                      </div> */}
+                      {/* <div className="flext_liner">
                         <span className="sub_fw600">Payable amount</span>
                         <span className="sub_fw600">
                           <span className="fz_extra">191 </span>USD
                         </span>
-                      </div>
+                      </div> */}
                       <div className="full_butn">
                         <a href="#">
-                          <button>Pay Now</button>
+                          <button>Book Now</button>
                         </a>
                       </div>
                       <div className="face_img_txt">
                         <img src="./images/sad.png"></img>
                         <span>
-                          <strong>575 Tutors</strong> Avilable for Computer
-                          Network
+                          <strong>575 Tutors</strong> Avilable for {subjectData?.label}
                         </span>
                       </div>
                     </div>
@@ -1679,7 +1688,7 @@ console.log('id================>', id)
                         </label>
                       </div>
 
-                      <div class="form-check">
+                      {/* <div class="form-check">
                         <input
                           class="form-check-input"
                           type="radio"
@@ -1692,7 +1701,7 @@ console.log('id================>', id)
                         <label class="form-check-label" for="exampleRadios3">
                           All
                         </label>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                   <div class="col-lg-12">
@@ -1706,7 +1715,7 @@ console.log('id================>', id)
                   <div className="col-lg-6">
                     <div className="sign_uplft_otp">
                       <h4>
-                        Enter <span className="theme_color">OTP</span> {" "} <br />
+                        Enter OTP sent to <br/> <span className="theme_color"> {emailData}</span> {" "} <br />
                         <span>Put your OTP Here</span>
                       </h4>
 
@@ -1784,7 +1793,7 @@ console.log('id================>', id)
 
                       <div className="flext_liner">
                         <span>Start Time</span>
-                        <span className="sub_fw600">{selectedDate}
+                        <span className="sub_fw600">{selectedDate}, {selectedTime}
 
                           <button className="ml-1" onClick={handleShow}>
                             <svg
@@ -1805,7 +1814,7 @@ console.log('id================>', id)
                         </span>
                       </div>
 
-
+{/* 
                       <div className="flext_liner">
                         <span>Duration</span>
                         <span className="sub_fw600">{getRangeDate} Min</span>
@@ -1813,23 +1822,22 @@ console.log('id================>', id)
                       <div className="flext_liner ex_border">
                         <span>No of Question</span>
                         <span className="sub_fw600">{questionCount}</span>
-                      </div>
-                      <div className="flext_liner">
+                      </div> */}
+                      {/* <div className="flext_liner">
                         <span className="sub_fw600">Payable amount</span>
                         <span className="sub_fw600">
                           <span className="fz_extra">191 </span>USD
                         </span>
-                      </div>
+                      </div> */}
                       <div className="full_butn">
                         <a href="#">
-                          <button>Pay Now</button>
+                          <button>Book Now</button>
                         </a>
                       </div>
                       <div className="face_img_txt">
                         <img src="./images/sad.png"></img>
                         <span>
-                          <strong>575 Tutors</strong> Avilable for Computer
-                          Network
+                          <strong>575 Tutors</strong> Avilable for {subjectData?.label}
                         </span>
                       </div>
                     </div>
