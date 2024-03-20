@@ -1466,57 +1466,7 @@ console.log('id================>', id)
                   </div>
                 </div>
 
-                <div className={`row justify-content-center mt-5  ${showSignUpSection3 === false ? 'hide' : ''}`}>
-
-                  <div className="col-lg-8">
-                    <div className="order_header"></div>
-                    <h3 className="order_header_titel">Education Lavel</h3>
-                  </div>
-                  <div className="col-md-8">
-                    <div className="row justify-content-center">
-
-
-                      <div className="col-md-4">
-                        <div className="all_button_group">
-                          <label className={`radioButtonLabel ${selectedOption === 'Freshman' ? 'selected' : ''}`}>
-                            <input
-                              type="radio"
-                              name="academicYear"
-                              value="Freshman"
-                              checked={selectedOption === 'Freshman'}
-                              onChange={handleRadioChange}
-                              className="hiddenRadioInput"
-                            />
-                            Freshman
-                          </label>
-                        </div>
-                      </div>
-
-                      <div className="col-md-4">
-                        <div className="all_button_group">
-                          <label className={`radioButtonLabel ${selectedOption === 'Pre Final' ? 'selected' : ''}`}>
-                            <input
-                              type="radio"
-                              name="academicYear"
-                              value="Pre Final"
-                              checked={selectedOption === 'Pre Final'}
-                              onChange={handleRadioChange}
-                              className="hiddenRadioInput"
-
-                            />
-                            Pre Final
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-md-4">
-                        <div className="all_button_group">
-                          <label className={`radioButtonLabel ${selectedOption === 'Final Year' ? 'selected' : ''}`}>
-
-                            <input
-                              type="radio"
-                              name="academicYear"
-                              value="Final Year"
-                              checked={selectedOption === 'Final Year'}
+                ectedOption === 'Final Year'}
                               onChange={handleRadioChange}
                               className="hiddenRadioInput"
 
