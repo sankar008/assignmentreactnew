@@ -18824,6 +18824,7 @@ img {
 .step_buttn {
   text-align: center;
   margin-top: 20px;
+  padding-right: 2em;
 }
 
 .sign_up_field {

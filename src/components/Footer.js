@@ -31,7 +31,7 @@ const Footer = () => {
                       <img src="images/logos.png" alt="" />
                     </a>
                   </div>
-                  <ul class="info-list">
+                  {/* <ul class="info-list">
                     <li>
                       Tel:<a href="tel:+0845-371-02-02"> 0845 371 02 02</a>
                     </li>
@@ -42,8 +42,8 @@ const Footer = () => {
                         info@yoursite.co.uk
                       </a>
                     </li>
-                  </ul>
-                  <ul class="social-box">
+                  </ul> */}
+                  <ul class="social-box  hide">
                     <li class="twitter">
                       <a
                         target="_blank"

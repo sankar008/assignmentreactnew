@@ -17,6 +17,7 @@ import BlogDetails from "../pages/BlogDetails";
 import Faq from "../pages/Faq";
 import HowItWork from "../pages/HowItWork";
 import Login from "../pages/Login";
+import OrderNew from "../pages/OrderNew";
 import Orderpage from "../pages/Orderpage";
 import Review from "../pages/Review";
 import ServicesS from "../pages/Services";
@@ -48,6 +49,7 @@ const AppRouter = () => {
           <Route path="/review" element={<Review />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/order" element={<Orderpage />} />
+          <Route path="/orders" element={<OrderNew />} />
           <Route path="/account" element={<UserDashboard />} />
         </Routes>
       </div>

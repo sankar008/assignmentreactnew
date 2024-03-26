@@ -60,7 +60,7 @@ const Banner = () => {
               <div className="Order_section">
                 <div className="row justify-content-center mb-5">
                   <div className="col-lg-12 col-md-12">
-                    <Link to="/order" state={{ data: 1 }}>
+                    <Link to="/orders" state={{ data: 1 }}>
                       <div className="order__firststp">
                         <img src="./images/homework.png"></img>
                         <div className="content">
@@ -71,7 +71,7 @@ const Banner = () => {
                     </Link>
                   </div>
                   <div className="col-lg-12 col-md-12">
-                    <Link to="/order" state={{ data: 2 }}>
+                    <Link to="/orders" state={{ data: 2 }}>
                       <div className="order__firststp">
                         <img src="./images/deadline.png"></img>
                         <div className="content">
@@ -82,7 +82,7 @@ const Banner = () => {
                     </Link>
                   </div>
                   <div className="col-lg-12 col-md-12">
-                    <Link to="/order" state={{ data: 3 }}>
+                    <Link to="/orders" state={{ data: 3 }}>
                       <div className="order__firststp">
                         <div className="inco_effct">
                           <img src="./images/writing.png"></img>
