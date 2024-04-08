@@ -55,12 +55,13 @@ const OrderNew = () => {
   const commonSubmit1 = () => {
     if (detailsData !== "" && subjectData !== "" && selectedFiles !== "") {
       setStapeStart(2);
+      setStapeThree(3);
     }
   };
   const commonSubmit2 = () => {
     if (emailData !== "") {
-      setStapeStart("");
-      setStapeThree(3);
+      setStapeSix("");
+      setStapeStart(2);
     }
   };
 
@@ -145,7 +146,7 @@ const OrderNew = () => {
   };
 
   const commonSubmit6 = async () => {
-    setStapeSix("");
+    setStapeStart("");
     setStapeSeven(7);
     const header = localStorage.getItem("_tokenCode");
     if (otp) {
@@ -181,6 +182,9 @@ const OrderNew = () => {
 
   const [getRangeDate, setGetRangeDate] = useState(0);
   const [questionCount, setQuestionCount] = useState(0);
+
+  console.log("getRangeDate", getRangeDate);
+  console.log("questionCount", questionCount);
 
   const handleRangeChange = (e) => {
     const value = parseInt(e.target.value, 10);
@@ -609,7 +613,7 @@ const OrderNew = () => {
 
     datepick = selectedDate;
     timepix = selectedTime;
-
+    setShowModal(false);
     try {
       const reqObj = {
         date: selectedDate,
@@ -617,9 +621,10 @@ const OrderNew = () => {
         id: id,
       };
 
-      const response = await API.EDIT_DATE_TIME(reqObj, header);
+      console.log("reqObj", reqObj);
 
-      console.log("hello", response);
+      const response = await API.EDIT_DATE_TIME(reqObj, header);
+      console.log("response", response);
     } catch (error) {}
   };
   return (
@@ -642,11 +647,8 @@ const OrderNew = () => {
                   subjectData={subjectData}
                   handleChange={handleChange}
                 />
-              ) : stapeStart === 2 ? (
-                <StepTwo
-                  commonSubmit2={commonSubmit2}
-                  setEmailData={setEmailData}
-                />
+              ) : stapeStart === 20 ? (
+                <></>
               ) : stapeThree === 3 ? (
                 <StepThree
                   commonSubmit3={commonSubmit3}
@@ -673,19 +675,41 @@ const OrderNew = () => {
                   handleIncrement={handleIncrement}
                 />
               ) : stapeSix === 6 ? (
+                <StepTwo
+                  commonSubmit2={commonSubmit2}
+                  setEmailData={setEmailData}
+                />
+              ) : stapeStart === 2 ? (
                 <StepSixe
                   emailData={emailData}
                   commonSubmit6={commonSubmit6}
                   otp={otp}
                   setOtp={setOtp}
                 />
+              ) : stapeSeven === 7 ? (
+                <StepSeven
+                  pageType={location.state?.data}
+                  subjectData={subjectData}
+                  selectedDate={selectedDate}
+                  selectedTime={selectedTime}
+                  handleShow={handleShow}
+                  getRangeDate={getRangeDate}
+                  questionCount={questionCount}
+                  showModal={showModal}
+                  handleEditSave={handleEditSave}
+                  setSelectedDate={setSelectedDate}
+                  setSelectedTime={setSelectedTime}
+                  handleClose={handleClose}
+                  selectedOption={selectedOption}
+                  selectedOptionRef={selectedOptionRef}
+                />
               ) : (
-                <StepSeven />
+                ""
               )}
             </>
           ) : location.state?.data === 2 ? (
             <>
-              {/* ? STEP ONE */}
+              {/* ? STEP TWO */}
               {stapeStart === 1 ? (
                 <StepOne
                   setStapeStart={setStapeStart}
@@ -699,11 +723,8 @@ const OrderNew = () => {
                   subjectData={subjectData}
                   handleChange={handleChange}
                 />
-              ) : stapeStart === 2 ? (
-                <StepTwo
-                  commonSubmit2={commonSubmit2}
-                  setEmailData={setEmailData}
-                />
+              ) : stapeStart === 20 ? (
+                <></>
               ) : stapeThree === 3 ? (
                 <StepThree
                   commonSubmit3={commonSubmit3}
@@ -734,6 +755,11 @@ const OrderNew = () => {
                   questionCount={questionCount}
                 />
               ) : stapeSix === 6 ? (
+                <StepTwo
+                  commonSubmit2={commonSubmit2}
+                  setEmailData={setEmailData}
+                />
+              ) : stapeStart === 2 ? (
                 <StepSixe
                   emailData={emailData}
                   commonSubmit6={commonSubmit6}
@@ -741,7 +767,22 @@ const OrderNew = () => {
                   setOtp={setOtp}
                 />
               ) : (
-                <StepSeven />
+                <StepSeven
+                  pageType={location.state?.data}
+                  subjectData={subjectData}
+                  selectedDate={selectedDate}
+                  selectedTime={selectedTime}
+                  handleShow={handleShow}
+                  getRangeDate={getRangeDate}
+                  questionCount={questionCount}
+                  showModal={showModal}
+                  handleEditSave={handleEditSave}
+                  setSelectedDate={setSelectedDate}
+                  setSelectedTime={setSelectedTime}
+                  handleClose={handleClose}
+                  selectedOption={selectedOption}
+                  selectedOptionRef={selectedOptionRef}
+                />
               )}
             </>
           ) : (
@@ -760,7 +801,7 @@ const OrderNew = () => {
                   subjectData={subjectData}
                   handleChange={handleChange}
                 />
-              ) : stapeStart === 2 ? (
+              ) : stapeStart === 20 ? (
                 <StepTwo
                   commonSubmit2={commonSubmit2}
                   setEmailData={setEmailData}
@@ -791,6 +832,11 @@ const OrderNew = () => {
                   handleIncrement={handleIncrement}
                 />
               ) : stapeSix === 6 ? (
+                <StepTwo
+                  commonSubmit2={commonSubmit2}
+                  setEmailData={setEmailData}
+                />
+              ) : stapeStart === 2 ? (
                 <StepSixe
                   emailData={emailData}
                   commonSubmit6={commonSubmit6}
@@ -798,7 +844,22 @@ const OrderNew = () => {
                   setOtp={setOtp}
                 />
               ) : (
-                <StepSeven />
+                <StepSeven
+                  pageType={location.state?.data}
+                  subjectData={subjectData}
+                  selectedDate={selectedDate}
+                  selectedTime={selectedTime}
+                  handleShow={handleShow}
+                  getRangeDate={getRangeDate}
+                  questionCount={questionCount}
+                  showModal={showModal}
+                  handleEditSave={handleEditSave}
+                  setSelectedDate={setSelectedDate}
+                  setSelectedTime={setSelectedTime}
+                  handleClose={handleClose}
+                  selectedOption={selectedOption}
+                  selectedOptionRef={selectedOptionRef}
+                />
               )}
             </>
           )}

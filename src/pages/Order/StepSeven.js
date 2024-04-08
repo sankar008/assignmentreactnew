@@ -1,6 +1,22 @@
 import React from "react";
+import MyModal from "../MyModal";
 
-const StepSeven = () => {
+const StepSeven = ({
+  subjectData,
+  selectedDate,
+  selectedTime,
+  handleShow,
+  getRangeDate,
+  questionCount,
+  setSelectedDate,
+  setSelectedTime,
+  showModal,
+  handleClose,
+  handleEditSave,
+  pageType,
+  selectedOption,
+  selectedOptionRef,
+}) => {
   return (
     <>
       {" "}
@@ -14,19 +30,14 @@ const StepSeven = () => {
             <div className="flext_liner"></div>
             <div className="flext_liner">
               <span>Subject</span>
-              <span className="sub_fw600">sfs</span>
-            </div>
-
-            <div className="flext_liner">
-              <span>Service Type</span>
-              <span className="sub_fw600">Session</span>
+              <span className="sub_fw600">{subjectData?.label}</span>
             </div>
 
             <div className="flext_liner">
               <span>Start Time</span>
               <span className="sub_fw600">
-                data, time
-                <button className="ml-1">
+                {selectedDate}, {selectedTime}
+                <button className="ml-1" onClick={handleShow}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -45,28 +56,34 @@ const StepSeven = () => {
               </span>
             </div>
             <div className="flext_liner">
-              <span>Duration</span>
-              <span className="sub_fw600">2525 min</span>
+              <span>Education</span>
+              <span className="sub_fw600">{selectedOption}</span>
             </div>
-            <div className="flext_liner">
-              <span>No. Of Questions</span>
-              <span className="sub_fw600">25</span>
-            </div>
+            {pageType === 2 ? (
+              ""
+            ) : (
+              <div className="flext_liner">
+                <span>Referencing</span>
+                <span className="sub_fw600">{selectedOptionRef}</span>
+              </div>
+            )}
 
-            {/* <div className="flext_liner">
-                      <span>Duration</span>
-                      <span className="sub_fw600">{getRangeDate} Min</span>
-                    </div>
-                    <div className="flext_liner ex_border">
-                      <span>No of Question</span>
-                      <span className="sub_fw600">{questionCount}</span>
-                    </div> */}
-            {/* <div className="flext_liner">
-                      <span className="sub_fw600">Payable amount</span>
-                      <span className="sub_fw600">
-                        <span className="fz_extra">191 </span>USD
-                      </span>
-                    </div> */}
+            {pageType === 2 ? (
+              <>
+                {" "}
+                <div className="flext_liner">
+                  <span>Duration</span>
+                  <span className="sub_fw600">{getRangeDate} min</span>
+                </div>
+                <div className="flext_liner">
+                  <span>No. Of Questions</span>
+                  <span className="sub_fw600">{questionCount}</span>
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
+
             <div className="full_butn">
               <a href="#">
                 <button>Book Now</button>
@@ -121,6 +138,15 @@ const StepSeven = () => {
           </div>
         </div>
       </div>
+      <MyModal
+        showModal={showModal}
+        handleClose={handleClose}
+        setSelectedDate={setSelectedDate}
+        setSelectedTime={setSelectedTime}
+        handleEditSave={handleEditSave}
+        selectedDate={selectedDate}
+        selectedTime={selectedTime}
+      />
     </>
   );
 };

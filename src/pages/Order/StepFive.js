@@ -199,15 +199,20 @@ const StepFive = ({
             <div className="order_header"></div>
             <h3 className="order_header_titel">Words Count</h3>
             <div className="icon_with_timer">
-              <button className="page_button" onClick={handleIncrement}>
-                +
-              </button>
-              <input className="page_input" value={pageNumber} readOnly />
               <button className="page_button" onClick={handleDecrement}>
                 -
               </button>
+              <input
+                className="page_input"
+                value={`${pageNumber} Pages`}
+                readOnly
+              />
+              <button className="page_button" onClick={handleIncrement}>
+                +
+              </button>
+
               <span className="wordcount">
-                <strong>{wordsCount}</strong>
+                <strong>{wordsCount} Words</strong>
               </span>
             </div>
           </div>
