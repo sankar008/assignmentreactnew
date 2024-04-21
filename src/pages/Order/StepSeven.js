@@ -30,7 +30,7 @@ const StepSeven = ({
             <div className="flext_liner"></div>
             <div className="flext_liner">
               <span>Subject</span>
-              <span className="sub_fw600">{subjectData?.label}</span>
+              <span className="sub_fw600">{subjectData}</span>
             </div>
 
             <div className="flext_liner">

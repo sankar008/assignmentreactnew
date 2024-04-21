@@ -78,7 +78,8 @@ const OrderNew = () => {
               image: selectedFiles.map((p) => {
                 return p.preview;
               }), //imageData,
-              education: selectedSubject,
+              education: selectedOption,
+              referencing: selectedOptionRef,
               date: selectedDate,
               time: selectedTime,
               wordsCount: pageNumber,
@@ -89,7 +90,8 @@ const OrderNew = () => {
             console.log("responseType1", response);
             if (response?.data?.success === 1) {
               setStapeFive("");
-              setStapeSix(6);
+              setStapeStart(2);
+              localStorage.setItem("_userId", response.data.data._id);
             } else {
               setStapeFive("");
               setStapeSix(6);
@@ -592,13 +594,16 @@ const OrderNew = () => {
       const reqObj = {
         date: selectedDate,
         time: selectedTime,
-        id: id,
+        id: localStorage.getItem("_userId"),
       };
 
       console.log("reqObj", reqObj);
 
       const response = await API.EDIT_DATE_TIME(reqObj, header);
       console.log("response", response);
+      if (response.data.success === 1) {
+        MESSAGE(response.data.msg, 1);
+      }
     } catch (error) {}
   };
 
