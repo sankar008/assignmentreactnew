@@ -1,18 +1,41 @@
 import React from "react";
 import Select from "react-select";
 import MultipleFileUploader from "../MultipleFileUploader";
-
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
 const StepOne = ({
   commonSubmit1,
   handleUpload,
   selectedFiles,
   setSelectedFiles,
   setDetailsData,
-  customStyles,
+  setSubjectData,
   subjectOptions,
   handleChange,
   subjectData,
 }) => {
+  const simplifiedSubjects = subjectOptions.map((subject) => ({
+    id: subject._id,
+    name: subject.subjectName,
+  }));
+  console.log("subjectOptions", simplifiedSubjects);
+
+  const handleOnSelect = (subjectOptions) => {
+    // the item selected
+    setSubjectData(subjectOptions.name);
+  };
+  const handleOnSearch = (string) => {
+    setSubjectData(string);
+  };
+
+  const formatResult = (subjectOptions) => {
+    return (
+      <>
+        <span style={{ display: "block", textAlign: "left" }}>
+          {subjectOptions.name}
+        </span>
+      </>
+    );
+  };
   return (
     <>
       <div className="row justify-content-center">
@@ -45,12 +68,20 @@ const StepOne = ({
         </div>
         <div className="col-md-12">
           <div className="text_input">
-            <Select
+            <ReactSearchAutocomplete
+              items={simplifiedSubjects}
+              placeholder="Subject"
+              onSelect={handleOnSelect}
+              autoFocus
+              formatResult={formatResult}
+              onSearch={handleOnSearch}
+            />
+            {/* <Select
               styles={customStyles}
               options={subjectOptions}
               value={subjectData}
               onChange={handleChange}
-            />
+            /> */}
 
             <div className="step_buttn">
               <button>

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Routes,
   useLocation,
@@ -23,6 +23,7 @@ import Review from "../pages/Review";
 import ServicesS from "../pages/Services";
 import Signup from "../pages/Signup";
 import UserDashboard from "../pages/UserDashboard";
+import "react-toastify/dist/ReactToastify.css";
 const AppRouter = () => {
   const param = useParams();
   //const location = useLocation();
@@ -32,29 +33,31 @@ const AppRouter = () => {
   }, []);
 
   return (
-    <Router>
+    <>
       <ToastContainer />
-      <Header />
-      <div className="mainWarpr">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<ServicesS />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog-details" element={<BlogDetails />} />
-          <Route path="/about-us" element={<About />} />
-          <Route path="/how-it-work" element={<HowItWork />} />
-          <Route path="/benifits" element={<Benifits />} />
-          <Route path="/review" element={<Review />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/order" element={<Orderpage />} />
-          <Route path="/orders" element={<OrderNew />} />
-          <Route path="/account" element={<UserDashboard />} />
-        </Routes>
-      </div>
-      <Footer />
-    </Router>
+      <BrowserRouter>
+        <Header />
+        <div className="mainWarpr">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<ServicesS />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog-details" element={<BlogDetails />} />
+            <Route path="/about-us" element={<About />} />
+            <Route path="/how-it-work" element={<HowItWork />} />
+            <Route path="/benifits" element={<Benifits />} />
+            <Route path="/review" element={<Review />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/order" element={<Orderpage />} />
+            <Route path="/orders" element={<OrderNew />} />
+            <Route path="/account" element={<UserDashboard />} />
+          </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
+    </>
   );
 };
 

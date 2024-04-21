@@ -7,12 +7,11 @@ import OtpInput from "react-otp-input";
 import * as API from "../api/index";
 import moment from "moment-timezone";
 import dateFormat, { masks } from "dateformat";
-import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Select from "react-select";
 import MultipleFileUploader from "./MultipleFileUploader";
 import MyModal from "./MyModal";
-import { MESSAGE } from "../helpers/commonData";
+import { MESSAGE } from "../Admin/helpers/commonData";
 
 import StepOne from "./Order/StepOne";
 import StepTwo from "./Order/StepTwo";
@@ -21,6 +20,7 @@ import StepFour from "./Order/StepFour";
 import StepFive from "./Order/StepFive";
 import StepSixe from "./Order/StepSixe";
 import StepSeven from "./Order/StepSeven";
+import { ToastContainer } from "react-toastify";
 let datepick = "";
 let timepix = "";
 const currentDate = new Date().toISOString().split("T")[0];
@@ -51,17 +51,83 @@ const OrderNew = () => {
   const [stapeFive, setStapeFive] = useState(0);
   const [stapeSix, setStapeSix] = useState(0);
   const [stapeSeven, setStapeSeven] = useState(0);
+  const [subjectOptions, setSubjectOptions] = useState([]);
 
   const commonSubmit1 = () => {
     if (detailsData !== "" && subjectData !== "" && selectedFiles !== "") {
       setStapeStart(2);
       setStapeThree(3);
+    } else {
+      MESSAGE("Please Enter Questions");
     }
   };
-  const commonSubmit2 = () => {
+  const commonSubmit2 = async () => {
     if (emailData !== "") {
       setStapeSix("");
       setStapeStart(2);
+      if (selectedOptionRef === null) {
+      } else {
+        const header = localStorage.getItem("_tokenCode");
+        try {
+          if (location.state?.data === 1) {
+            const reqObj = {
+              type: location.state.data,
+              details: detailsData,
+              subject: subjectData,
+              emailId: emailData,
+              image: selectedFiles.map((p) => {
+                return p.preview;
+              }), //imageData,
+              education: selectedSubject,
+              date: selectedDate,
+              time: selectedTime,
+              wordsCount: pageNumber,
+              duration: getRangeDate,
+            };
+            console.log("reqObj", reqObj);
+            const response = await API.user_assignment(reqObj, header);
+            console.log("responseType1", response);
+            if (response?.data?.success === 1) {
+              setStapeFive("");
+              setStapeSix(6);
+            } else {
+              setStapeFive("");
+              setStapeSix(6);
+            }
+          }
+
+          if (location.state?.data === 2) {
+            const reqObj = {
+              type: location.state.data,
+              details: detailsData,
+              subject: subjectData?.label,
+              emailId: emailData,
+              image: selectedFiles.map((p) => {
+                return p.preview;
+              }),
+              // education: selectedSubject,
+              education: "abc",
+              date: selectedDate,
+              time: selectedTime,
+              wordsCount: 120,
+              duration: getRangeDate,
+            };
+            const response = await API.user_assignment(reqObj, header);
+            console.log("response==================", response);
+            if (response?.data?.success === 1) {
+              console.log(response);
+              setID(response?.data?.data?.id);
+
+              setShowSignUpSection6(false);
+              setShowSignUpSection7(true);
+            } else {
+              setShowSignUpSection6(true);
+              setShowSignUpSection7(false);
+            }
+          }
+        } catch (error) {}
+      }
+    } else {
     }
   };
 
@@ -79,70 +145,8 @@ const OrderNew = () => {
     }
   };
   const commonSubmit5 = async () => {
-    console.log("getRangeDate");
     setStapeFive("");
     setStapeSix(6);
-    if (selectedOptionRef === null) {
-    } else {
-      const header = localStorage.getItem("_tokenCode");
-      try {
-        if (location.state?.data === 1) {
-          const reqObj = {
-            type: location.state.data,
-            details: detailsData,
-            subject: subjectData?.label,
-            emailId: emailData,
-            image: selectedFiles.map((p) => {
-              return p.preview;
-            }), //imageData,
-            education: selectedSubject,
-            date: selectedDate,
-            time: selectedTime,
-            wordsCount: pageNumber,
-            duration: getRangeDate,
-          };
-          const response = await API.user_assignment(reqObj, header);
-          console.log("responseType1", response);
-          if (response?.data?.success === 1) {
-            setStapeFive("");
-            setStapeSix(6);
-          } else {
-            setStapeFive("");
-            setStapeSix(6);
-          }
-        }
-
-        if (location.state?.data === 2) {
-          const reqObj = {
-            type: location.state.data,
-            details: detailsData,
-            subject: subjectData?.label,
-            emailId: emailData,
-            image: selectedFiles.map((p) => {
-              return p.preview;
-            }),
-            // education: selectedSubject,
-            education: "abc",
-            date: selectedDate,
-            time: selectedTime,
-            wordsCount: 120,
-            duration: getRangeDate,
-          };
-          const response = await API.user_assignment(reqObj, header);
-          console.log("response==================", response);
-          if (response?.data?.success === 1) {
-            console.log(response);
-            setID(response?.data?.data?.id);
-
-            setShowSignUpSection6(false);
-            setShowSignUpSection7(true);
-          } else {
-            setShowSignUpSection6(true);
-            setShowSignUpSection7(false);
-          }
-        }
-      } catch (error) {}
-    }
   };
 
   const commonSubmit6 = async () => {
@@ -175,9 +179,7 @@ const OrderNew = () => {
   const [selectedOptionRef, setSelectedOptionRef] = useState(null);
   const [selectedSpaingValue, setSelectedSpaingValue] = useState(null);
   const [selectedFiles, setSelectedFiles] = useState([]);
-
-  console.log("detailsData", detailsData);
-
+  console.log("subjectData", subjectData);
   //duration function and state
 
   const [getRangeDate, setGetRangeDate] = useState(0);
@@ -195,30 +197,6 @@ const OrderNew = () => {
     setQuestionCount(additionalQuestions);
   };
   // -------------
-
-  // selected Option
-  const subjectOptions = [
-    { value: "math", label: "Mathematics" },
-    { value: "science", label: "Science" },
-    { value: "english", label: "English" },
-    { value: "history", label: "History" },
-    { value: "programming", label: "Programming" },
-    { value: "art", label: "Art" },
-    { value: "music", label: "Music" },
-    { value: "physical_education", label: "Physical Education" },
-    { value: "foreign_language", label: "Foreign Language" },
-    { value: "chemistry", label: "Chemistry" },
-    { value: "biology", label: "Biology" },
-    { value: "literature", label: "Literature" },
-    { value: "geography", label: "Geography" },
-    { value: "computer_science", label: "Computer Science" },
-    { value: "economics", label: "Economics" },
-    { value: "psychology", label: "Psychology" },
-    { value: "sociology", label: "Sociology" },
-    { value: "philosophy", label: "Philosophy" },
-    { value: "physical_science", label: "Physical Science" },
-    { value: "political_science", label: "Political Science" },
-  ];
 
   const handleChange = (selectedOption) => {
     setSubjectData(selectedOption);
@@ -348,10 +326,6 @@ const OrderNew = () => {
       setShowSignUpSection6(false);
     }
   };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const dataSubmit = async (e) => {
     e.preventDefault();
@@ -627,8 +601,23 @@ const OrderNew = () => {
       console.log("response", response);
     } catch (error) {}
   };
+
+  const allSubject = async () => {
+    try {
+      const response = await API.all_subject();
+      setSubjectOptions(response.data.data);
+      console.log("response", response);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    allSubject();
+  }, []);
+
   return (
     <>
+      <ToastContainer />
       <section className="Order_section">
         <div className="container">
           {location?.state?.data === 1 ? (
@@ -644,7 +633,7 @@ const OrderNew = () => {
                   setDetailsData={setDetailsData}
                   customStyles={customStyles}
                   subjectOptions={subjectOptions}
-                  subjectData={subjectData}
+                  setSubjectData={setSubjectData}
                   handleChange={handleChange}
                 />
               ) : stapeStart === 20 ? (

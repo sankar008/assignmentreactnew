@@ -18451,7 +18451,7 @@ img {
 .feader_fix {
   position: fixed;
   width: 100%;
-  z-index: 999999;
+  z-index: 9999;
   box-shadow: 0px 0px 19px #9f9f9f;
 }
 .top_icon {
@@ -19380,4 +19380,7 @@ flex-direction: row;
 
 .modal .modal-content {
   margin-top: 166px !important;
+}
+.danger{
+  border-color: red;
 }

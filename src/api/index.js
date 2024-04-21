@@ -77,22 +77,21 @@ export const user_assignment = async (data, header) => {
     const res = await axios.post(url, data, {
       headers: JSON.parse(header),
     });
-    console.log('res---------------', res)
+    console.log("res---------------", res);
     return res;
   } catch (e) {
     return e.response;
   }
 };
 
-
 export const verification_otp = async (data, header) => {
   try {
     const url = c.VERIFICATION;
-    console.log('url', url)
+    console.log("url", url);
     const res = await axios.patch(url, data, {
       headers: JSON.parse(header),
     });
-    console.log('res---------------', res)
+    console.log("res---------------", res);
     return res;
   } catch (e) {
     return e.response;
@@ -105,7 +104,17 @@ export const EDIT_DATE_TIME = async (data, header) => {
     const res = await axios.patch(url, data, {
       headers: JSON.parse(header),
     });
-    console.log('res---------------', res)
+    console.log("res---------------", res);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const all_subject = async () => {
+  try {
+    const url = c.URL + "/subject";
+    const res = await axios.get(url);
     return res;
   } catch (e) {
     return e.response;
