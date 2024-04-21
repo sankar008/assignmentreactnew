@@ -64,26 +64,49 @@ const OrderNew = () => {
   const commonSubmit2 = async () => {
     if (emailData !== "") {
       setStapeSix("");
-      setStapeStart(2);
+      // setStapeStart(2);
       if (selectedOptionRef === null) {
+        const header = localStorage.getItem("_tokenCode");
+        const reqObj = {
+          type: location.state.data,
+          details: detailsData,
+          subject: subjectData,
+          emailId: emailData,
+          image: selectedFiles.map((p) => {
+            return p.preview;
+          }),
+          education: selectedOption,
+          date: selectedDate,
+          time: selectedTime,
+          wordsCount: pageNumber,
+          duration: getRangeDate,
+        };
+        console.log("reqObj222", reqObj);
+        const response = await API.user_assignment(reqObj, header);
+        console.log("response====", response);
+        if (response.data.success === 1) {
+          console.log("heloooo");
+          setStapeFive("");
+          setStapeStart(2);
+        } else {
+        }
       } else {
         const header = localStorage.getItem("_tokenCode");
         try {
-          if (location.state?.data === 1) {
+          if (location.state?.data === 1 || location.state?.data === 3) {
             const reqObj = {
-              type: location.state.data,
+              type: 1,
               details: detailsData,
               subject: subjectData,
               emailId: emailData,
               image: selectedFiles.map((p) => {
                 return p.preview;
-              }), //imageData,
+              }),
               education: selectedOption,
               referencing: selectedOptionRef,
               date: selectedDate,
               time: selectedTime,
               wordsCount: pageNumber,
-              duration: getRangeDate,
             };
             console.log("reqObj", reqObj);
             const response = await API.user_assignment(reqObj, header);
@@ -96,36 +119,7 @@ const OrderNew = () => {
               setStapeFive("");
               setStapeSix(6);
             }
-          }
-
-          if (location.state?.data === 2) {
-            const reqObj = {
-              type: location.state.data,
-              details: detailsData,
-              subject: subjectData?.label,
-              emailId: emailData,
-              image: selectedFiles.map((p) => {
-                return p.preview;
-              }),
-              // education: selectedSubject,
-              education: "abc",
-              date: selectedDate,
-              time: selectedTime,
-              wordsCount: 120,
-              duration: getRangeDate,
-            };
-            const response = await API.user_assignment(reqObj, header);
-            console.log("response==================", response);
-            if (response?.data?.success === 1) {
-              console.log(response);
-              setID(response?.data?.data?.id);
-
-              setShowSignUpSection6(false);
-              setShowSignUpSection7(true);
-            } else {
-              setShowSignUpSection6(true);
-              setShowSignUpSection7(false);
-            }
+          } else {
           }
         } catch (error) {}
       }
@@ -147,7 +141,7 @@ const OrderNew = () => {
     }
   };
   const commonSubmit5 = async () => {
-    if (location?.state?.data === 1) {
+    if (location?.state?.data === 1 || location?.state?.data === 3) {
       if (selectedOptionRef === null) {
         MESSAGE("Please Select Your Referencing Type");
       } else {
@@ -810,14 +804,11 @@ const OrderNew = () => {
                   setDetailsData={setDetailsData}
                   customStyles={customStyles}
                   subjectOptions={subjectOptions}
-                  subjectData={subjectData}
+                  setSubjectData={setSubjectData}
                   handleChange={handleChange}
                 />
               ) : stapeStart === 20 ? (
-                <StepTwo
-                  commonSubmit2={commonSubmit2}
-                  setEmailData={setEmailData}
-                />
+                ""
               ) : stapeThree === 3 ? (
                 <StepThree
                   commonSubmit3={commonSubmit3}
