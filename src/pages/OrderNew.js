@@ -140,20 +140,31 @@ const OrderNew = () => {
 
   const commonSubmit4 = () => {
     if (selectedOption === null) {
-      console.log("Error");
+      MESSAGE("Please Select Your Education Lavel");
     } else {
       setStapeFour("");
       setStapeFive(5);
     }
   };
   const commonSubmit5 = async () => {
-    setStapeFive("");
-    setStapeSix(6);
+    if (location?.state?.data === 1) {
+      if (selectedOptionRef === null) {
+        MESSAGE("Please Select Your Referencing Type");
+      } else {
+        setStapeFive("");
+        setStapeSix(6);
+      }
+    } else {
+      if (getRangeDate === 0) {
+        MESSAGE("Please Select Duration");
+      } else {
+        setStapeFive("");
+        setStapeSix(6);
+      }
+    }
   };
 
   const commonSubmit6 = async () => {
-    setStapeStart("");
-    setStapeSeven(7);
     const header = localStorage.getItem("_tokenCode");
     if (otp) {
       try {
@@ -163,6 +174,13 @@ const OrderNew = () => {
         };
         const response = await API.verification_otp(reqObj, header);
         console.log("SubmitOTPresponse", response);
+        if (response.data.success === 1) {
+          setStapeStart("");
+          setStapeSeven(7);
+          MESSAGE(response.data.message, 1);
+        } else {
+          MESSAGE(response.data.message);
+        }
       } catch {}
     }
   };
@@ -714,7 +732,7 @@ const OrderNew = () => {
                   setDetailsData={setDetailsData}
                   customStyles={customStyles}
                   subjectOptions={subjectOptions}
-                  subjectData={subjectData}
+                  setSubjectData={setSubjectData}
                   handleChange={handleChange}
                 />
               ) : stapeStart === 20 ? (
