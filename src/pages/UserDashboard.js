@@ -60,13 +60,13 @@ const UserDashboard = () => {
               <div class="image">
                 <img src="images/resource/user.jpg" alt="" />
               </div>
-              <h4>{userData.name === "" ? "" : userData.name}</h4>
+              <h4>hghjgg</h4>
               <div class="text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod <br /> tempor incididunt ut labore et dolore
               </div>
               <p>
-                <Mail size="25" /> <strong>{userData.emailId}</strong>
+                <Mail size="25" /> <strong>mbmbm</strong>
               </p>
             </div>
             <div className="userDashborad">

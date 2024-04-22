@@ -54,17 +54,29 @@ const OrderNew = () => {
   const [subjectOptions, setSubjectOptions] = useState([]);
 
   const commonSubmit1 = () => {
-    if (detailsData !== "" && subjectData !== "" && selectedFiles !== "") {
+    console.log("selectedFiles", selectedFiles);
+    if (
+      detailsData === "" ||
+      subjectData === "" ||
+      selectedFiles.length === 0
+    ) {
+      MESSAGE(
+        selectedFiles.length === 0
+          ? "Please Upload File Here "
+          : detailsData === ""
+          ? " Please Enter Questions"
+          : subjectData === ""
+          ? "Please Enter Subject"
+          : ""
+      );
+    } else {
       setStapeStart(2);
       setStapeThree(3);
-    } else {
-      MESSAGE("Please Enter Questions");
     }
   };
   const commonSubmit2 = async () => {
     if (emailData !== "") {
       setStapeSix("");
-      // setStapeStart(2);
       if (selectedOptionRef === null) {
         const header = localStorage.getItem("_tokenCode");
         const reqObj = {
@@ -124,6 +136,7 @@ const OrderNew = () => {
         } catch (error) {}
       }
     } else {
+      MESSAGE("Please Enter Your Email id");
     }
   };
 
@@ -708,6 +721,8 @@ const OrderNew = () => {
                   handleClose={handleClose}
                   selectedOption={selectedOption}
                   selectedOptionRef={selectedOptionRef}
+                  wordsCount={wordsCount}
+                  pageNumber={pageNumber}
                 />
               ) : (
                 ""
@@ -848,6 +863,7 @@ const OrderNew = () => {
                 />
               ) : (
                 <StepSeven
+                  pageNumber={pageNumber}
                   pageType={location.state?.data}
                   subjectData={subjectData}
                   selectedDate={selectedDate}

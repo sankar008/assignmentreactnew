@@ -16,6 +16,8 @@ const StepSeven = ({
   pageType,
   selectedOption,
   selectedOptionRef,
+  pageNumber,
+  wordsCount,
 }) => {
   return (
     <>
@@ -36,7 +38,7 @@ const StepSeven = ({
             <div className="flext_liner">
               <span>Start Time</span>
               <span className="sub_fw600">
-                {selectedDate}, {selectedTime}
+                {selectedDate} {selectedTime}
                 <button className="ml-1" onClick={handleShow}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +83,14 @@ const StepSeven = ({
                 </div>
               </>
             ) : (
-              <></>
+              <>
+                <div className="flext_liner">
+                  <span>Word Count</span>
+                  <span className="sub_fw600">
+                    {pageNumber} Pages {wordsCount} Word
+                  </span>
+                </div>
+              </>
             )}
 
             <div className="full_butn">
