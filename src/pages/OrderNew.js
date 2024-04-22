@@ -803,6 +803,8 @@ const OrderNew = () => {
                   handleClose={handleClose}
                   selectedOption={selectedOption}
                   selectedOptionRef={selectedOptionRef}
+                  wordsCount={wordsCount}
+                  pageNumber={pageNumber}
                 />
               )}
             </>
@@ -863,7 +865,6 @@ const OrderNew = () => {
                 />
               ) : (
                 <StepSeven
-                  pageNumber={pageNumber}
                   pageType={location.state?.data}
                   subjectData={subjectData}
                   selectedDate={selectedDate}
@@ -878,6 +879,8 @@ const OrderNew = () => {
                   handleClose={handleClose}
                   selectedOption={selectedOption}
                   selectedOptionRef={selectedOptionRef}
+                  wordsCount={wordsCount}
+                  pageNumber={pageNumber}
                 />
               )}
             </>
