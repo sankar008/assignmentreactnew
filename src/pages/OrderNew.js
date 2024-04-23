@@ -76,7 +76,6 @@ const OrderNew = () => {
   };
   const commonSubmit2 = async () => {
     if (emailData !== "") {
-      setStapeSix("");
       if (selectedOptionRef === null) {
         const header = localStorage.getItem("_tokenCode");
         const reqObj = {
@@ -98,6 +97,7 @@ const OrderNew = () => {
         console.log("response====", response);
         if (response.data.success === 1) {
           console.log("heloooo");
+          setStapeSix("");
           setStapeFive("");
           setStapeStart(2);
         } else {
@@ -124,6 +124,7 @@ const OrderNew = () => {
             const response = await API.user_assignment(reqObj, header);
             console.log("responseType1", response);
             if (response?.data?.success === 1) {
+              setStapeSix("");
               setStapeFive("");
               setStapeStart(2);
               localStorage.setItem("_userId", response.data.data._id);
@@ -139,7 +140,10 @@ const OrderNew = () => {
       MESSAGE("Please Enter Your Email id");
     }
   };
-
+  const resendOpt = async () => {
+    try {
+    } catch (error) {}
+  };
   const commonSubmit3 = () => {
     setStapeThree("");
     setStapeFour(4);
@@ -704,6 +708,7 @@ const OrderNew = () => {
                   commonSubmit6={commonSubmit6}
                   otp={otp}
                   setOtp={setOtp}
+                  resendOpt={resendOpt}
                 />
               ) : stapeSeven === 7 ? (
                 <StepSeven
@@ -786,6 +791,7 @@ const OrderNew = () => {
                   commonSubmit6={commonSubmit6}
                   otp={otp}
                   setOtp={setOtp}
+                  resendOpt={resendOpt}
                 />
               ) : (
                 <StepSeven
@@ -862,6 +868,7 @@ const OrderNew = () => {
                   commonSubmit6={commonSubmit6}
                   otp={otp}
                   setOtp={setOtp}
+                  resendOpt={resendOpt}
                 />
               ) : (
                 <StepSeven

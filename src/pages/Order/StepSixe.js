@@ -1,7 +1,7 @@
 import React from "react";
 import OtpInput from "react-otp-input";
 
-const StepSixe = ({ commonSubmit6, otp, setOtp, emailData }) => {
+const StepSixe = ({ commonSubmit6, otp, setOtp, emailData, resendOpt }) => {
   return (
     <>
       {" "}
@@ -25,10 +25,16 @@ const StepSixe = ({ commonSubmit6, otp, setOtp, emailData }) => {
               renderInput={(props) => <input {...props} />}
             />
 
-            <div className="grup_btn">
+            <div className="grup_btn d-block">
               <button className="btn_one" onClick={commonSubmit6}>
                 Continue
               </button>
+              <span
+                className="btn_onesbtn_ones d-inline font-bold ml-2 text-success"
+                onClick={resendOpt}
+              >
+                Resend Otp
+              </span>
             </div>
             <h4>
               Hire <span className="theme_color">Tutors</span> for your <br />{" "}

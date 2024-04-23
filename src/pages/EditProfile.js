@@ -31,7 +31,7 @@ const EditProfile = ({ formData, setFormData }) => {
               type="text"
               name="name"
               placeholder="Name"
-              value={formData.name}
+              // value={formData.name}
               onChange={handaler}
             />
           </div>
@@ -42,7 +42,7 @@ const EditProfile = ({ formData, setFormData }) => {
               name="emailId"
               readOnly
               placeholder="Email"
-              value={formData.emailId}
+              //  value={formData.emailId}
               onChange={handaler}
             />
           </div>

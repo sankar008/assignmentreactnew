@@ -33,14 +33,14 @@ const OrderList = () => {
           </tr>
         </thead>
         <tbody>
-          {orderData.map((item, index) => (
+          {/* {orderData.map((item, index) => (
             <tr>
               <th scope="row">{index + 1}</th>
               <td>{item.subject}</td>
               <td>{item.details}</td>
               <td>{item.file ? <File /> : ""}</td>
             </tr>
-          ))}
+          ))} */}
         </tbody>
       </table>
     </div>

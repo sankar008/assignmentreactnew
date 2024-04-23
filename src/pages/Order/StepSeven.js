@@ -1,5 +1,6 @@
 import React from "react";
 import MyModal from "../MyModal";
+import { Link } from "react-router-dom";
 
 const StepSeven = ({
   subjectData,
@@ -94,9 +95,9 @@ const StepSeven = ({
             )}
 
             <div className="full_butn">
-              <a href="#">
+              <Link to="/account">
                 <button>Book Now</button>
-              </a>
+              </Link>
             </div>
             <div className="face_img_txt">
               <img src="./images/sad.png"></img>
