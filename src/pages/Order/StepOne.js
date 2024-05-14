@@ -47,7 +47,7 @@ const StepOne = ({
         <div className="col-md-6">
           <div className="file-uploader-wrapper">
             <MultipleFileUploader
-              maxFileCount={3}
+              maxFileCount={15}
               onUpload={handleUpload}
               selectedFiles={selectedFiles}
               setSelectedFiles={setSelectedFiles}

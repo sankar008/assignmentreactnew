@@ -119,3 +119,15 @@ h6 {
 .btn_onesbtn_ones {
   cursor: pointer;
 }
+.file-uploader-wrapper {
+  overflow-y: scroll;
+}
+.filesUpload {
+  width: 100%;
+  height: 50px;
+}
+.rang_value span {
+  font-size: 10px;
+  width: 12px;
+  display: block;
+}

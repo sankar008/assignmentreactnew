@@ -37,7 +37,12 @@ const StepSeven = ({
             </div>
 
             <div className="flext_liner">
-              <span>Start Time</span>
+              {pageType === 2 ? (
+                <span>Session Time</span>
+              ) : (
+                <span>Due Date & Time</span>
+              )}
+
               <span className="sub_fw600">
                 {selectedDate} {selectedTime}
                 <button className="ml-1" onClick={handleShow}>

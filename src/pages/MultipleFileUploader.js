@@ -5,8 +5,6 @@
 // import excelfIcon from '../assets/images/excel.png';
 // import zipIcon from '../assets/images/zip.webp';
 
-
-
 // const MultipleFileUploader = ({ maxFileCount, onUpload, selectedFiles, setSelectedFiles }) => {
 //   // const [selectedFiles, setSelectedFiles] = useState([]);
 
@@ -127,17 +125,23 @@
 
 // export default MultipleFileUploader;
 
+import React, { useState, useEffect } from "react";
+import JSZip from "jszip";
+import pdfIcon from "../assets/images/pdf.webp";
+import docIcon from "../assets/images/doc.png";
+import excelfIcon from "../assets/images/excel.png";
+import zipIcon from "../assets/images/zip.webp";
+import crossIcon2 from "../assets/images/crossIcon.png";
+import crossIcon from "../assets/images/crossIcon.webp";
+import { UploadCloud, UserPlus } from "react-feather";
 
-import React, { useState, useEffect } from 'react';
-import JSZip from 'jszip';
-import pdfIcon from '../assets/images/pdf.webp';
-import docIcon from '../assets/images/doc.png';
-import excelfIcon from '../assets/images/excel.png';
-import zipIcon from '../assets/images/zip.webp';
-import crossIcon2 from '../assets/images/crossIcon.png';
-import crossIcon from '../assets/images/crossIcon.webp';
-
-const MultipleFileUploader = ({ maxFileCount, onUpload, selectedFiles, setSelectedFiles }) => {
+const MultipleFileUploader = ({
+  maxFileCount,
+  onUpload,
+  selectedFiles,
+  setSelectedFiles,
+}) => {
+  console.log("newFiles", selectedFiles);
   const handleFileChange = async (e) => {
     const files = e.target.files;
 
@@ -146,7 +150,9 @@ const MultipleFileUploader = ({ maxFileCount, onUpload, selectedFiles, setSelect
 
     // Check if adding these files exceeds the maximum file count
     if (selectedFiles.length + filesArray.length > maxFileCount) {
-      alert(`Maximum file count exceeded. You can only upload ${maxFileCount} files.`);
+      alert(
+        `Maximum file count exceeded. You can only upload ${maxFileCount} files.`
+      );
       return;
     }
 
@@ -168,8 +174,12 @@ const MultipleFileUploader = ({ maxFileCount, onUpload, selectedFiles, setSelect
 
             reader.onload = (e) => {
               // Convert file data to base64
-              const base64Data = e.target.result.split(',')[1];
-              resolve({ name: file.name, preview: `data:${file.type};base64,${base64Data}`, type: file.type });
+              const base64Data = e.target.result.split(",")[1];
+              resolve({
+                name: file.name,
+                preview: `data:${file.type};base64,${base64Data}`,
+                type: file.type,
+              });
             };
 
             reader.readAsDataURL(file);
@@ -193,23 +203,34 @@ const MultipleFileUploader = ({ maxFileCount, onUpload, selectedFiles, setSelect
     onUpload(selectedFiles);
   }, [selectedFiles, onUpload]);
 
-  const isZip = (file) => file.type === 'application/zip';
+  const isZip = (file) => file.type === "application/zip";
 
   return (
     <div>
-      <input type="file" accept="image/*, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/zip" multiple onChange={handleFileChange} />
+      <label for="filess" className="filesUpload">
+        <input
+          hidden
+          id="filess"
+          type="file"
+          accept="image/*, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/zip"
+          multiple
+          onChange={handleFileChange}
+        />
+        <UploadCloud /> Choose Files{" "}
+        {selectedFiles.length === 0 ? "" : selectedFiles.length}
+      </label>
 
       <div className="mainContainer file-list d-flex flex-wrap">
         {selectedFiles.map((file, index) => (
-
           <div
             key={index}
-            className={`previewViewContainer file-preview border p-2 m-2 ${isZip(file) ? 'zip' : ''}`}
-            style={{ width: '100%', height: '50px' }}
+            className={`previewViewContainer file-preview border p-2 m-2 ${
+              isZip(file) ? "zip" : ""
+            }`}
+            style={{ width: "100%", height: "50px" }}
           >
             {isZip(file) ? (
-
-              <div className=''>
+              <div className="">
                 <div>
                   <p className="fileNameText">Zip File: {file.name}</p>
                   {file.files && (
@@ -221,30 +242,53 @@ const MultipleFileUploader = ({ maxFileCount, onUpload, selectedFiles, setSelect
                   )}
                 </div>
 
-                <div>
-                </div>
+                <div></div>
               </div>
-
             ) : (
               <div className="flexcontainer">
                 {/* File Name:  */}
-                {file.type.startsWith('image') ? (
-                  <img className='previewImages' src={file.preview} alt={`preview-${index}`} />
-                ) : file.type.startsWith('application/pdf') ? (
-                  <img className="pdficon" src={pdfIcon} alt={`pdf-icon-${index}`} />
-                ) : file.type.startsWith('application/msword') ? (
-                  <img className="excelicon" src={docIcon} alt={`word-icon-${index}`} />
-                ) : file.type.startsWith('application/vnd.openxmlformats-officedocument.wordprocessingml.document') ? (
-                  <img className="docicon" src={docIcon} alt={`word-icon-${index}`} />
+                {file.type.startsWith("image") ? (
+                  <img
+                    className="previewImages"
+                    src={file.preview}
+                    alt={`preview-${index}`}
+                  />
+                ) : file.type.startsWith("application/pdf") ? (
+                  <img
+                    className="pdficon"
+                    src={pdfIcon}
+                    alt={`pdf-icon-${index}`}
+                  />
+                ) : file.type.startsWith("application/msword") ? (
+                  <img
+                    className="excelicon"
+                    src={docIcon}
+                    alt={`word-icon-${index}`}
+                  />
+                ) : file.type.startsWith(
+                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  ) ? (
+                  <img
+                    className="docicon"
+                    src={docIcon}
+                    alt={`word-icon-${index}`}
+                  />
                 ) : (
-                  <img className="zipicon" src={zipIcon} alt={`default-icon-${index}`} />
+                  <img
+                    className="zipicon"
+                    src={zipIcon}
+                    alt={`default-icon-${index}`}
+                  />
                 )}
-                <div className='nameContainer'>
+                <div className="nameContainer">
                   <p className="fileNameText">{file.name}</p>
-                  <img className='removeButton' src={crossIcon} alt={`cross`} onClick={() => handleRemoveFile(index)}/>
-
+                  <img
+                    className="removeButton"
+                    src={crossIcon}
+                    alt={`cross`}
+                    onClick={() => handleRemoveFile(index)}
+                  />
                 </div>
-              
               </div>
             )}
 
