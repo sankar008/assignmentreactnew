@@ -50,9 +50,7 @@ export const get_order_byId = async (data, header) => {
 export const get_userDetails = async (data, header) => {
   try {
     const url = c.STUDENT + "/" + data;
-    const res = await axios.get(url, {
-      headers: JSON.parse(header),
-    });
+    const res = await axios.get(url);
     return res;
   } catch (e) {
     return e.response;
@@ -88,9 +86,7 @@ export const verification_otp = async (data, header) => {
   try {
     const url = c.VERIFICATION;
     console.log("url", url);
-    const res = await axios.patch(url, data, {
-      headers: JSON.parse(header),
-    });
+    const res = await axios.patch(url, data);
     console.log("res---------------", res);
     return res;
   } catch (e) {

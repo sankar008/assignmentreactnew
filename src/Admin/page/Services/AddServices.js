@@ -16,7 +16,7 @@ const initialData = {
 
 const AddServices = () => {
   const location = useLocation();
-  console.log("location", location);
+  //console.log("location", location);
   const [formData, setFormData] = useState(initialData);
   const [tableData, setTableData] = useState([]);
   const [imageData, setImageData] = useState("");
@@ -48,6 +48,7 @@ const AddServices = () => {
   };
 
   const dataSubmit = async () => {
+    console.log("vghsfshfs'");
     const header = localStorage.getItem("_tokenCode");
     try {
       const reqObj = {
@@ -61,7 +62,6 @@ const AddServices = () => {
       };
       console.log("reqObj", reqObj);
       if (location.state === null) {
-        console.log("hfhfgjhsj");
         const response = await API.add_blog(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {

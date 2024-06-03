@@ -18,8 +18,8 @@ const Blog = () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.all_blog(header);
-      const cataresponse = await API.catagori_listing(header);
-      console.log("response", response);
+      const cataresponse = await API.catagori_listing(header, "1");
+      console.log("response", cataresponse);
       setTableData(response.data.data);
       setBlogCata(cataresponse.data.data);
     } catch (error) {}
@@ -647,7 +647,9 @@ const Blog = () => {
                         <>
                           {blogCata.map((item, index) => (
                             <li key={index}>
-                              <Link to="#">{item.name} (3)</Link>
+                              <Link to="#">
+                                {item.useFor === "1" ? item.name : ""}{" "}
+                              </Link>
                             </li>
                           ))}
                         </>

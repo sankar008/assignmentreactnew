@@ -96,6 +96,8 @@ const OrderNew = () => {
         const response = await API.user_assignment(reqObj, header);
         console.log("response====", response);
         if (response.data.success === 1) {
+          localStorage.setItem("_tokenCode", response.data.tokenCode);
+          localStorage.setItem("_userId", response.data.data._id);
           console.log("heloooo");
           setStapeSix("");
           setStapeFive("");
@@ -128,6 +130,7 @@ const OrderNew = () => {
               setStapeFive("");
               setStapeStart(2);
               localStorage.setItem("_userId", response.data.data._id);
+              localStorage.setItem("_tokenCode", response.data.tokenCode);
             } else {
               setStapeFive("");
               setStapeSix(6);
@@ -183,7 +186,7 @@ const OrderNew = () => {
           emailId: emailData,
           otp: otp,
         };
-        const response = await API.verification_otp(reqObj, header);
+        const response = await API.verification_otp(reqObj);
         console.log("SubmitOTPresponse", response);
         if (response.data.success === 1) {
           setStapeStart("");

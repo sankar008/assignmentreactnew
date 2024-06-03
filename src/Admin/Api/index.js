@@ -66,6 +66,7 @@ export const edit_categoris = async (data, header, apiType) => {
   }
 };
 export const catagori_listing = async (header, apiType) => {
+  console.log("apiType", apiType);
   try {
     const url = apiType === "1" ? c.BLOG_CATEGORY : c.SUB_CATEGORY;
     const res = await axios.get(url, {

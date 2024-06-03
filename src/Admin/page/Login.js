@@ -22,17 +22,6 @@ const Login = ({ isLogin, setIsLogin }) => {
 
   //? LOGIN SUBMIT BUTTON
   const loginSubmit = async () => {
-    toast("bhmbhm", {
-      position: "top-right",
-      autoClose: 5000,
-      type: "error",
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
     setLoading(true);
     let flag = validate();
     if (!flag) {

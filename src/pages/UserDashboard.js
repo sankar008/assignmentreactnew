@@ -15,14 +15,14 @@ const UserDashboard = () => {
   const [formData, setFormData] = useState(initialData);
   const user_details_by = async () => {
     const header = localStorage.getItem("_tokenCode");
+    console.log("header", header);
     try {
       const response = await API.get_userDetails(
-        localStorage.getItem("_userId"),
-        header
+        localStorage.getItem("_userId")
       );
+      console.log("response", response);
       setUserData(response.data.data);
       setFormData(response.data.data);
-      console.log("response", response);
     } catch (error) {}
   };
   useEffect(() => {

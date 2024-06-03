@@ -22,6 +22,8 @@ const AddBlog = () => {
   const [editorData, setEditorData] = useState("");
   const navigate = useNavigate();
 
+  console.log("tableData", tableData);
+
   const imageUploading = (e) => {
     let images = e.target.files[0];
     var reader = new FileReader();
@@ -34,8 +36,11 @@ const AddBlog = () => {
   const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const response = await API.catagori_listing(header);
-      setTableData(response.data.data);
+      const response = await API.catagori_listing(header, "1");
+      console.log("response", response);
+      const mainData = response.data.data.filter((item) => item.useFor === "1");
+      console.log("mainData", mainData);
+      setTableData(mainData);
       const blog_response = await API.byid_blog(location.state.dataId, header);
       console.log("blog_response", blog_response);
       setFormData(blog_response.data.data[0]);
