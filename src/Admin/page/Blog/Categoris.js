@@ -46,13 +46,11 @@ const Categoris = () => {
     } catch (error) {}
   };
 
-  const openModalSellar = async (sellerId) => {
-    console.log("dfdf");
+  const openModalSellar = async (modalTpp, sellerId) => {
     const header = localStorage.getItem("_tokenCode");
-    // if (sellerId === "1") {
-    //   setMenuFect("");
-    // }
-    setModalStatus(sellerId);
+    console.log("sellerId", sellerId);
+
+    setModalStatus(modalTpp);
     setSellerId(sellerId);
     setOpenModal(true);
     try {
@@ -60,11 +58,7 @@ const Categoris = () => {
       // console.log("Dataresponse", Dataresponse);
       // setTableData(Dataresponse.data.data);
       // ? EDIT TIME SHOW
-      const response = await API.catagori_listing_byid(
-        sellerId,
-        header,
-        showType
-      );
+      const response = await API.catagori_listing_byid(sellerId, header);
       console.log("response", response.data.data);
       setChooseType(response.data.data.categoryId);
       setMenuFect(response.data.data.name);
@@ -72,51 +66,41 @@ const Categoris = () => {
   };
 
   const add_editSellerData = async () => {
-    const header = localStorage.getItem("_tokenCode");
-    try {
+    // ? CATAGORI ADD
+    if (modalStatus === "1") {
+      const header = localStorage.getItem("_tokenCode");
+      try {
+        const reqObj = {
+          name: menuFect,
+          useFor: showType === "1" ? 2 : 1,
+        };
+        console.log("reqObj", reqObj);
+        const response = await API.add_categoris(reqObj, header);
+        console.log("response", response);
+        if (response.data.success === 1) {
+          closeModal();
+          getdetailsData(showType);
+          MESSAGE(response.data.msg, 1);
+          setMenuFect("");
+        }
+      } catch (error) {}
+    } else {
+      const header = localStorage.getItem("_tokenCode");
       const reqObj = {
         name: menuFect,
+        id: sellerId,
         useFor: showType === "1" ? 2 : 1,
       };
       console.log("reqObj", reqObj);
-      const response = await API.add_categoris(reqObj, header);
+      const response = await API.edit_categoris(reqObj, header);
       console.log("response", response);
-      if (response.data.success === 1) {
+      if (response.data.sucess === 1) {
         closeModal();
         getdetailsData(showType);
         MESSAGE(response.data.msg, 1);
         setMenuFect("");
       }
-      // ? CATAGORI ADD
-      // if (modalStatus === "1") {
-
-      // } else {
-      //   const reqObj = {
-      //     name: menuFect,
-      //     id: sellerId,
-      //     useFor: chooseType,
-      //   };
-      //   console.log("reqObj", reqObj);
-      //   const response = await API.edit_categoris(reqObj, header, showType);
-      //   console.log("response", response);
-      //   if (response.data.sucess === 1) {
-      //     closeModal();
-      //     getdetailsData(showType);
-      //     toast(response.data.msg, {
-      //       position: "top-right",
-      //       autoClose: 5000,
-      //       hideProgressBar: false,
-      //       closeOnClick: true,
-      //       pauseOnHover: true,
-      //       draggable: true,
-      //       progress: undefined,
-      //       type: "success",
-      //       theme: "colored",
-      //     });
-      //     setMenuFect("");
-      //   }
-      // }
-    } catch (error) {}
+    }
   };
 
   const closeModal = () => {
@@ -190,7 +174,7 @@ const Categoris = () => {
                   </div>
                   <div className="col-md-1 text-end">
                     <button
-                      onClick={openModalSellar}
+                      onClick={() => openModalSellar("1")}
                       class="btn icon btn-primary"
                     >
                       <i class="bi bi-plus"></i>
@@ -220,11 +204,7 @@ const Categoris = () => {
                             <tr>
                               <th>ID</th>
                               <th>NAME</th>
-                              {/* {showType === "1" ? (
-                                <th>CATEGORY FOR</th>
-                              ) : (
-                                <th>CATEGORY </th>
-                              )} */}
+
                               <th>ACTION</th>
                             </tr>
                           </thead>
@@ -236,15 +216,6 @@ const Categoris = () => {
                                     <tr key={index}>
                                       <td class="text-bold-500">{index + 1}</td>
                                       <td class="text-bold-500">{item.name}</td>
-                                      {/* {showType === "1" ? (
-                                        <td class="text-bold-500">
-                                          {item.useFor === "2"
-                                            ? "Services"
-                                            : "Blogs"}{" "}
-                                        </td>
-                                      ) : (
-                                        <td class="text-bold-500">fdgdf</td>
-                                      )} */}
 
                                       <td>
                                         <div class="buttons">
@@ -261,7 +232,7 @@ const Categoris = () => {
                                           )}
                                           <span
                                             onClick={() =>
-                                              openModalSellar(item._id)
+                                              openModalSellar("2", item._id)
                                             }
                                             class="btn icon btn-primary"
                                           >
@@ -302,13 +273,13 @@ const Categoris = () => {
       <Modal open={openModal} onClose={closeModal}>
         <div class="modal-content editSeller">
           <div class="modal-header">
-            {showType === "1" ? (
+            {modalStatus === "1" ? (
               <h5 class="modal-title" id="exampleModalLabel">
                 Add Categories
               </h5>
             ) : (
               <h5 class="modal-title" id="exampleModalLabel">
-                Add Categories
+                Edit Categories
               </h5>
             )}
           </div>

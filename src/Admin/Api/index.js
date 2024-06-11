@@ -65,9 +65,9 @@ export const add_subcategoris = async (data, header) => {
     return e.response;
   }
 };
-export const edit_categoris = async (data, header, apiType) => {
+export const edit_categoris = async (data, header) => {
   try {
-    const url = apiType === "1" ? c.BLOG_CATEGORY : c.SUB_CATEGORY;
+    const url = c.BLOG_CATEGORY;
     const res = await axios.patch(url, data, {
       headers: JSON.parse(header),
     });
@@ -100,12 +100,9 @@ export const catagori_listing_sub = async (header) => {
     return e.response;
   }
 };
-export const catagori_listing_byid = async (data, header, apiType) => {
+export const catagori_listing_byid = async (data, header) => {
   try {
-    const url =
-      apiType === "1"
-        ? c.BLOG_CATEGORY + "/" + data
-        : c.SUB_CATEGORY + "/" + data;
+    const url = c.BLOG_CATEGORY + "/" + data;
     const res = await axios.get(url, {
       headers: JSON.parse(header),
     });
