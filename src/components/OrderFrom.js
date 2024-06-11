@@ -86,7 +86,7 @@ const OrderFrom = () => {
         emailId: formData.email,
         otp: OTP,
       };
-      const response = await API.user_otp_verifi(reqObj);
+      const response = await API.forgotPassword(reqObj);
       console.log("response", response);
       if (response.data.success === 1) {
         const reqObj = {

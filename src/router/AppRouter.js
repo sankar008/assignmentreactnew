@@ -24,6 +24,7 @@ import ServicesS from "../pages/Services";
 import Signup from "../pages/Signup";
 import UserDashboard from "../pages/UserDashboard";
 import "react-toastify/dist/ReactToastify.css";
+import ForgotPassword from "../pages/ForgotPassword";
 const AppRouter = () => {
   const param = useParams();
   //const location = useLocation();
@@ -42,6 +43,8 @@ const AppRouter = () => {
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<ServicesS />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+
             <Route path="/signup" element={<Signup />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog-details" element={<BlogDetails />} />

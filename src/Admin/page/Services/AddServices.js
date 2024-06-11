@@ -8,9 +8,8 @@ import { async } from "react-input-emoji";
 import { MESSAGE } from "../../../helpers/commonData";
 const initialData = {
   categoryId: "",
-  createdBy: "",
+  subcategoryId: "",
   title: "",
-  shortDes: "",
   description: "",
 };
 
@@ -42,27 +41,31 @@ const AddServices = () => {
     } catch (error) {}
   };
 
-  const handalerChanges = (e) => {
+  const handalerChanges = async (e) => {
     const { name, value } = e.target;
+
+    if (name === "categoryId") {
+      const response = await API.catagoriBySubcatagori(e.target.value);
+      console.log("response", response);
+    }
+
     setFormData({ ...formData, [name]: value });
   };
 
   const dataSubmit = async () => {
-    console.log("vghsfshfs'");
     const header = localStorage.getItem("_tokenCode");
     try {
       const reqObj = {
         categoryId: formData.categoryId,
-        createdBy: localStorage.getItem("_userId"),
+        subcategoryId: formData.categoryId,
         title: formData.title,
-        shortDes: formData.shortDes,
         description: editorData,
         image: imageData,
         id: location.state.dataId,
       };
       console.log("reqObj", reqObj);
       if (location.state === null) {
-        const response = await API.add_blog(reqObj, header);
+        const response = await API.add_services(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {
           navigate("/blog");
@@ -92,7 +95,7 @@ const AddServices = () => {
         <div class="card">
           <div class="card-body">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <div class="form-group">
                   <label for="basicInput">Title</label>
                   <input
@@ -123,6 +126,39 @@ const AddServices = () => {
                   </select>
                 </div>
               </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="basicInput">Sub Categories</label>
+                  <select
+                    class="form-control"
+                    onChange={handalerChanges}
+                    value={formData.subcategoryId}
+                    name="subcategoryId"
+                  >
+                    <option> --- Select --- </option>
+                    {tableData.map((item, index) => (
+                      <option key={index} value={item._id}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="disabledInput">Short Description</label>
+                  <textarea
+                    rows="5"
+                    cols="2"
+                    onChange={handalerChanges}
+                    value={formData.shortDes}
+                    name="shortDes"
+                    class="form-control"
+                    placeholder="Short Description"
+                  ></textarea>
+                </div>
+              </div>
               <div className="col-md-6">
                 <div className="form-group">
                   <label for="basicInput">Upload image</label>
@@ -139,20 +175,6 @@ const AddServices = () => {
                       />
                     </form>
                   </label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="disabledInput">Short Description</label>
-                  <textarea
-                    rows="5"
-                    cols="5"
-                    onChange={handalerChanges}
-                    value={formData.shortDes}
-                    name="shortDes"
-                    class="form-control"
-                    placeholder="Short Description"
-                  ></textarea>
                 </div>
               </div>
               <div className="col-md-12">

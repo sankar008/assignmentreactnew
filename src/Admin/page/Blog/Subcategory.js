@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import * as API from "../../Api/index";
 import Modal from "react-responsive-modal";
 import { toast } from "react-toastify";
 import { ThreeDots } from "react-loader-spinner";
-import { MESSAGE } from "../../../helpers/commonData";
-const Categoris = () => {
+const Subcategory = () => {
+  const location = useLocation();
   const [tableData, setTableData] = useState([]);
   const [tableDataBlog, setTableDataBlog] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -16,21 +16,15 @@ const Categoris = () => {
   const [chooseType, setChooseType] = useState("");
   const [showType, setShow] = useState("1");
 
-  console.log("modalStatus", modalStatus);
-
-  const getdetailsData = async (data) => {
-    setShow(data);
-    console.log("data", data);
+  const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const response = await API.catagori_listing(header, data);
+      const response = await API.catagoriBySubcatagori(
+        location.state.id,
+        header
+      );
       console.log("response", response);
-      const mainData =
-        data === "1"
-          ? response.data.data.filter((item) => item.useFor === "2")
-          : response.data.data.filter((item) => item.useFor === "1");
-      console.log("mainData", mainData);
-      setTableData(mainData);
+      setTableData(response.data.data);
 
       setLoader(response.data.data);
     } catch (error) {}
@@ -39,7 +33,7 @@ const Categoris = () => {
   const menufactheDelete = async (menuFecId) => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const response = await API.categori_delete(menuFecId, header, showType);
+      const response = await API.categori_delete(menuFecId, header);
       if (response.data.success === 1) {
         getdetailsData(showType);
       }
@@ -47,28 +41,27 @@ const Categoris = () => {
   };
 
   const openModalSellar = async (sellerId) => {
-    console.log("dfdf");
-    const header = localStorage.getItem("_tokenCode");
+    // const header = localStorage.getItem("_tokenCode");
     // if (sellerId === "1") {
     //   setMenuFect("");
     // }
     setModalStatus(sellerId);
     setSellerId(sellerId);
     setOpenModal(true);
-    try {
-      // const Dataresponse = await API.catagori_listing_sub(header);
-      // console.log("Dataresponse", Dataresponse);
-      // setTableData(Dataresponse.data.data);
-      // ? EDIT TIME SHOW
-      const response = await API.catagori_listing_byid(
-        sellerId,
-        header,
-        showType
-      );
-      console.log("response", response.data.data);
-      setChooseType(response.data.data.categoryId);
-      setMenuFect(response.data.data.name);
-    } catch (error) {}
+    // try {
+    //   const Dataresponse = await API.catagori_listing_sub(header);
+    //   console.log("Dataresponse", Dataresponse);
+    //   setTableData(Dataresponse.data.data);
+    //   // ? EDIT TIME SHOW
+    //   const response = await API.catagori_listing_byid(
+    //     sellerId,
+    //     header,
+    //     showType
+    //   );
+    //   console.log("response", response.data.data);
+    //   setChooseType(response.data.data.categoryId);
+    //   setMenuFect(response.data.data.name);
+    //} catch (error) {}
   };
 
   const add_editSellerData = async () => {
@@ -76,15 +69,25 @@ const Categoris = () => {
     try {
       const reqObj = {
         name: menuFect,
-        useFor: showType === "1" ? 2 : 1,
+        categoryId: location.state.id,
       };
       console.log("reqObj", reqObj);
-      const response = await API.add_categoris(reqObj, header);
+      const response = await API.add_subcategoris(reqObj, header);
       console.log("response", response);
       if (response.data.success === 1) {
         closeModal();
         getdetailsData(showType);
-        MESSAGE(response.data.msg, 1);
+        toast(response.data.msg, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          type: "success",
+          theme: "colored",
+        });
         setMenuFect("");
       }
       // ? CATAGORI ADD
@@ -124,45 +127,13 @@ const Categoris = () => {
   };
 
   useEffect(() => {
-    getdetailsData("1");
+    getdetailsData();
   }, []);
 
   return (
     <>
       <section class="section">
         <div class="card">
-          <ul class="nav nav-tabs customTab" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active"
-                id="home-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#home"
-                type="button"
-                role="tab"
-                aria-controls="home"
-                aria-selected="true"
-                onClick={() => getdetailsData("1")}
-              >
-                Services Category
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="profile-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#profile"
-                type="button"
-                role="tab"
-                aria-controls="profile"
-                aria-selected="false"
-                onClick={() => getdetailsData("2")}
-              >
-                Blog Category
-              </button>
-            </li>
-          </ul>
           <div class="tab-content" id="myTabContent">
             <div
               class="tab-pane fade show active"
@@ -172,8 +143,8 @@ const Categoris = () => {
             >
               <div class="card-header">
                 <div className="row">
-                  <div className="col-md-11">
-                    <h4 class="card-title">All Categories</h4>
+                  <div className="col-md-10">
+                    <h4 class="card-title">All Sub Categories</h4>
                   </div>
                   <div className="col-md-4 d-none">
                     <div class="form-group position-relative has-icon-right">
@@ -187,6 +158,11 @@ const Categoris = () => {
                         <i class="bi bi-search"></i>
                       </div>
                     </div>
+                  </div>
+                  <div className="col-md-1 text-end">
+                    <Link to="/categories" class="btn icon btn-primary">
+                      Back
+                    </Link>
                   </div>
                   <div className="col-md-1 text-end">
                     <button
@@ -248,17 +224,6 @@ const Categoris = () => {
 
                                       <td>
                                         <div class="buttons">
-                                          {showType === "1" ? (
-                                            <Link
-                                              state={{ id: item._id }}
-                                              to="/sub-category"
-                                              class="btn icon btn-info"
-                                            >
-                                              Show Sub Category
-                                            </Link>
-                                          ) : (
-                                            ""
-                                          )}
                                           <span
                                             onClick={() =>
                                               openModalSellar(item._id)
@@ -304,11 +269,11 @@ const Categoris = () => {
           <div class="modal-header">
             {showType === "1" ? (
               <h5 class="modal-title" id="exampleModalLabel">
-                Add Categories
+                Add Sub Category
               </h5>
             ) : (
               <h5 class="modal-title" id="exampleModalLabel">
-                Add Categories
+                Add Sub Category
               </h5>
             )}
           </div>
@@ -339,4 +304,4 @@ const Categoris = () => {
   );
 };
 
-export default Categoris;
+export default Subcategory;

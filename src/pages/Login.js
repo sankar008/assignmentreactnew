@@ -1,7 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import * as API from "../api/index";
+import { MESSAGE } from "../helpers/commonData";
 const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [passwordNew, setPasswordNew] = useState("");
+  const dataSubmit = async () => {
+    if (email && passwordNew) {
+      try {
+        const reqObj = {
+          emailId: email,
+          password: passwordNew,
+        };
+        const response = await API.user_login(reqObj);
+        console.log("response", response);
+        if (response.data.success === 1) {
+          navigate("/account");
+          MESSAGE(response.data.msg, 1);
+        } else {
+          MESSAGE(response.data.message);
+        }
+      } catch (error) {}
+    } else {
+      if (email) {
+      } else {
+        MESSAGE("Please Enter Email id");
+      }
+      if (passwordNew) {
+      } else {
+        MESSAGE("Please Enter Password");
+      }
+    }
+  };
+
   return (
     <>
       <div className="loginPage">
@@ -20,6 +52,7 @@ const Login = () => {
                       name="email"
                       placeholder="Email"
                       required=""
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div class="form-group">
@@ -28,15 +61,19 @@ const Login = () => {
                       name="password"
                       placeholder="Password"
                       required=""
+                      onChange={(e) => setPasswordNew(e.target.value)}
                     />
                   </div>
                   <div class="btn-box">
-                    <div class="btn-style-two theme-btn w-75">
+                    <div
+                      onClick={dataSubmit}
+                      class="btn-style-two theme-btn w-75"
+                    >
                       <span class="txt">Login</span>
                     </div>
                   </div>
                   <p>
-                    <Link className="text-danger" to="/login">
+                    <Link className="text-danger" to="/forgot-password">
                       Forgot password
                     </Link>
                   </p>

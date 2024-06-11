@@ -45,7 +45,7 @@ const ServicesList = () => {
             </div>
             <div className="col-md-2 text-end">
               <Link to="/categories" class="btn icon btn-primary">
-                Blog categories
+                Add Categories
               </Link>
             </div>
           </div>
@@ -54,7 +54,7 @@ const ServicesList = () => {
           <div class="card-header">
             <div className="row">
               <div className="col-md-11">
-                <h4 class="card-title">Blog list</h4>
+                <h4 class="card-title">Services list</h4>
               </div>
               <div className="col-md-4 d-none">
                 <div class="form-group position-relative has-icon-right">

@@ -16,6 +16,7 @@ import Blog from "../page/Blog/Blog";
 import AddBlog from "../page/Blog/AddBlog";
 import AddServices from "../page/Services/AddServices";
 import ServicesList from "../page/Services/ServicesList";
+import Subcategory from "../page/Blog/Subcategory";
 const AdminRoute = () => {
   const [notification, setNotification] = useState([]);
   const socket = io(SOCEKT);
@@ -75,6 +76,7 @@ const AdminRoute = () => {
                 <Route path="/table" element={<Table />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/categories" element={<Categoris />} />
+                <Route path="/sub-category" element={<Subcategory />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/add" element={<AddBlog />} />
                 <Route path="/blog/edit" element={<AddBlog />} />

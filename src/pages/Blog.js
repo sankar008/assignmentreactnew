@@ -160,12 +160,12 @@ const Blog = () => {
                                     )}
                                   </a>
                                 </li>
-                                <li>
+                                {/* <li>
                                   <a href="#">
                                     <span class="icon fa fa-bookmark-o"></span>
                                     {tableData[0].categories.name}
                                   </a>
-                                </li>
+                                </li> */}
                               </ul>
                               <h2 class="fa-2x">
                                 <Link to="/blog-details">

@@ -43,9 +43,20 @@ export const reset_password_buyer = async (data) => {
   }
 };
 
-export const add_categoris = async (data, header, apiType) => {
+export const add_categoris = async (data, header) => {
   try {
-    const url = apiType === "1" ? c.BLOG_CATEGORY : c.SUB_CATEGORY;
+    const url = c.BLOG_CATEGORY;
+    const res = await axios.post(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+export const add_subcategoris = async (data, header) => {
+  try {
+    const url = c.SUB_CATEGORY;
     const res = await axios.post(url, data, {
       headers: JSON.parse(header),
     });
@@ -68,7 +79,7 @@ export const edit_categoris = async (data, header, apiType) => {
 export const catagori_listing = async (header, apiType) => {
   console.log("apiType", apiType);
   try {
-    const url = apiType === "1" ? c.BLOG_CATEGORY : c.SUB_CATEGORY;
+    const url = c.BLOG_CATEGORY;
     const res = await axios.get(url, {
       headers: JSON.parse(header),
     });
@@ -199,6 +210,24 @@ export const all_services = async (header) => {
     const res = await axios.get(url, {
       headers: JSON.parse(header),
     });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+export const add_services = async (data) => {
+  try {
+    const url = c.URL + "/service";
+    const res = await axios.get(url, data);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+export const catagoriBySubcatagori = async (data) => {
+  try {
+    const url = c.URL + "/subcategory/category/" + data;
+    const res = await axios.get(url);
     return res;
   } catch (e) {
     return e.response;

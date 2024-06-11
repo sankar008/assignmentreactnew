@@ -13,9 +13,29 @@ export const user_registration = async (data) => {
   }
 };
 
-export const user_otp_verifi = async (data) => {
+export const user_login = async (data) => {
   try {
-    const url = c.STUDENT + "/opt/verification";
+    const url = c.STUDENT + "/login";
+    const res = await axios.post(url, data);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const forgotPassword = async (data) => {
+  try {
+    const url = c.STUDENT + "/forgotpassword/optsend";
+    const res = await axios.patch(url, data);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const newPassword = async (data) => {
+  try {
+    const url = c.STUDENT + "/opt/reset-password";
     const res = await axios.patch(url, data);
     return res;
   } catch (e) {
@@ -62,7 +82,7 @@ export const user_profile_update = async (data, header) => {
     const res = await axios.patch(url, data, {
       headers: JSON.parse(header),
     });
-    console.log("res", res);
+
     return res;
   } catch (e) {
     return e.response;
@@ -85,9 +105,7 @@ export const user_assignment = async (data, header) => {
 export const verification_otp = async (data, header) => {
   try {
     const url = c.VERIFICATION;
-    console.log("url", url);
     const res = await axios.patch(url, data);
-    console.log("res---------------", res);
     return res;
   } catch (e) {
     return e.response;
