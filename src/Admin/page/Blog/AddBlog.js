@@ -6,6 +6,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as API from "../../Api/index";
 import { async } from "react-input-emoji";
 import { MESSAGE } from "../../../helpers/commonData";
+import { IMG } from "../../Api/constant";
+import { Edit } from "react-feather";
 const initialData = {
   categoryId: "",
   createdBy: "",
@@ -70,7 +72,7 @@ const AddBlog = () => {
         console.log("response", response);
         if (response.data.success === 1) {
           navigate("/blog");
-          MESSAGE(response.data.msg);
+          MESSAGE(response.data.msg, 1);
         }
       } else {
         const reqObj = {
@@ -82,11 +84,12 @@ const AddBlog = () => {
           image: imageData,
           id: location.state.dataId,
         };
+        console.log("reqObj", reqObj);
         const response = await API.edit_blog(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {
           navigate("/blog");
-          MESSAGE(response.data.msg);
+          MESSAGE(response.data.msg, 1);
         }
       }
     } catch (error) {}
@@ -139,8 +142,37 @@ const AddBlog = () => {
                 <div className="form-group">
                   <label for="basicInput">Upload image</label>
                   <label for="file" className="fileUploade">
-                    <div class="icon dripicons dripicons-browser-upload"></div>{" "}
-                    Upload image
+                    {" "}
+                    {imageData ? (
+                      <>
+                        {imageData ? (
+                          <img className="editBlogImg" src={imageData} alt="" />
+                        ) : (
+                          <>
+                            <div class="icon dripicons dripicons-browser-upload"></div>
+                            Upload image
+                          </>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        {formData.image ? (
+                          <>
+                            <Edit />
+                            <img
+                              className="editBlogImg"
+                              src={IMG + formData.image}
+                              alt=""
+                            />
+                          </>
+                        ) : (
+                          <>
+                            <div class="icon dripicons dripicons-browser-upload"></div>
+                            Upload image
+                          </>
+                        )}
+                      </>
+                    )}
                     <form encType="multipart/form-data">
                       <input
                         hidden

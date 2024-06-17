@@ -17540,3 +17540,27 @@ li {
 .imagesSend img {
   width: 100%;
 }
+td{
+  text-align: left;
+   max-height: 3.6em; /* This allows for three lines of text assuming line height of 1.2em */
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.2em; /* Adjust based on your design */
+}
+td div p{
+  text-align: left;
+   max-height: 3.6em; /* This allows for three lines of text assuming line height of 1.2em */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.2em; /* Adjust based on your design */
+}
+th{
+   text-align: left !important;
+}
+.editBlogImg{
+  width: 25%;
+  height: 100%;;
+}

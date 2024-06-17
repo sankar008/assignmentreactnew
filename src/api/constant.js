@@ -12,3 +12,7 @@ export const STUDENT = `${URL}/student`;
 export const ENQIRY = `${URL}/enquiry`;
 export const ASSIGNMENT = `${URL}/assignment`;
 export const VERIFICATION = `${URL}/student/opt/verification`;
+export const BLOG_CATEGORY = `${URL}/category`;
+export const SUB_CATEGORY = `${URL}/subcategory`;
+export const BLOG = `${URL}/blogs`;
+export const SERVICES = `${URL}/service`;

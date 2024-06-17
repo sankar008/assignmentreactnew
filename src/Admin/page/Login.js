@@ -47,7 +47,7 @@ const Login = ({ isLogin, setIsLogin }) => {
         setIsLogin(!isLogin);
         navigate("/author");
       } else {
-        toast(response.data.msg, {
+        toast(response.data.message, {
           position: "top-right",
           autoClose: 5000,
           type: "error",

@@ -43,11 +43,11 @@ const ServicesList = () => {
             <div className="col-md-10">
               <h3>Services List</h3>
             </div>
-            <div className="col-md-2 text-end">
+            {/* <div className="col-md-2 text-end">
               <Link to="/categories" class="btn icon btn-primary">
                 Add Categories
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
         <div class="card">

@@ -144,9 +144,7 @@ export const add_blog = async (data, header) => {
 export const all_blog = async (header) => {
   try {
     const url = c.BLOG;
-    const res = await axios.get(url, {
-      headers: JSON.parse(header),
-    });
+    const res = await axios.get(url);
     return res;
   } catch (e) {
     return e.response;

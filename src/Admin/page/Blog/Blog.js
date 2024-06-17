@@ -53,11 +53,11 @@ const Blog = () => {
             <div className="col-md-10">
               <h3>Manage Blog Data</h3>
             </div>
-            <div className="col-md-2 text-end">
+            {/* <div className="col-md-2 text-end">
               <Link to="/categories" class="btn icon btn-primary">
                 Blog categories
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
         <div class="card">
@@ -124,11 +124,13 @@ const Blog = () => {
                                   <td class="text-bold-500 w-25">
                                     {item.title}{" "}
                                   </td>
-                                  <td class="text-bold-500">
+                                  <td class="text-bold-500 w-25">
                                     {item.category.name}{" "}
                                   </td>
                                   <td class="text-bold-500 w-25">
-                                    {item.shortDes}{" "}
+                                    <div>
+                                      <p> {item.shortDes}</p>
+                                    </div>{" "}
                                   </td>
                                   <td class="text-bold-500 w-25">
                                     <div
@@ -137,9 +139,9 @@ const Blog = () => {
                                       }}
                                     />
                                   </td>
-                                  <td class="text-bold-500 w-75">
+                                  <td class="text-bold-500 w-25">
                                     <img
-                                      className="w-25"
+                                      className="w-25s"
                                       src={IMG + item.image}
                                     />
                                   </td>

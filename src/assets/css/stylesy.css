@@ -137,3 +137,6 @@ h6 {
 .forOtp {
   justify-content: center;
 }
+.sticky-top {
+  z-index: 1 !important;
+}

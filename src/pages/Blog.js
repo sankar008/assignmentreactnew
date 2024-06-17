@@ -5,21 +5,22 @@ import OwlCarousel from "react-owl-carousel";
 import Testimonial from "../components/Testimonial";
 import { useParams } from "react-router";
 import Carousal from "../components/Carousal";
-import * as API from "../Admin/Api/index";
+import * as API from "../api/index";
 import { IMG } from "../api/constant";
 import { Link } from "react-router-dom";
 import moment from "moment-timezone";
 const Blog = () => {
   const param = useParams();
   const [blogCata, setBlogCata] = useState([]);
+  console.log("blogCata", blogCata);
   const [tableData, setTableData] = useState([]);
   console.log("tableData", tableData);
   const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const response = await API.all_blog(header);
-      const cataresponse = await API.catagori_listing(header, "1");
-      console.log("response", cataresponse);
+      const response = await API.all_blog();
+      const cataresponse = await API.catagori_listing();
+      console.log("response", response);
       setTableData(response.data.data);
       setBlogCata(cataresponse.data.data);
     } catch (error) {}
@@ -227,126 +228,32 @@ const Blog = () => {
                   responsiveClass={true}
                   autoplaySpeed={5000}
                 >
-                  <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <a href="#">
-                              <img src="images/resource/news-15.jpg" alt="" />
-                            </a>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <a href="#">
-                                Interior Design Principles and Elements
-                              </a>
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <a href="#">
-                              <img src="images/resource/news-15.jpg" alt="" />
-                            </a>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <a href="#">
-                                Interior Design Principles and Elements
-                              </a>
-                            </h2>
+                  {tableData.length === 0 ? (
+                    "loader..."
+                  ) : (
+                    <>
+                      {tableData.map((item, index) => (
+                        <div class="item">
+                          <div class="blog-classic mt-0">
+                            <div class="news-block-two">
+                              <div class="inner-box">
+                                <div class="image">
+                                  <Link to="#">
+                                    <img src={IMG + item.image} alt="" />
+                                  </Link>
+                                </div>
+                                <div class="lower-content p-2">
+                                  <h2 class="fa">
+                                    <Link to="#">{item.title}</Link>
+                                  </h2>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <a href="#">
-                              <img src="images/resource/news-15.jpg" alt="" />
-                            </a>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <a href="#">
-                                Interior Design Principles and Elements
-                              </a>
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <a href="#">
-                              <img src="images/resource/news-15.jpg" alt="" />
-                            </a>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <a href="#">
-                                Interior Design Principles and Elements
-                              </a>
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <a href="#">
-                              <img src="images/resource/news-15.jpg" alt="" />
-                            </a>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <a href="#">
-                                Interior Design Principles and Elements
-                              </a>
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <a href="#">
-                              <img src="images/resource/news-15.jpg" alt="" />
-                            </a>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <a href="#">
-                                Interior Design Principles and Elements
-                              </a>
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                      ))}
+                    </>
+                  )}
                 </OwlCarousel>
 
                 <OwlCarousel
@@ -359,272 +266,114 @@ const Blog = () => {
                   responsiveClass={true}
                   autoplaySpeed={5000}
                 >
-                  <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <a href="#">
-                              <img src="images/resource/news-15.jpg" alt="" />
-                            </a>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <a href="#">
-                                Interior Design Principles and Elements
-                              </a>
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <a href="#">
-                              <img src="images/resource/news-15.jpg" alt="" />
-                            </a>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <a href="#">
-                                Interior Design Principles and Elements
-                              </a>
-                            </h2>
+                  {tableData.length === 0 ? (
+                    "loader..."
+                  ) : (
+                    <>
+                      {tableData.map((item, index) => (
+                        <div class="item">
+                          <div class="blog-classic mt-0">
+                            <div class="news-block-two">
+                              <div class="inner-box">
+                                <div class="image">
+                                  <Link to="#">
+                                    <img src={IMG + item.image} alt="" />
+                                  </Link>
+                                </div>
+                                <div class="lower-content p-2">
+                                  <h2 class="fa">
+                                    <Link to="#">{item.title}</Link>
+                                  </h2>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <a href="#">
-                              <img src="images/resource/news-15.jpg" alt="" />
-                            </a>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <a href="#">
-                                Interior Design Principles and Elements
-                              </a>
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <a href="#">
-                              <img src="images/resource/news-15.jpg" alt="" />
-                            </a>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <a href="#">
-                                Interior Design Principles and Elements
-                              </a>
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <a href="#">
-                              <img src="images/resource/news-15.jpg" alt="" />
-                            </a>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <a href="#">
-                                Interior Design Principles and Elements
-                              </a>
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <a href="#">
-                              <img src="images/resource/news-15.jpg" alt="" />
-                            </a>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <a href="#">
-                                Interior Design Principles and Elements
-                              </a>
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                      ))}
+                    </>
+                  )}
                 </OwlCarousel>
               </div>
 
               <div class="row">
-                <div class="col-lg-6">
-                  <div class="blog-classic mt-0">
-                    <div class="news-block-two">
-                      <div class="inner-box">
-                        <div class="image">
-                          <Link to="#">
-                            <img src="" />
-                          </Link>
-                        </div>
-                        <div class="lower-content">
-                          <ul class="post-info">
-                            <li>
-                              <Link to="#">
-                                <span class="icon fa fa-user"></span>Admin
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="#">
-                                <span class="icon fa fa-calendar"></span>
-                                Feb 2023
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="#">
-                                <span class="icon fa fa-bookmark-o"></span>
-                              </Link>
-                            </li>
-                          </ul>
-                          <h2 class="fa-2x">
-                            <Link to="#">sfcsfs</Link>
-                          </h2>
-                          <div class="text">sdsdsdaad</div>
-                          <Link to="#" class="learn-more">
-                            Learn More{" "}
-                            <span class="icon flaticon-right-arrow-1"></span>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
                 <div class="col-lg-7">
-                  <div class="blog-classic">
-                    <div class="news-block-two">
-                      <div class="inner-box">
-                        <div class="image">
-                          <a href="#">
-                            <img src="images/resource/news-15.jpg" alt="" />
-                          </a>
-                        </div>
-                        <div class="lower-content">
-                          <ul class="post-info">
-                            <li>
-                              <a href="#">
-                                <span class="icon fa fa-user"></span>Admin
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <span class="icon fa fa-calendar"></span>12 Feb
-                                2023
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <span class="icon fa fa-bookmark-o"></span>
-                                Education, teach , Course
-                              </a>
-                            </li>
-                          </ul>
-                          <h2 class="fa-2x">
-                            <a href="#">
-                              Interior Design Principles and Elements
-                            </a>
-                          </h2>
-                          <div class="text">
-                            Overview Interior Design Principles and Elements,
-                            the best course for you to gain in-depth knowledge
-                            of this topic. Experts and…
+                  {tableData.length === 0 ? (
+                    "loader"
+                  ) : (
+                    <>
+                      <div class="blog-classic">
+                        <div class="news-block-two">
+                          <div class="inner-box">
+                            <div class="image">
+                              <Link to={"/blog-details"}>
+                                <img src={IMG + tableData[0].image} alt="" />
+                              </Link>
+                            </div>
+                            <div class="lower-content">
+                              <ul class="post-info">
+                                <li>
+                                  <a href="#">
+                                    <span class="icon fa fa-user"></span>Admin
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="icon fa fa-calendar"></span>
+                                    {moment(tableData[0].createdAt).format(
+                                      "MMMM Do YYYY"
+                                    )}
+                                  </a>
+                                </li>
+                                {/* <li>
+                                  <a href="#">
+                                    <span class="icon fa fa-bookmark-o"></span>
+                                    {tableData[0].categories.name}
+                                  </a>
+                                </li> */}
+                              </ul>
+                              <h2 class="fa-2x">
+                                <Link to="/blog-details">
+                                  {tableData[0].title}
+                                </Link>
+                              </h2>
+                              <div class="text">{tableData[0].shortDes}</div>
+                              <Link to="/blog-details" class="learn-more">
+                                Learn More{" "}
+                                <span class="icon flaticon-right-arrow-1"></span>
+                              </Link>
+                            </div>
                           </div>
-                          <a href="#" class="learn-more">
-                            Learn More{" "}
-                            <span class="icon flaticon-right-arrow-1"></span>
-                          </a>
                         </div>
                       </div>
-                    </div>
-                  </div>
+                    </>
+                  )}
                 </div>
                 <div class="col-lg-5 sidebar">
                   <div class="sidebar-widget innerSidebar popular-posts">
                     <div class="widget-content">
-                      <article class="post">
-                        <figure class="post-thumb">
-                          <img src="images/resource/post-thumb-3.jpg" alt="" />
-                          <a href="#" class="overlay-box">
-                            <span class="icon fa fa-link"></span>
-                          </a>
-                        </figure>
-                        <div class="text">
-                          <a href="#">Is Baking a Good career? 15 Reasons </a>
-                        </div>
-                        <div class="post-info">Admin, 10 Feb 2023</div>
-                      </article>
-                      <article class="post">
-                        <figure class="post-thumb">
-                          <img src="images/resource/post-thumb-4.jpg" alt="" />
-                          <a href="#" class="overlay-box">
-                            <span class="icon fa fa-link"></span>
-                          </a>
-                        </figure>
-                        <div class="text">
-                          <a href="#">Is Baking a Good career? 15 Reasons </a>
-                        </div>
-                        <div class="post-info">Admin, 10 Feb 2023</div>
-                      </article>
-                      <article class="post">
-                        <figure class="post-thumb">
-                          <img src="images/resource/post-thumb-5.jpg" alt="" />
-                          <a href="#" class="overlay-box">
-                            <span class="icon fa fa-link"></span>
-                          </a>
-                        </figure>
-                        <div class="text">
-                          <a href="#">Is Baking a Good career? 15 Reasons </a>
-                        </div>
-                        <div class="post-info">Admin, 10 Feb 2023</div>
-                      </article>
-                      <article class="post">
-                        <figure class="post-thumb">
-                          <img src="images/resource/post-thumb-4.jpg" alt="" />
-                          <a href="#" class="overlay-box">
-                            <span class="icon fa fa-link"></span>
-                          </a>
-                        </figure>
-                        <div class="text">
-                          <a href="#">Is Baking a Good career? 15 Reasons </a>
-                        </div>
-                        <div class="post-info">Admin, 10 Feb 2023</div>
-                      </article>
+                      {tableData.length === 0 ? (
+                        "Loader..."
+                      ) : (
+                        <>
+                          {tableData.map((item, index) => (
+                            <article class="post">
+                              <figure class="post-thumb">
+                                <img src={IMG + item.image} alt="" />
+                                <Link to="#" class="overlay-box">
+                                  <span class="icon fa fa-link"></span>
+                                </Link>
+                              </figure>
+                              <div class="text">
+                                <Link to="#">{item.title}</Link>
+                              </div>
+                              <div class="post-info">
+                                Admin,{" "}
+                                {moment(item.createdAt).format("MMMM Do YYYY")}
+                              </div>
+                            </article>
+                          ))}
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>

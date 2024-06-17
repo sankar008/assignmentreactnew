@@ -6,6 +6,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as API from "../../Api/index";
 import { async } from "react-input-emoji";
 import { MESSAGE } from "../../../helpers/commonData";
+import { Edit } from "react-feather";
+import { IMG } from "../../Api/constant";
 const initialData = {
   categoryId: "",
   subcategoryId: "",
@@ -18,6 +20,7 @@ const AddServices = () => {
   //console.log("location", location);
   const [formData, setFormData] = useState(initialData);
   const [tableData, setTableData] = useState([]);
+  const [tableDataSub, setTableDataSub] = useState([]);
   const [imageData, setImageData] = useState("");
   const [editorData, setEditorData] = useState("");
   const navigate = useNavigate();
@@ -35,7 +38,9 @@ const AddServices = () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.catagori_listing(header);
-      setTableData(response.data.data);
+      const mainData = response.data.data.filter((item) => item.useFor === "2");
+      console.log("mainData", mainData);
+      setTableData(mainData);
       const blog_response = await API.byid_blog(location.state.dataId, header);
       setFormData(blog_response.data.data);
     } catch (error) {}
@@ -47,6 +52,7 @@ const AddServices = () => {
     if (name === "categoryId") {
       const response = await API.catagoriBySubcatagori(e.target.value);
       console.log("response", response);
+      setTableDataSub(response.data.data);
     }
 
     setFormData({ ...formData, [name]: value });
@@ -57,18 +63,19 @@ const AddServices = () => {
     try {
       const reqObj = {
         categoryId: formData.categoryId,
-        subcategoryId: formData.categoryId,
+        subcategoryId: formData.subcategoryId,
         title: formData.title,
         description: editorData,
         image: imageData,
-        id: location.state.dataId,
+        //id: location.state.dataId,
+        // createdBy: localStorage.getItem("_userId"),
       };
       console.log("reqObj", reqObj);
       if (location.state === null) {
         const response = await API.add_services(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {
-          navigate("/blog");
+          navigate("/services");
           MESSAGE(response.data.msg);
         }
       } else {
@@ -76,7 +83,7 @@ const AddServices = () => {
         const response = await API.edit_blog(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {
-          navigate("/blog");
+          navigate("/services");
           MESSAGE(response.data.msg);
         }
       }
@@ -90,7 +97,7 @@ const AddServices = () => {
     <>
       <section class="section">
         <div class="page-heading">
-          <h3>{location.state === null ? "Add Services" : "Edit Blog"}</h3>
+          <h3>{location.state === null ? "Add Services" : "Edit  Services"}</h3>
         </div>
         <div class="card">
           <div class="card-body">
@@ -136,7 +143,7 @@ const AddServices = () => {
                     name="subcategoryId"
                   >
                     <option> --- Select --- </option>
-                    {tableData.map((item, index) => (
+                    {tableDataSub.map((item, index) => (
                       <option key={index} value={item._id}>
                         {item.name}
                       </option>
@@ -163,8 +170,36 @@ const AddServices = () => {
                 <div className="form-group">
                   <label for="basicInput">Upload image</label>
                   <label for="file" className="fileUploade">
-                    <div class="icon dripicons dripicons-browser-upload"></div>{" "}
-                    Upload image
+                    {imageData ? (
+                      <>
+                        {imageData ? (
+                          <img className="editBlogImg" src={imageData} alt="" />
+                        ) : (
+                          <>
+                            <div class="icon dripicons dripicons-browser-upload"></div>
+                            Upload image
+                          </>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        {formData.image ? (
+                          <>
+                            <Edit />
+                            <img
+                              className="editBlogImg"
+                              src={IMG + formData.image}
+                              alt=""
+                            />
+                          </>
+                        ) : (
+                          <>
+                            <div class="icon dripicons dripicons-browser-upload"></div>
+                            Upload image
+                          </>
+                        )}
+                      </>
+                    )}
                     <form encType="multipart/form-data">
                       <input
                         hidden

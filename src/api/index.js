@@ -54,7 +54,15 @@ export const add_enquiry = async (data, header) => {
     return e.response;
   }
 };
-
+export const all_blog = async (header) => {
+  try {
+    const url = c.BLOG;
+    const res = await axios.get(url);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
 export const get_order_byId = async (data, header) => {
   try {
     const url = c.ENQIRY + "/" + data + "/student";
@@ -128,6 +136,15 @@ export const EDIT_DATE_TIME = async (data, header) => {
 export const all_subject = async () => {
   try {
     const url = c.URL + "/subject";
+    const res = await axios.get(url);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+export const catagori_listing = async () => {
+  try {
+    const url = c.BLOG_CATEGORY;
     const res = await axios.get(url);
     return res;
   } catch (e) {
