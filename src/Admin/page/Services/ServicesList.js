@@ -136,7 +136,7 @@ const ServicesList = () => {
                                   <td>
                                     <div class="buttons">
                                       <Link
-                                        to="/blog/edit"
+                                        to="/services/edit"
                                         state={{ dataId: item._id }}
                                       >
                                         <span class="btn icon btn-primary">

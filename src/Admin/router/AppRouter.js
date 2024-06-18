@@ -82,6 +82,7 @@ const AdminRoute = () => {
                 <Route path="/blog/edit" element={<AddBlog />} />
                 <Route path="/services" element={<ServicesList />} />
                 <Route path="/services/add" element={<AddServices />} />
+                <Route path="/services/edit" element={<AddServices />} />
               </Routes>
             </div>
           </>

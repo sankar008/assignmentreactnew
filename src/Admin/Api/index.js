@@ -161,6 +161,30 @@ export const byid_blog = async (data, header) => {
     return e.response;
   }
 };
+
+export const byid_services = async (data, header) => {
+  try {
+    const url = c.SERVICES + "/" + data;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const edit_services = async (data, header) => {
+  try {
+    const url = c.SERVICES;
+    const res = await axios.patch(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
 export const edit_blog = async (data, header) => {
   console.log("data", data);
   try {
@@ -213,7 +237,7 @@ export const all_services = async (header) => {
 export const add_services = async (data) => {
   try {
     const url = c.URL + "/service";
-    const res = await axios.get(url, data);
+    const res = await axios.post(url, data);
     return res;
   } catch (e) {
     return e.response;

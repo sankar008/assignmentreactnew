@@ -16104,7 +16104,7 @@ body .bi:before {
   margin-left: 100px;
 }
 .sidebar-wrapper {
-  background-color: #fff;
+  background-color: #ff7572;
   bottom: 0;
   height: 100vh;
   overflow-y: auto;
@@ -16112,6 +16112,7 @@ body .bi:before {
   top: 0;
   transition: left 0.5s ease-out;
   width: 300px;
+  box-shadow: 0px 0px 19px #565656;
   z-index: 10;
 }
 .sidebar-wrapper .sidebar-header {
@@ -16151,7 +16152,7 @@ body .bi:before {
 .sidebar-wrapper .menu .sidebar-link {
   align-items: center;
   border-radius: 0.5rem;
-  color: #25396f;
+  color: #ffffff;
   display: block;
   display: flex;
   font-size: 1rem;
@@ -16161,7 +16162,7 @@ body .bi:before {
 }
 .sidebar-wrapper .menu .sidebar-link i,
 .sidebar-wrapper .menu .sidebar-link svg {
-  color: #7c8db5;
+  color: #ffffff;
 }
 .sidebar-wrapper .menu .sidebar-link i:before {
   vertical-align: top;
@@ -16170,7 +16171,7 @@ body .bi:before {
   margin-left: 1rem;
 }
 .sidebar-wrapper .menu .sidebar-link:hover {
-  background-color: #f0f1f5;
+  background-color: #242f58;
 }
 .sidebar-wrapper .menu .sidebar-item {
   list-style: none;
@@ -17540,27 +17541,27 @@ li {
 .imagesSend img {
   width: 100%;
 }
-td{
+td {
   text-align: left;
-   max-height: 3.6em; /* This allows for three lines of text assuming line height of 1.2em */
-    overflow: hidden;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    line-height: 1.2em; /* Adjust based on your design */
+  max-height: 3.6em; /* This allows for three lines of text assuming line height of 1.2em */
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.2em; /* Adjust based on your design */
 }
-td div p{
+td div p {
   text-align: left;
-   max-height: 3.6em; /* This allows for three lines of text assuming line height of 1.2em */
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    line-height: 1.2em; /* Adjust based on your design */
+  max-height: 3.6em; /* This allows for three lines of text assuming line height of 1.2em */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.2em; /* Adjust based on your design */
 }
-th{
-   text-align: left !important;
+th {
+  text-align: left !important;
 }
-.editBlogImg{
+.editBlogImg {
   width: 25%;
-  height: 100%;;
+  height: 100%;
 }

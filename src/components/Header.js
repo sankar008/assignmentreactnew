@@ -30,30 +30,11 @@ const Header = () => {
             <div class="outer-container clearfix">
               <div class="pull-left logo-box">
                 <div class="logo">
-                  <a href="index.html">logo</a>
+                  <a href="#">logo</a>
                 </div>
               </div>
               <div class="nav-outer clearfix">
-                <div class="mobile-nav-toggler" onClick={toggleDrawer}>
-                  <span class="icon flaticon-menu"></span>
-                </div>
                 <nav class="main-menu navbar-expand-md">
-                  <div class="navbar-header">
-                    <button
-                      class="navbar-toggler"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#navbarSupportedContent"
-                      aria-controls="navbarSupportedContent"
-                      aria-expanded="false"
-                      aria-label="Toggle navigation"
-                    >
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                  </div>
-
                   <div
                     class="navbar-collapse collapse clearfix"
                     id="navbarSupportedContent"
@@ -126,36 +107,145 @@ const Header = () => {
                           </div>
                         </div>
                       </li>
-                      <li class="current dropdown">
-                        <NavLink to="/">Home</NavLink>
-                      </li>
-                      <li class="dropdown">
-                        <NavLink to="/how-it-work">How Its Work</NavLink>
-                      </li>
-                      <li class="dropdown dropbtn">
-                        <Link to="#">Services </Link>
+                      <div class="stellarnav">
+                        <ul>
+                          <li class="current dropdown">
+                            <NavLink to="/">Home</NavLink>
+                          </li>
+                          <li class="dropdown">
+                            <NavLink to="/how-it-work">How Its Work</NavLink>
+                          </li>
+                          <li>
+                            <a href="">Services</a>
+                            <ul>
+                              <li>
+                                <a href="#">How deep?</a>
+                                <ul>
+                                  <li>
+                                    <a href="#">Deep</a>
+                                    <ul>
+                                      <li>
+                                        <a href="#">Even deeper</a>
+                                        <ul>
+                                          <li>
+                                            <a href="#">Item</a>
+                                          </li>
+                                          <li>
+                                            <a href="#">Item</a>
+                                          </li>
+                                          <li>
+                                            <a href="#">Item</a>
+                                          </li>
+                                        </ul>
+                                      </li>
+                                      <li>
+                                        <a href="#">Item</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Item</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Item</a>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li>
+                                <a href="#">Item</a>
+                                <ul>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li>
+                                <a href="#">Item</a>
+                                <ul>
+                                  <li>
+                                    <a href="#">Deeper</a>
+                                    <ul>
+                                      <li>
+                                        <a href="#">Item</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Item</a>
+                                      </li>
+                                      <li>
+                                        <a href="#">Item</a>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li>
+                                <a href="#">Here's a very long item.</a>
+                                <ul>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Item</a>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
 
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
-                      </li>
-                      <li class="dropdown">
-                        <Link to="/benifits">Benefits </Link>
-                      </li>
-                      <li class="dropdown">
-                        <Link to="/review">Review</Link>
-                      </li>
-                      <li class="dropdown">
-                        <Link to="/faq">Faq</Link>
-                      </li>
-                      <li class="dropdown ">
-                        <NavLink to="/about-us">About</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/blog">Blog</NavLink>
-                      </li>
+                          <li class="dropdown">
+                            <Link to="/benifits">Benefits </Link>
+                          </li>
+                          <li class="dropdown">
+                            <Link to="/review">Review</Link>
+                          </li>
+                          <li class="dropdown">
+                            <Link to="/faq">Faq</Link>
+                          </li>
+                          <li class="dropdown ">
+                            <NavLink to="/about-us">About</NavLink>
+                          </li>
+                          <li>
+                            <NavLink to="/blog">Blog</NavLink>
+                          </li>
+                        </ul>
+                      </div>
+
                       {/* <li>
                     <a href="contact.html">Contact</a>
                   </li> */}
@@ -171,7 +261,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div class="sticky-header">
+          {/* <div class="sticky-header">
             <div class="auto-container clearfix">
               <div class="logo pull-left">
                 <a href="index.html" title="">
@@ -183,7 +273,7 @@ const Header = () => {
                 <div class="outer-box clearfix"></div>
               </div>
             </div>
-          </div>
+          </div> */}
         </header>
       </div>
       <Drawer

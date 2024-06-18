@@ -202,9 +202,8 @@ const Categoris = () => {
                         <table class="table table-striped mb-0">
                           <thead>
                             <tr>
-                              <th>ID</th>
-                              <th>NAME</th>
-
+                              <th className="w-25">ID</th>
+                              <th className="w-50">NAME</th>
                               <th>ACTION</th>
                             </tr>
                           </thead>

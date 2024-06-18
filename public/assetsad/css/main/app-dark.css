@@ -3751,6 +3751,7 @@ fieldset:disabled .theme-dark .btn {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   margin-bottom: -1px;
+  color: #ffff;
 }
 .theme-dark .nav-tabs .nav-link:focus,
 .theme-dark .nav-tabs .nav-link:hover {
@@ -7869,23 +7870,23 @@ fieldset:disabled .theme-dark .btn {
   justify-content: flex-end;
   align-items: center;
 }
-td{
+td {
   text-align: left;
-   max-height: 3.6em; /* This allows for three lines of text assuming line height of 1.2em */
-    overflow: hidden;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    line-height: 1.2em; /* Adjust based on your design */
+  max-height: 3.6em; /* This allows for three lines of text assuming line height of 1.2em */
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.2em; /* Adjust based on your design */
 }
-td div p{
+td div p {
   text-align: left;
-   max-height: 3.6em; /* This allows for three lines of text assuming line height of 1.2em */
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    line-height: 1.2em; /* Adjust based on your design */
+  max-height: 3.6em; /* This allows for three lines of text assuming line height of 1.2em */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.2em; /* Adjust based on your design */
 }
-th{
+th {
   text-align: left !important;
 }

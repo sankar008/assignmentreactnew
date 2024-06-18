@@ -41,8 +41,12 @@ const AddServices = () => {
       const mainData = response.data.data.filter((item) => item.useFor === "2");
       console.log("mainData", mainData);
       setTableData(mainData);
-      const blog_response = await API.byid_blog(location.state.dataId, header);
-      setFormData(blog_response.data.data);
+      const blog_response = await API.byid_services(
+        location.state.dataId,
+        header
+      );
+      console.log("blog_response", blog_response);
+      setFormData(blog_response.data.data[0]);
     } catch (error) {}
   };
 
@@ -73,14 +77,14 @@ const AddServices = () => {
       console.log("reqObj", reqObj);
       if (location.state === null) {
         const response = await API.add_services(reqObj, header);
-        console.log("response", response);
+        console.log("responseaaaa", response);
         if (response.data.success === 1) {
           navigate("/services");
           MESSAGE(response.data.msg);
         }
       } else {
         console.log("edit");
-        const response = await API.edit_blog(reqObj, header);
+        const response = await API.edit_services(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {
           navigate("/services");
@@ -152,20 +156,6 @@ const AddServices = () => {
                 </div>
               </div>
 
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="disabledInput">Short Description</label>
-                  <textarea
-                    rows="5"
-                    cols="2"
-                    onChange={handalerChanges}
-                    value={formData.shortDes}
-                    name="shortDes"
-                    class="form-control"
-                    placeholder="Short Description"
-                  ></textarea>
-                </div>
-              </div>
               <div className="col-md-6">
                 <div className="form-group">
                   <label for="basicInput">Upload image</label>
