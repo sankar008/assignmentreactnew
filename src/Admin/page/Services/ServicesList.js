@@ -98,7 +98,7 @@ const ServicesList = () => {
                           <th>No.</th>
                           <th>Title</th>
                           <th>Categories</th>
-                          <th>Short description</th>
+                          <th>Sub Category</th>
                           <th>Description</th>
                           <th>Image</th>
                           <th>ACTION</th>
@@ -115,10 +115,10 @@ const ServicesList = () => {
                                     {item.title}{" "}
                                   </td>
                                   <td class="text-bold-500">
-                                    {item.categories.name}{" "}
+                                    {item.category?.name}{" "}
                                   </td>
                                   <td class="text-bold-500 w-25">
-                                    {item.shortDes}{" "}
+                                    {item.subcategory.name}{" "}
                                   </td>
                                   <td class="text-bold-500 w-25">
                                     <div
