@@ -46,7 +46,7 @@ const AddServices = () => {
         header
       );
       console.log("blog_response", blog_response);
-      setFormData(blog_response.data.data[0]);
+      setFormData(blog_response.data.data);
     } catch (error) {}
   };
 

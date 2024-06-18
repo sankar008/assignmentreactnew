@@ -45,7 +45,7 @@ const AdminRoute = () => {
   }, []);
 
   return (
-    <div className={darkMode ? "theme-dark" : ""}>
+    <div className={darkMode ? "theme-dark" : "theme-dark"}>
       <ToastContainer />
       <BrowserRouter>
         {isLogin ? (

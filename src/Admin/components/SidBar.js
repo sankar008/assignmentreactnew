@@ -28,7 +28,7 @@ const SidBar = ({ isOpen, setdarkMode, darkMode }) => {
               logo
             </h5>
           </div>
-          <div class="theme-toggle gap-1  align-items-center mt-2">
+          {/* <div class="theme-toggle gap-1  align-items-center mt-2">
             <label className="switch">
               <input
                 className="form-check-input_them"
@@ -80,7 +80,7 @@ const SidBar = ({ isOpen, setdarkMode, darkMode }) => {
                 </svg>
               )}
             </label>
-          </div>
+          </div> */}
           <div class="sidebar-toggler  x">
             <a href="#" class="sidebar-hide d-xl-none d-block">
               <i class="bi bi-x bi-middle"></i>
