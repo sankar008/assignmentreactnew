@@ -12,7 +12,7 @@ const BlogDetails = () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.all_blog(header);
-      console.log("response", response);
+      //console.log("response", response);
       setTableData(response.data.data);
     } catch (error) {}
   };

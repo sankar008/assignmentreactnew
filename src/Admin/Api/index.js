@@ -223,6 +223,18 @@ export const delete_blog = async (data, header) => {
 
 // ? Services Api
 
+export const delete_services = async (data, header) => {
+  try {
+    const url = c.SERVICES + "/" + data;
+    const res = await axios.delete(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
 export const all_services = async (header) => {
   try {
     const url = c.SERVICES;

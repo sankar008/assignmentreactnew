@@ -12,15 +12,14 @@ import moment from "moment-timezone";
 const Blog = () => {
   const param = useParams();
   const [blogCata, setBlogCata] = useState([]);
-  console.log("blogCata", blogCata);
+
   const [tableData, setTableData] = useState([]);
-  console.log("tableData", tableData);
+
   const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.all_blog();
       const cataresponse = await API.catagori_listing();
-      console.log("response", response);
       setTableData(response.data.data);
       setBlogCata(cataresponse.data.data);
     } catch (error) {}

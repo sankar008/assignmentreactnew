@@ -2,11 +2,20 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-const Header = () => {
+import * as API from "../api/index";
+const Header = ({ tableData }) => {
+  console.log("tableData", tableData);
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropDown, setDropDown] = React.useState(false);
+  const [isMegaMenu, setIsMegaMenu] = React.useState([]);
+
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
+  };
+  const catagoriWisesub = async (data) => {
+    const response = await API.catagoriBySubcatagori(data);
+    console.log("response", response);
+    setIsMegaMenu(response.data.data);
   };
   return (
     <div>
@@ -115,116 +124,25 @@ const Header = () => {
                           <li class="dropdown">
                             <NavLink to="/how-it-work">How Its Work</NavLink>
                           </li>
-                          <li>
-                            <a href="">Services</a>
+                          <li className="has-sub">
+                            <NavLink href="">Services</NavLink>
                             <ul>
-                              <li>
-                                <a href="#">How deep?</a>
-                                <ul>
-                                  <li>
-                                    <a href="#">Deep</a>
-                                    <ul>
-                                      <li>
-                                        <a href="#">Even deeper</a>
-                                        <ul>
-                                          <li>
-                                            <a href="#">Item</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Item</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Item</a>
-                                          </li>
-                                        </ul>
+                              {tableData.map((item, index) => (
+                                <li
+                                  className="has-sub"
+                                  key={index}
+                                  onMouseOver={() => catagoriWisesub(item._id)}
+                                >
+                                  <Link to="#">{item.name}</Link>
+                                  <ul>
+                                    {isMegaMenu.map((secound, index) => (
+                                      <li className="has-sub" key={index}>
+                                        <Link to="#">{secound.name}</Link>
                                       </li>
-                                      <li>
-                                        <a href="#">Item</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Item</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Item</a>
-                                      </li>
-                                    </ul>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li>
-                                <a href="#">Item</a>
-                                <ul>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li>
-                                <a href="#">Item</a>
-                                <ul>
-                                  <li>
-                                    <a href="#">Deeper</a>
-                                    <ul>
-                                      <li>
-                                        <a href="#">Item</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Item</a>
-                                      </li>
-                                      <li>
-                                        <a href="#">Item</a>
-                                      </li>
-                                    </ul>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li>
-                                <a href="#">Here's a very long item.</a>
-                                <ul>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Item</a>
-                                  </li>
-                                </ul>
-                              </li>
+                                    ))}
+                                  </ul>
+                                </li>
+                              ))}
                             </ul>
                           </li>
 

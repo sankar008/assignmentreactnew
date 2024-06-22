@@ -84,6 +84,16 @@ export const get_userDetails = async (data, header) => {
     return e.response;
   }
 };
+
+export const catagoriBySubcatagori = async (data) => {
+  try {
+    const url = c.URL + "/subcategory/category/" + data;
+    const res = await axios.get(url);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
 export const user_profile_update = async (data, header) => {
   try {
     const url = c.STUDENT;

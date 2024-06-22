@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter,
   Route,
@@ -25,11 +25,22 @@ import Signup from "../pages/Signup";
 import UserDashboard from "../pages/UserDashboard";
 import "react-toastify/dist/ReactToastify.css";
 import ForgotPassword from "../pages/ForgotPassword";
+import * as API from "../api/index";
 const AppRouter = () => {
   const param = useParams();
-  //const location = useLocation();
+  const [tableData, setTableData] = useState([]);
+
+  const getdetailsData = async () => {
+    const header = localStorage.getItem("_tokenCode");
+    try {
+      const response = await API.catagori_listing();
+      const mainData = response.data.data.filter((item) => item.useFor === "2");
+      setTableData(mainData);
+    } catch (error) {}
+  };
 
   useEffect(() => {
+    getdetailsData();
     window.scrollTo(0, 0);
   }, []);
 
@@ -37,7 +48,7 @@ const AppRouter = () => {
     <>
       <ToastContainer />
       <BrowserRouter>
-        <Header />
+        <Header tableData={tableData} />
         <div className="mainWarpr">
           <Routes>
             <Route path="/" element={<Home />} />

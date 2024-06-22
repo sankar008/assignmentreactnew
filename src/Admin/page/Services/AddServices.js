@@ -39,7 +39,6 @@ const AddServices = () => {
     try {
       const response = await API.catagori_listing(header);
       const mainData = response.data.data.filter((item) => item.useFor === "2");
-      console.log("mainData", mainData);
       setTableData(mainData);
       const blog_response = await API.byid_services(
         location.state.dataId,
@@ -47,12 +46,17 @@ const AddServices = () => {
       );
       console.log("blog_response", blog_response);
       setFormData(blog_response.data.data);
+      const editSubresponse = await API.catagoriBySubcatagori(
+        blog_response.data.data.categoryId
+      );
+      console.log("editSubresponse", editSubresponse);
+      setTableDataSub(editSubresponse.data.data);
+      //handalerChanges(blog_response.data.data.categoryId);
     } catch (error) {}
   };
 
   const handalerChanges = async (e) => {
     const { name, value } = e.target;
-
     if (name === "categoryId") {
       const response = await API.catagoriBySubcatagori(e.target.value);
       console.log("response", response);
@@ -71,7 +75,7 @@ const AddServices = () => {
         title: formData.title,
         description: editorData,
         image: imageData,
-        //id: location.state.dataId,
+        id: location.state.dataId,
         // createdBy: localStorage.getItem("_userId"),
       };
       console.log("reqObj", reqObj);
@@ -80,7 +84,7 @@ const AddServices = () => {
         console.log("responseaaaa", response);
         if (response.data.success === 1) {
           navigate("/services");
-          MESSAGE(response.data.msg);
+          MESSAGE(response.data.msg, 1);
         }
       } else {
         console.log("edit");
@@ -88,7 +92,7 @@ const AddServices = () => {
         console.log("response", response);
         if (response.data.success === 1) {
           navigate("/services");
-          MESSAGE(response.data.msg);
+          MESSAGE(response.data.msg, 1);
         }
       }
     } catch (error) {}

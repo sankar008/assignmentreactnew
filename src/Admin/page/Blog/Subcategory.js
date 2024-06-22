@@ -204,15 +204,21 @@ const Subcategory = () => {
                               <th>ACTION</th>
                             </tr>
                           </thead>
-                          <tbody>
-                            <>
-                              {tableData.length === 0
-                                ? ""
-                                : tableData.map((item, index) => (
-                                    <tr key={index}>
-                                      <td class="text-bold-500">{index + 1}</td>
-                                      <td class="text-bold-500">{item.name}</td>
-                                      {/* {showType === "1" ? (
+                          {tableData.length === 0 ? (
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <h4>Data Not Found</h4>
+                                </td>
+                              </tr>
+                            </tbody>
+                          ) : (
+                            <tbody>
+                              {tableData.map((item, index) => (
+                                <tr key={index}>
+                                  <td class="text-bold-500">{index + 1}</td>
+                                  <td class="text-bold-500">{item.name}</td>
+                                  {/* {showType === "1" ? (
                                         <td class="text-bold-500">
                                           {item.useFor === "2"
                                             ? "Services"
@@ -222,30 +228,30 @@ const Subcategory = () => {
                                         <td class="text-bold-500">fdgdf</td>
                                       )} */}
 
-                                      <td>
-                                        <div class="buttons">
-                                          <span
-                                            onClick={() =>
-                                              openModalSellar(item._id)
-                                            }
-                                            class="btn icon btn-primary"
-                                          >
-                                            <i class="bi bi-pencil"></i>
-                                          </span>
-                                          <button
-                                            onClick={() =>
-                                              menufactheDelete(item._id)
-                                            }
-                                            class="btn icon btn-danger"
-                                          >
-                                            <i class="bi bi-x"></i>
-                                          </button>
-                                        </div>
-                                      </td>
-                                    </tr>
-                                  ))}
-                            </>
-                          </tbody>
+                                  <td>
+                                    <div class="buttons">
+                                      <span
+                                        onClick={() =>
+                                          openModalSellar(item._id)
+                                        }
+                                        class="btn icon btn-primary"
+                                      >
+                                        <i class="bi bi-pencil"></i>
+                                      </span>
+                                      <button
+                                        onClick={() =>
+                                          menufactheDelete(item._id)
+                                        }
+                                        class="btn icon btn-danger"
+                                      >
+                                        <i class="bi bi-x"></i>
+                                      </button>
+                                    </div>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          )}
                         </table>
                       </div>
                     )}

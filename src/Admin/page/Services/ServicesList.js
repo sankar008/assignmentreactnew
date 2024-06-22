@@ -23,9 +23,9 @@ const ServicesList = () => {
   const blogDelet = async (data) => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const response = await API.delete_blog(data, header);
+      const response = await API.delete_services(data, header);
       if (response.data.success === 1) {
-        MESSAGE(response.data.msg);
+        MESSAGE(response.data.msg, 1);
         getdetailsData();
       }
     } catch (error) {}
