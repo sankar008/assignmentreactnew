@@ -70,7 +70,7 @@ const ServicesList = () => {
                 </div>
               </div>
               <div className="col-md-1 text-end">
-                <Link to="/services/add" class="btn icon btn-primary">
+                <Link to="/author/services/add" class="btn icon btn-primary">
                   <i class="bi bi-plus"></i>
                 </Link>
               </div>
@@ -136,7 +136,7 @@ const ServicesList = () => {
                                   <td>
                                     <div class="buttons">
                                       <Link
-                                        to="/services/edit"
+                                        to="/author/services/edit"
                                         state={{ dataId: item._id }}
                                       >
                                         <span class="btn icon btn-primary">

@@ -96,7 +96,7 @@ const SidBar = ({ isOpen, setdarkMode, darkMode }) => {
           <ul class="menu">
             <li class="sidebar-title">Menu</li>
             <li class="sidebar-item">
-              <NavLink to="/dashboard" className="sidebar-link">
+              <NavLink to="/author/dashboard" className="sidebar-link">
                 <i class="bi bi-grid-fill"></i>
                 <span>Dashboard</span>
               </NavLink>
@@ -108,13 +108,13 @@ const SidBar = ({ isOpen, setdarkMode, darkMode }) => {
               </NavLink>
             </li> */}
             <li class="sidebar-item">
-              <NavLink to="/categories" className="sidebar-link">
+              <NavLink to="/author/categories" className="sidebar-link">
                 <i class="bi bi-stack"></i>
                 <span>Manage Categories</span>
               </NavLink>
             </li>
             <li class="sidebar-item">
-              <NavLink to="/services" className="sidebar-link">
+              <NavLink to="/author/services" className="sidebar-link">
                 <i class="bi bi-person-fill"></i>
                 <span>Services</span>
               </NavLink>
@@ -168,7 +168,7 @@ const SidBar = ({ isOpen, setdarkMode, darkMode }) => {
               </NavLink>
             </li> */}
             <li class="sidebar-item">
-              <NavLink to="/blog" className="sidebar-link">
+              <NavLink to="/author/blog" className="sidebar-link">
                 <i class="bi bi-collection-fill"></i>
                 <span>Manage blog </span>
               </NavLink>

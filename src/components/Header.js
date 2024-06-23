@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import * as API from "../api/index";
 const Header = ({ tableData }) => {
-  console.log("tableData", tableData);
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropDown, setDropDown] = React.useState(false);
   const [isMegaMenu, setIsMegaMenu] = React.useState([]);
@@ -17,6 +16,30 @@ const Header = ({ tableData }) => {
     console.log("response", response);
     setIsMegaMenu(response.data.data);
   };
+
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    // const mm = new Mmenu(menuRef.current, {
+    //   extensions: ["theme-dark", "pagedim-black"],
+    //   setSelected: true,
+    //   counters: true,
+    //   iconPanels: true,
+    //   navbars: [
+    //     {
+    //       position: "top",
+    //       content: ["searchfield"],
+    //     },
+    //     {
+    //       position: "top",
+    //       content: ["prev", "title", "close"],
+    //     },
+    //   ],
+    // });
+    // return () => {
+    //   mm.API.close();
+    // };
+  }, []);
   return (
     <div>
       <div className="freeQuot">

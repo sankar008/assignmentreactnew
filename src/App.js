@@ -21,6 +21,15 @@ function App() {
   console.log("window.location.pathname", localStorage.getItem("_adminRoute"));
 
   useEffect(() => {
+    // if (window.location.pathname === "/author") {
+    //   localStorage.setItem("_adminRoute", "1");
+    // } else if (window.location.pathname === "/") {
+    //   localStorage.removeItem("_adminRoute");
+    // }
+
+    // const adminRoute = localStorage.getItem("_adminRoute");
+    // setIsAdmin(adminRoute === "1");
+
     const script = document.createElement("script");
     script.src = "/assetsad/css/main/stellarnav.min.js";
     console.log(" script.src", script.src);
@@ -37,6 +46,7 @@ function App() {
   }, []);
   return (
     <>
+      {/* {isAdmin ? <AdminRoute /> : <AppRouter />} */}
       {localStorage.getItem("_adminRoute") === "1" ? (
         <>
           <AdminRoute />

@@ -45,7 +45,7 @@ const Login = ({ isLogin, setIsLogin }) => {
         };
         localStorage.setItem("_tokenCode", JSON.stringify(headerObj));
         setIsLogin(!isLogin);
-        navigate("/author");
+        navigate("/author/dashboard");
       } else {
         toast(response.data.message, {
           position: "top-right",

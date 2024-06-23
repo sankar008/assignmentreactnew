@@ -83,7 +83,7 @@ const AddServices = () => {
         const response = await API.add_services(reqObj, header);
         console.log("responseaaaa", response);
         if (response.data.success === 1) {
-          navigate("/services");
+          navigate("/author/services");
           MESSAGE(response.data.msg, 1);
         }
       } else {
@@ -91,7 +91,7 @@ const AddServices = () => {
         const response = await API.edit_services(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {
-          navigate("/services");
+          navigate("/author/services");
           MESSAGE(response.data.msg, 1);
         }
       }

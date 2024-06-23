@@ -71,7 +71,7 @@ const AddBlog = () => {
         const response = await API.add_blog(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {
-          navigate("/blog");
+          navigate("/author/blog");
           MESSAGE(response.data.msg, 1);
         }
       } else {
@@ -88,7 +88,7 @@ const AddBlog = () => {
         const response = await API.edit_blog(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {
-          navigate("/blog");
+          navigate("/author/blog");
           MESSAGE(response.data.msg, 1);
         }
       }

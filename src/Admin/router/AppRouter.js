@@ -66,23 +66,23 @@ const AdminRoute = () => {
               </header>
               <Routes>
                 <Route
-                  path="/dashboard"
+                  path="/author/dashboard"
                   element={<Base setIsLogin={setIsLogin} />}
                 />
                 <Route
-                  path="/author"
+                  path="/author/dashboard"
                   element={<Base setIsLogin={setIsLogin} />}
                 />
-                <Route path="/table" element={<Table />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/categories" element={<Categoris />} />
-                <Route path="/sub-category" element={<Subcategory />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/add" element={<AddBlog />} />
-                <Route path="/blog/edit" element={<AddBlog />} />
-                <Route path="/services" element={<ServicesList />} />
-                <Route path="/services/add" element={<AddServices />} />
-                <Route path="/services/edit" element={<AddServices />} />
+                <Route path="/author/table" element={<Table />} />
+                <Route path="/author/profile" element={<Profile />} />
+                <Route path="/author/categories" element={<Categoris />} />
+                <Route path="/author/sub-category" element={<Subcategory />} />
+                <Route path="/author/blog" element={<Blog />} />
+                <Route path="/author/blog/add" element={<AddBlog />} />
+                <Route path="/author/blog/edit" element={<AddBlog />} />
+                <Route path="/author/services" element={<ServicesList />} />
+                <Route path="/author/services/add" element={<AddServices />} />
+                <Route path="/author/services/edit" element={<AddServices />} />
               </Routes>
             </div>
           </>

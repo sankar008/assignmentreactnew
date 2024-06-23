@@ -9,18 +9,20 @@ import * as API from "../api/index";
 import { IMG } from "../api/constant";
 import { Link } from "react-router-dom";
 import moment from "moment-timezone";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 const Blog = () => {
   const param = useParams();
   const [blogCata, setBlogCata] = useState([]);
 
   const [tableData, setTableData] = useState([]);
-
+  console.log("tableData", tableData);
   const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.all_blog();
-      const cataresponse = await API.catagori_listing();
       setTableData(response.data.data);
+      const cataresponse = await API.catagori_listing();
       setBlogCata(cataresponse.data.data);
     } catch (error) {}
   };
@@ -141,7 +143,7 @@ const Blog = () => {
                         <div class="news-block-two">
                           <div class="inner-box">
                             <div class="image">
-                              <Link to={"/blog-details"}>
+                              <Link to={"/#"}>
                                 <img src={IMG + tableData[0].image} alt="" />
                               </Link>
                             </div>
@@ -168,12 +170,10 @@ const Blog = () => {
                                 </li> */}
                               </ul>
                               <h2 class="fa-2x">
-                                <Link to="/blog-details">
-                                  {tableData[0].title}
-                                </Link>
+                                <Link to="/#">{tableData[0].title}</Link>
                               </h2>
                               <div class="text">{tableData[0].shortDes}</div>
-                              <Link to="/blog-details" class="learn-more">
+                              <Link to="/#" class="learn-more">
                                 Learn More{" "}
                                 <span class="icon flaticon-right-arrow-1"></span>
                               </Link>
@@ -218,7 +218,7 @@ const Blog = () => {
                 <h2 className="blogheadding">Tutoritan Categories</h2>
 
                 <OwlCarousel
-                  className="testimonial-carousel desktop_seen"
+                  className="testimonial-carousel"
                   loop
                   margin={10}
                   autoplay={true}
@@ -227,36 +227,48 @@ const Blog = () => {
                   responsiveClass={true}
                   autoplaySpeed={5000}
                 >
-                  {tableData.length === 0 ? (
-                    "loader..."
-                  ) : (
-                    <>
-                      {tableData.map((item, index) => (
-                        <div class="item">
-                          <div class="blog-classic mt-0">
-                            <div class="news-block-two">
-                              <div class="inner-box">
-                                <div class="image">
-                                  <Link to="#">
-                                    <img src={IMG + item.image} alt="" />
-                                  </Link>
-                                </div>
-                                <div class="lower-content p-2">
-                                  <h2 class="fa">
-                                    <Link to="#">{item.title}</Link>
-                                  </h2>
-                                </div>
-                              </div>
+                  {/* <div class="item">
+                    <div class="blog-classic mt-0">
+                      <div class="news-block-two">
+                        <div class="inner-box">
+                          <div class="image">
+                            <Link to="#">
+                              <img src="{IMG + item.image}" alt="" />
+                            </Link>
+                          </div>
+                          <div class="lower-content p-2">
+                            <h2 class="fa">
+                              <Link to="#">dgsdgadgfa</Link>
+                            </h2>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> */}
+                  {tableData.map((item, index) => (
+                    <div class="item" key={index}>
+                      <div class="blog-classic mt-0">
+                        <div class="news-block-two">
+                          <div class="inner-box">
+                            <div class="image">
+                              <Link to="#">
+                                <img src={IMG + item.image} alt="" />
+                              </Link>
+                            </div>
+                            <div class="lower-content p-2">
+                              <h2 class="fa">
+                                <Link to="#">{item.title}</Link>
+                              </h2>
                             </div>
                           </div>
                         </div>
-                      ))}
-                    </>
-                  )}
+                      </div>
+                    </div>
+                  ))}
                 </OwlCarousel>
 
                 <OwlCarousel
-                  className="testimonial-carousel mobile_seen"
+                  className="testimonial-carousel"
                   loop
                   margin={10}
                   autoplay={true}
@@ -265,32 +277,26 @@ const Blog = () => {
                   responsiveClass={true}
                   autoplaySpeed={5000}
                 >
-                  {tableData.length === 0 ? (
-                    "loader..."
-                  ) : (
-                    <>
-                      {tableData.map((item, index) => (
-                        <div class="item">
-                          <div class="blog-classic mt-0">
-                            <div class="news-block-two">
-                              <div class="inner-box">
-                                <div class="image">
-                                  <Link to="#">
-                                    <img src={IMG + item.image} alt="" />
-                                  </Link>
-                                </div>
-                                <div class="lower-content p-2">
-                                  <h2 class="fa">
-                                    <Link to="#">{item.title}</Link>
-                                  </h2>
-                                </div>
-                              </div>
+                  {tableData.map((item, index) => (
+                    <div class="item">
+                      <div class="blog-classic mt-0">
+                        <div class="news-block-two">
+                          <div class="inner-box">
+                            <div class="image">
+                              <Link to="#">
+                                <img src={IMG + item.image} alt="" />
+                              </Link>
+                            </div>
+                            <div class="lower-content p-2">
+                              <h2 class="fa">
+                                <Link to="#">{item.title}</Link>
+                              </h2>
                             </div>
                           </div>
                         </div>
-                      ))}
-                    </>
-                  )}
+                      </div>
+                    </div>
+                  ))}
                 </OwlCarousel>
               </div>
 
@@ -304,7 +310,7 @@ const Blog = () => {
                         <div class="news-block-two">
                           <div class="inner-box">
                             <div class="image">
-                              <Link to={"/blog-details"}>
+                              <Link to={"/#"}>
                                 <img src={IMG + tableData[0].image} alt="" />
                               </Link>
                             </div>
@@ -331,12 +337,10 @@ const Blog = () => {
                                 </li> */}
                               </ul>
                               <h2 class="fa-2x">
-                                <Link to="/blog-details">
-                                  {tableData[0].title}
-                                </Link>
+                                <Link to="/#">{tableData[0].title}</Link>
                               </h2>
                               <div class="text">{tableData[0].shortDes}</div>
-                              <Link to="/blog-details" class="learn-more">
+                              <Link to="/#" class="learn-more">
                                 Learn More{" "}
                                 <span class="icon flaticon-right-arrow-1"></span>
                               </Link>

@@ -80,7 +80,7 @@ const Blog = () => {
                 </div>
               </div>
               <div className="col-md-1 text-end">
-                <Link to="/blog/add" class="btn icon btn-primary">
+                <Link to="/author/blog/add" class="btn icon btn-primary">
                   <i class="bi bi-plus"></i>
                 </Link>
               </div>
@@ -148,7 +148,7 @@ const Blog = () => {
                                   <td>
                                     <div class="buttons">
                                       <Link
-                                        to="/blog/edit"
+                                        to="/author/blog/edit"
                                         state={{ dataId: item._id }}
                                       >
                                         <span class="btn icon btn-primary">
