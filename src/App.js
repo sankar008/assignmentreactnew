@@ -47,7 +47,7 @@ function App() {
   return (
     <>
       {/* {isAdmin ? <AdminRoute /> : <AppRouter />} */}
-      {localStorage.getItem("_adminRoute") === "1" ? (
+      {localStorage.getItem("_adminRoute") == 1 ? (
         <>
           <AdminRoute />
         </>
