@@ -114,10 +114,19 @@ export const catagori_listing_byid = async (data, header) => {
 
 export const categori_delete = async (data, header, apiType) => {
   try {
-    const url =
-      apiType === "1"
-        ? c.BLOG_CATEGORY + "/" + data
-        : c.SUB_CATEGORY + "/" + data;
+    const url = c.BLOG_CATEGORY + "/" + data;
+    const res = await axios.delete(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const subcategori_delete = async (data, header, apiType) => {
+  try {
+    const url = c.SUB_CATEGORY + "/" + data;
     const res = await axios.delete(url, {
       headers: JSON.parse(header),
     });

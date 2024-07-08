@@ -40,8 +40,10 @@ const Categoris = () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.categori_delete(menuFecId, header, showType);
+      console.log("response", response);
       if (response.data.success === 1) {
         getdetailsData(showType);
+        MESSAGE(response.data.msg, 1);
       }
     } catch (error) {}
   };
@@ -221,7 +223,7 @@ const Categoris = () => {
                                           {showType === "1" ? (
                                             <Link
                                               state={{ id: item._id }}
-                                              to="/sub-category"
+                                              to="/author/sub-category"
                                               class="btn icon btn-info"
                                             >
                                               Show Sub Category

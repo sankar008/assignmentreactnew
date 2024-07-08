@@ -67,19 +67,18 @@ const AddServices = () => {
   };
 
   const dataSubmit = async () => {
+    console.log("Add Services");
     const header = localStorage.getItem("_tokenCode");
     try {
-      const reqObj = {
-        categoryId: formData.categoryId,
-        subcategoryId: formData.subcategoryId,
-        title: formData.title,
-        description: editorData,
-        image: imageData,
-        id: location.state.dataId,
-        // createdBy: localStorage.getItem("_userId"),
-      };
-      console.log("reqObj", reqObj);
       if (location.state === null) {
+        const reqObj = {
+          categoryId: formData.categoryId,
+          subcategoryId: formData.subcategoryId,
+          title: formData.title,
+          description: editorData,
+          image: imageData,
+        };
+        console.log("reqObj", reqObj);
         const response = await API.add_services(reqObj, header);
         console.log("responseaaaa", response);
         if (response.data.success === 1) {
@@ -87,7 +86,16 @@ const AddServices = () => {
           MESSAGE(response.data.msg, 1);
         }
       } else {
-        console.log("edit");
+        const reqObj = {
+          categoryId: formData.categoryId,
+          subcategoryId: formData.subcategoryId,
+          title: formData.title,
+          description: editorData,
+          image: imageData,
+          id: location.state.dataId,
+          // createdBy: localStorage.getItem("_userId"),
+        };
+        console.log("reqObj", reqObj);
         const response = await API.edit_services(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {

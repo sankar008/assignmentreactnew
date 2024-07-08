@@ -4,6 +4,7 @@ import * as API from "../../Api/index";
 import Modal from "react-responsive-modal";
 import { toast } from "react-toastify";
 import { ThreeDots } from "react-loader-spinner";
+import { MESSAGE } from "../../helpers/commonData";
 const Subcategory = () => {
   const location = useLocation();
   const [tableData, setTableData] = useState([]);
@@ -33,8 +34,10 @@ const Subcategory = () => {
   const menufactheDelete = async (menuFecId) => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const response = await API.categori_delete(menuFecId, header);
+      const response = await API.subcategori_delete(menuFecId, header);
+      console.log("response", response);
       if (response.data.success === 1) {
+        MESSAGE(response.data.msg, 1);
         getdetailsData(showType);
       }
     } catch (error) {}
@@ -160,7 +163,7 @@ const Subcategory = () => {
                     </div>
                   </div>
                   <div className="col-md-1 text-end">
-                    <Link to="/categories" class="btn icon btn-primary">
+                    <Link to="/author/categories" class="btn icon btn-primary">
                       Back
                     </Link>
                   </div>
@@ -195,7 +198,7 @@ const Subcategory = () => {
                           <thead>
                             <tr>
                               <th>ID</th>
-                              <th>NAME</th>
+                              <th className="w-100">NAME</th>
                               {/* {showType === "1" ? (
                                 <th>CATEGORY FOR</th>
                               ) : (
@@ -217,7 +220,9 @@ const Subcategory = () => {
                               {tableData.map((item, index) => (
                                 <tr key={index}>
                                   <td class="text-bold-500">{index + 1}</td>
-                                  <td class="text-bold-500">{item.name}</td>
+                                  <td class="text-bold-500 w-70">
+                                    {item.name}
+                                  </td>
                                   {/* {showType === "1" ? (
                                         <td class="text-bold-500">
                                           {item.useFor === "2"
@@ -230,14 +235,14 @@ const Subcategory = () => {
 
                                   <td>
                                     <div class="buttons">
-                                      <span
+                                      {/* <span
                                         onClick={() =>
                                           openModalSellar(item._id)
                                         }
                                         class="btn icon btn-primary"
                                       >
                                         <i class="bi bi-pencil"></i>
-                                      </span>
+                                      </span> */}
                                       <button
                                         onClick={() =>
                                           menufactheDelete(item._id)
