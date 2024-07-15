@@ -154,3 +154,243 @@ h6 {
 .main-menu .navigation {
   width: 100%;
 }
+
+/* BLOG DETAILS PAGE  */
+
+.blog-detail {
+  font-size: 1.625rem;
+  color: #2c2c2c;
+  font-weight: 700;
+  padding-top: 15px;
+}
+
+.blog-detail .post-info {
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.blog-detail .post-info .items {
+  padding-right: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.blog-detail .post-info .items a,
+.blog-detail .post-info .items span {
+  font-size: 12px;
+  color: #2c2c2c;
+}
+
+/* .blog-detail .post-info .items a:hover {
+    text-decoration: underline;
+} */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+} */
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+
+.card-body p,
+.table {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.card-body h2 {
+  font-size: 24px;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.blog-detail .table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.blog-detail .table-border {
+  border: 1px solid #dee2e6;
+}
+
+.blog-detail .table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.blog-detail .table-border td,
+.table-border th {
+  border: 1px solid #dee2e6;
+}
+
+.blog-detail img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* img:hover {
+    transform: scale(1.05);
+} */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .blog-detail {
+    font-size: 1.2rem;
+  }
+
+  .blog-detail .post-info .items {
+    padding-right: 20px;
+  }
+
+  .blog-detail .post-info .items a,
+  .blog-detail .post-info .items span {
+    font-size: 10px;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-body h2 {
+    font-size: 1.25rem;
+  }
+
+  .card-body p,
+  .table {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .blog-detail {
+    font-size: 1rem;
+    padding: 5px;
+  }
+
+  .blog-detail .post-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .blog-detail .post-info .items {
+    padding-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .card-body {
+    padding: 0.75rem;
+  }
+
+  .card-body h2 {
+    font-size: 1.1rem;
+  }
+
+  .card-body p,
+  .table {
+    font-size: 12px;
+  }
+}
+
+.author-bio-card-wrapper {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  background: transparent linear-gradient(180deg, #f6f6fa, #f5f6fa 0, #d2e8ff) 0
+    0 no-repeat padding-box;
+  border: 0;
+}
+.text-center {
+  text-align: center !important;
+}
+.table-border td,
+.table-border th {
+  font-size: 16px;
+  border: 1px solid #dee2e6;
+  padding: 0.75rem;
+  font-weight: 500;
+}
+ol li,
+ul li {
+  font-size: 16px;
+}
+ol li,
+ul li {
+  font-weight: 500;
+  font-size: 16px;
+}
+.btn-promotion {
+  background: #f16700;
+  border: none;
+  color: #fff;
+  box-shadow: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s linear;
+}
+.card.promotion-card {
+  background-image: url(https://cdn1.myassignmenthelp.com/seo-revamp-assets/happy-users.svg),
+    linear-gradient(179deg, #f6f6fa, #f5f6fa 0, #d2e8ff);
+  background-position: calc(100% - 30px) center, 0 0;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 110px auto, auto;
+}
+.view a {
+  color: #2c2c2c;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.nav-item {
+  position: relative;
+}
+.nav-link[data-toggle].collapsed:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f078";
+  color: #444444;
+  position: absolute;
+  right: 10px;
+}
+.nav-link[data-toggle]:not(.collapsed):after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f077";
+  color: #444444;
+  position: absolute;
+  right: 10px;
+}
+a.nav-link.collapsed,
+.mymenu {
+  border: 1px solid #aaa;
+}
+.mymenu span {
+  color: #444444;
+}

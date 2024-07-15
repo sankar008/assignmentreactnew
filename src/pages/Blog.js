@@ -143,7 +143,7 @@ const Blog = () => {
                         <div class="news-block-two">
                           <div class="inner-box">
                             <div class="image">
-                              <Link to={"/#"}>
+                              <Link to="/blog-details">
                                 <img src={IMG + tableData[0].image} alt="" />
                               </Link>
                             </div>
@@ -170,10 +170,12 @@ const Blog = () => {
                                 </li> */}
                               </ul>
                               <h2 class="fa-2x">
-                                <Link to="/#">{tableData[0].title}</Link>
+                                <Link to="/blog-details">
+                                  {tableData[0].title}
+                                </Link>
                               </h2>
                               <div class="text">{tableData[0].shortDes}</div>
-                              <Link to="/#" class="learn-more">
+                              <Link to="/blog-details" class="learn-more">
                                 Learn More{" "}
                                 <span class="icon flaticon-right-arrow-1"></span>
                               </Link>
@@ -310,7 +312,7 @@ const Blog = () => {
                         <div class="news-block-two">
                           <div class="inner-box">
                             <div class="image">
-                              <Link to={"/#"}>
+                              <Link to="/blog-details">
                                 <img src={IMG + tableData[0].image} alt="" />
                               </Link>
                             </div>
@@ -337,10 +339,12 @@ const Blog = () => {
                                 </li> */}
                               </ul>
                               <h2 class="fa-2x">
-                                <Link to="/#">{tableData[0].title}</Link>
+                                <Link to="/blog-details">
+                                  {tableData[0].title}
+                                </Link>
                               </h2>
                               <div class="text">{tableData[0].shortDes}</div>
-                              <Link to="/#" class="learn-more">
+                              <Link to="/blog-details" class="learn-more">
                                 Learn More{" "}
                                 <span class="icon flaticon-right-arrow-1"></span>
                               </Link>
