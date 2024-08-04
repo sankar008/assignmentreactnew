@@ -11,18 +11,21 @@ import { Link } from "react-router-dom";
 import moment from "moment-timezone";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import OrderaType from "../components/OrderaType";
+import BlogSidBar from "./BlogSidBar";
 const Blog = () => {
   const param = useParams();
   const [blogCata, setBlogCata] = useState([]);
 
   const [tableData, setTableData] = useState([]);
-  console.log("tableData", tableData);
+
   const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.all_blog();
       setTableData(response.data.data);
       const cataresponse = await API.catagori_listing();
+      console.log("cataresponse", cataresponse);
       setBlogCata(cataresponse.data.data);
     } catch (error) {}
   };
@@ -77,53 +80,49 @@ const Blog = () => {
                   responsiveClass={true}
                   autoplaySpeed={5000}
                 >
-                  <div class="item">
-                    <div class="sidebar-widget popular-posts">
-                      <div class="widget-content">
-                        <article class="post">
-                          <figure class="post-thumb">
-                            <img
-                              src="images/resource/post-thumb-3.jpg"
-                              alt=""
-                            />
-                            <a href="#" class="overlay-box">
-                              <span class="icon fa fa-link"></span>
-                            </a>
-                          </figure>
-                          <div class="text">
-                            <a href="#">Is Baking a Good career? 15 Reasons </a>
-                          </div>
-                          <div class="post-info">Admin, 10 Feb 2023</div>
-                        </article>
+                  {tableData.map((item, index) => (
+                    <div class="item">
+                      <div class="sidebar-widget popular-posts">
+                        <div class="widget-content">
+                          <article class="post">
+                            <figure class="post-thumb">
+                              <img src={IMG + item.image} alt="" />
+                              <Link
+                                to={`/blog-details/${item.slug}`}
+                                state={{
+                                  allBlog: tableData,
+                                  allCatagori: blogCata,
+                                }}
+                                class="overlay-box"
+                              >
+                                <span class="icon fa fa-link"></span>
+                              </Link>
+                            </figure>
+                            <div class="text">
+                              <Link
+                                to={`/blog-details/${item.slug}`}
+                                state={{
+                                  allBlog: tableData,
+                                  allCatagori: blogCata,
+                                }}
+                              >
+                                {item.title}
+                              </Link>
+                            </div>
+                            <div class="post-info">
+                              Admin,{" "}
+                              {moment(item.createdAt).format("MMMM Do YYYY")}
+                            </div>
+                          </article>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="item">
-                    <div class="sidebar-widget popular-posts">
-                      <div class="widget-content">
-                        <article class="post">
-                          <figure class="post-thumb">
-                            <img
-                              src="images/resource/post-thumb-3.jpg"
-                              alt=""
-                            />
-                            <a href="#" class="overlay-box">
-                              <span class="icon fa fa-link"></span>
-                            </a>
-                          </figure>
-                          <div class="text">
-                            <a href="#">Is Baking a Good career? 15 Reasons </a>
-                          </div>
-                          <div class="post-info">Admin, 10 Feb 2023</div>
-                        </article>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </OwlCarousel>
               </div>
             </div>
             <div className="col-md-6">
-              <OrderFrom />
+              <OrderaType />
             </div>
           </div>
         </div>
@@ -143,7 +142,13 @@ const Blog = () => {
                         <div class="news-block-two">
                           <div class="inner-box">
                             <div class="image">
-                              <Link to="/blog-details">
+                              <Link
+                                to={`/blog-details/${tableData[0].slug}`}
+                                state={{
+                                  allBlog: tableData,
+                                  allCatagori: blogCata,
+                                }}
+                              >
                                 <img src={IMG + tableData[0].image} alt="" />
                               </Link>
                             </div>
@@ -170,12 +175,25 @@ const Blog = () => {
                                 </li> */}
                               </ul>
                               <h2 class="fa-2x">
-                                <Link to="/blog-details">
+                                <Link
+                                  to={`/blog-details/${tableData[0].slug}`}
+                                  state={{
+                                    allBlog: tableData,
+                                    allCatagori: blogCata,
+                                  }}
+                                >
                                   {tableData[0].title}
                                 </Link>
                               </h2>
                               <div class="text">{tableData[0].shortDes}</div>
-                              <Link to="/blog-details" class="learn-more">
+                              <Link
+                                to={`/blog-details/${tableData[0].slug}`}
+                                state={{
+                                  allBlog: tableData,
+                                  allCatagori: blogCata,
+                                }}
+                                class="learn-more"
+                              >
                                 Learn More{" "}
                                 <span class="icon flaticon-right-arrow-1"></span>
                               </Link>
@@ -197,12 +215,27 @@ const Blog = () => {
                             <article class="post">
                               <figure class="post-thumb">
                                 <img src={IMG + item.image} alt="" />
-                                <Link to="#" class="overlay-box">
+                                <Link
+                                  to={`/blog-details/${item.slug}`}
+                                  state={{
+                                    allBlog: tableData,
+                                    allCatagori: blogCata,
+                                  }}
+                                  class="overlay-box"
+                                >
                                   <span class="icon fa fa-link"></span>
                                 </Link>
                               </figure>
                               <div class="text">
-                                <Link to="#">{item.title}</Link>
+                                <Link
+                                  to={`/blog-details/${item.slug}`}
+                                  state={{
+                                    allBlog: tableData,
+                                    allCatagori: blogCata,
+                                  }}
+                                >
+                                  {item.title}
+                                </Link>
                               </div>
                               <div class="post-info">
                                 Admin,{" "}
@@ -253,13 +286,27 @@ const Blog = () => {
                         <div class="news-block-two">
                           <div class="inner-box">
                             <div class="image">
-                              <Link to="#">
+                              <Link
+                                to={`/blog-details/${item.slug}`}
+                                state={{
+                                  allBlog: tableData,
+                                  allCatagori: blogCata,
+                                }}
+                              >
                                 <img src={IMG + item.image} alt="" />
                               </Link>
                             </div>
                             <div class="lower-content p-2">
                               <h2 class="fa">
-                                <Link to="#">{item.title}</Link>
+                                <Link
+                                  to={`/blog-details/${item.slug}`}
+                                  state={{
+                                    allBlog: tableData,
+                                    allCatagori: blogCata,
+                                  }}
+                                >
+                                  {item.title}
+                                </Link>
                               </h2>
                             </div>
                           </div>
@@ -285,13 +332,27 @@ const Blog = () => {
                         <div class="news-block-two">
                           <div class="inner-box">
                             <div class="image">
-                              <Link to="#">
+                              <Link
+                                to={`/blog-details/${item.slug}`}
+                                state={{
+                                  allBlog: tableData,
+                                  allCatagori: blogCata,
+                                }}
+                              >
                                 <img src={IMG + item.image} alt="" />
                               </Link>
                             </div>
                             <div class="lower-content p-2">
                               <h2 class="fa">
-                                <Link to="#">{item.title}</Link>
+                                <Link
+                                  to={`/blog-details/${item.slug}`}
+                                  state={{
+                                    allBlog: tableData,
+                                    allCatagori: blogCata,
+                                  }}
+                                >
+                                  {item.title}
+                                </Link>
                               </h2>
                             </div>
                           </div>
@@ -312,7 +373,13 @@ const Blog = () => {
                         <div class="news-block-two">
                           <div class="inner-box">
                             <div class="image">
-                              <Link to="/blog-details">
+                              <Link
+                                to={`/blog-details/${tableData[0].slug}`}
+                                state={{
+                                  allBlog: tableData,
+                                  allCatagori: blogCata,
+                                }}
+                              >
                                 <img src={IMG + tableData[0].image} alt="" />
                               </Link>
                             </div>
@@ -339,12 +406,25 @@ const Blog = () => {
                                 </li> */}
                               </ul>
                               <h2 class="fa-2x">
-                                <Link to="/blog-details">
+                                <Link
+                                  to={`/blog-details/${tableData[0].slug}`}
+                                  state={{
+                                    allBlog: tableData,
+                                    allCatagori: blogCata,
+                                  }}
+                                >
                                   {tableData[0].title}
                                 </Link>
                               </h2>
                               <div class="text">{tableData[0].shortDes}</div>
-                              <Link to="/blog-details" class="learn-more">
+                              <Link
+                                to={`/blog-details/${tableData[0].slug}`}
+                                state={{
+                                  allBlog: tableData,
+                                  allCatagori: blogCata,
+                                }}
+                                class="learn-more"
+                              >
                                 Learn More{" "}
                                 <span class="icon flaticon-right-arrow-1"></span>
                               </Link>
@@ -366,12 +446,27 @@ const Blog = () => {
                             <article class="post">
                               <figure class="post-thumb">
                                 <img src={IMG + item.image} alt="" />
-                                <Link to="#" class="overlay-box">
+                                <Link
+                                  to={`/blog-details/${item.slug}`}
+                                  state={{
+                                    allBlog: tableData,
+                                    allCatagori: blogCata,
+                                  }}
+                                  class="overlay-box"
+                                >
                                   <span class="icon fa fa-link"></span>
                                 </Link>
                               </figure>
                               <div class="text">
-                                <Link to="#">{item.title}</Link>
+                                <Link
+                                  to={`/blog-details/${item.slug}`}
+                                  state={{
+                                    allBlog: tableData,
+                                    allCatagori: blogCata,
+                                  }}
+                                >
+                                  {item.title}
+                                </Link>
                               </div>
                               <div class="post-info">
                                 Admin,{" "}
@@ -389,93 +484,7 @@ const Blog = () => {
               </div>
             </div>
 
-            <div class="sidebar-side col-lg-3 col-md-12 col-sm-12">
-              <aside class="sidebar sticky-top">
-                <div class="sidebar-widget links-widget">
-                  <div class="sidebar-title">
-                    <h4>All Categories</h4>
-                  </div>
-                  <div class="widget-content">
-                    <ul class="blog-cat">
-                      {blogCata.length === 0 ? (
-                        "Loader..."
-                      ) : (
-                        <>
-                          {blogCata.map((item, index) => (
-                            <li key={index}>
-                              <Link to="#">
-                                {item.useFor === "1" ? item.name : ""}{" "}
-                              </Link>
-                            </li>
-                          ))}
-                        </>
-                      )}
-                    </ul>
-                  </div>
-                </div>
-                <div class="sidebar-widget popular-posts">
-                  <div class="sidebar-title">
-                    <h4>Recent Post</h4>
-                  </div>
-                  <div class="widget-content">
-                    {tableData.length === 0 ? (
-                      "Loader..."
-                    ) : (
-                      <>
-                        {tableData.map((item, index) => (
-                          <article class="post">
-                            <figure class="post-thumb">
-                              <img src={IMG + item.image} alt="" />
-                              <a href="#" class="overlay-box">
-                                <span class="icon fa fa-link"></span>
-                              </a>
-                            </figure>
-                            <div class="text">
-                              <a href="#">{item.title}</a>
-                            </div>
-                            <div class="post-info">
-                              Admin,{" "}
-                              {moment(item.createdAt).format("MMMM Do YYYY")}
-                            </div>
-                          </article>
-                        ))}
-                      </>
-                    )}
-                  </div>
-                </div>
-
-                <div class="sidebar-widget popular-posts">
-                  <div class="sidebar-title">
-                    <h4>Popular Post</h4>
-                  </div>
-                  <div class="widget-content">
-                    {tableData.length === 0 ? (
-                      "Loader..."
-                    ) : (
-                      <>
-                        {tableData.map((item, index) => (
-                          <article class="post">
-                            <figure class="post-thumb">
-                              <img src={IMG + item.image} alt="" />
-                              <a href="#" class="overlay-box">
-                                <span class="icon fa fa-link"></span>
-                              </a>
-                            </figure>
-                            <div class="text">
-                              <a href="#">{item.title}</a>
-                            </div>
-                            <div class="post-info">
-                              Admin,{" "}
-                              {moment(item.createdAt).format("MMMM Do YYYY")}
-                            </div>
-                          </article>
-                        ))}
-                      </>
-                    )}
-                  </div>
-                </div>
-              </aside>
-            </div>
+            <BlogSidBar tableData={tableData} blogCata={blogCata} />
           </div>
         </div>
       </div>

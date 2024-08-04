@@ -161,3 +161,12 @@ export const catagori_listing = async () => {
     return e.response;
   }
 };
+export const blog_details = async (data) => {
+  try {
+    const url = c.BLOG + "/slug/" + data;
+    const res = await axios.get(url);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};

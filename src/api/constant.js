@@ -1,7 +1,8 @@
 export const CURRENCY = "$";
 export const TIMEZONE = "America/Los_Angeles";
 export const IMG = "http://document.apibag.in/";
-
+export const NOIMG =
+  "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg";
 // ? ====== BASE URL ======
 //export const SOCEKT = "http://192.168.1.182:3001";
 export const SOCEKT = "";
