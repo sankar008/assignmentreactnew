@@ -26,6 +26,7 @@ import UserDashboard from "../pages/UserDashboard";
 import "react-toastify/dist/ReactToastify.css";
 import ForgotPassword from "../pages/ForgotPassword";
 import * as API from "../api/index";
+import ServicesDetails from "../pages/Services/ServicesDetails";
 const AppRouter = () => {
   const param = useParams();
   const [tableData, setTableData] = useState([]);
@@ -58,6 +59,7 @@ const AppRouter = () => {
 
             <Route path="/signup" element={<Signup />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/services-details" element={<ServicesDetails />} />
             <Route path="/blog-details/:slug" element={<BlogDetails />} />
             <Route path="/about-us" element={<About />} />
             <Route path="/how-it-work" element={<HowItWork />} />
