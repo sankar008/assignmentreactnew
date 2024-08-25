@@ -154,7 +154,7 @@ export const all_subject = async () => {
 };
 export const catagori_listing = async () => {
   try {
-    const url = c.BLOG_CATEGORY;
+    const url = c.BLOG_CATEGORY + "/blog/category";
     const res = await axios.get(url);
     return res;
   } catch (e) {
@@ -164,6 +164,36 @@ export const catagori_listing = async () => {
 export const blog_details = async (data) => {
   try {
     const url = c.BLOG + "/slug/" + data;
+    const res = await axios.get(url);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const allServices = async () => {
+  try {
+    const url = c.SERVICES;
+    const res = await axios.get(url);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const allServicesCata = async () => {
+  try {
+    const url = c.BLOG_CATEGORY + "/service/category";
+    const res = await axios.get(url);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const services_details = async (data) => {
+  try {
+    const url = c.SERVICES + "/slug/" + data;
     const res = await axios.get(url);
     return res;
   } catch (e) {

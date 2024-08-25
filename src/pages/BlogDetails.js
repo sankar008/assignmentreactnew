@@ -25,6 +25,8 @@ const BlogDetails = () => {
       const response = await FAPI.blog_details(param.slug);
       setBlogData(response.data.data[0]);
       const cataresponse = await FAPI.catagori_listing();
+      console.log("cataresponse", cataresponse);
+
       setBlogCata(cataresponse.data.data);
     } catch (error) {}
   };

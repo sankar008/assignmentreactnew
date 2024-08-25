@@ -19,10 +19,14 @@ const BlogSidBar = ({ tableData, blogCata }) => {
                 ) : (
                   <>
                     {blogCata.map((item, index) => (
-                      <li key={index}>
+                      <li
+                        key={index}
+                        className="d-flex justify-content-between"
+                      >
                         <Link to="#">
                           {item.useFor === "1" ? item.name : ""}{" "}
                         </Link>
+                        <span className="countBlog">({item.blogCount})</span>
                       </li>
                     ))}
                   </>

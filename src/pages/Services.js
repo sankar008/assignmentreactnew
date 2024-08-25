@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import Banner from "../components/Banner";
 import OrderFrom from "../components/OrderFrom";
 import Services from "../pages/Services";
+import * as API from "../api/index";
+import { IMG } from "../api/constant";
+import { Link } from "react-router-dom";
+import OrderaType from "../components/OrderaType";
 const ServicesS = () => {
+  const [tableData, setTableData] = useState([]);
+  const getdetailsData = async () => {
+    const header = localStorage.getItem("_tokenCode");
+    try {
+      const response = await API.allServices();
+      console.log("response", response);
+      setTableData(response.data.data);
+    } catch (error) {}
+  };
+
   useEffect(() => {
+    getdetailsData();
     window.scrollTo(0, 0);
   }, []);
   return (
@@ -98,7 +113,7 @@ const ServicesS = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <OrderFrom />
+              <OrderaType />
             </div>
           </div>
         </div>
@@ -134,153 +149,33 @@ const ServicesS = () => {
             </div>
           </div>
           <div class="row clearfix">
-            <div class="course-block col-lg-4 col-md-6 col-sm-6">
-              <div
-                class="inner-box wow fadeInLeft"
-                data-wow-delay="0ms"
-                data-wow-duration="1500ms"
-              >
-                <div class="image">
-                  <a href="course-detail.html">
-                    <img src="images/assignment.png" alt="" />
-                  </a>
-                </div>
-                <div class="lower-content px-0">
-                  <h4>
-                    <a href="course-detail.html">Assignment Help</a>
-                  </h4>
-                  <div class="uni-namdde">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Praesentium, et similique harum pariatur, assumenda ratione
-                    voluptates nam quos id earum quasi ab asperiores eos facere
-                    saepe optio perferendis? Fugit, itaque!
+            {tableData.map((item, index) => (
+              <div class="course-block col-lg-4 col-md-6 col-sm-6">
+                <div
+                  class="inner-box wow fadeInLeft"
+                  data-wow-delay="0ms"
+                  data-wow-duration="1500ms"
+                >
+                  <div class="image">
+                    <Link to={`/services-details/${item.slug}`}>
+                      <img src={IMG + item.image} alt="" />
+                    </Link>
+                  </div>
+                  <div class="lower-content px-0">
+                    <h4>
+                      <Link to={`/services-details/${item.slug}`}>
+                        {item.title}
+                      </Link>
+                    </h4>
+                    <div class="uni-namdde">
+                      <div
+                        dangerouslySetInnerHTML={{ __html: item.description }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="course-block col-lg-4 col-md-6 col-sm-6">
-              <div
-                class="inner-box wow fadeInUp"
-                data-wow-delay="0ms"
-                data-wow-duration="1500ms"
-              >
-                <div class="image">
-                  <a href="course-detail.html">
-                    <img src="images/report.png" alt="" />
-                  </a>
-                </div>
-                <div class="lower-content px-0">
-                  <h4>
-                    <a href="course-detail.html">Lab Report</a>
-                  </h4>
-                  <div class="uni-namdde">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Praesentium, et similique harum pariatur, assumenda ratione
-                    voluptates nam quos id earum quasi ab asperiores eos facere
-                    saepe optio perferendis? Fugit, itaque!
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="course-block col-lg-4 col-md-6 col-sm-6">
-              <div
-                class="inner-box wow fadeInRight"
-                data-wow-delay="0ms"
-                data-wow-duration="1500ms"
-              >
-                <div class="image">
-                  <a href="course-detail.html">
-                    <img src="images/copy-writing.png" alt="" />
-                  </a>
-                </div>
-                <div class="lower-content px-0">
-                  <h4>
-                    <a href="course-detail.html">Project Report Writing</a>
-                  </h4>
-                  <div class="uni-namdde">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Praesentium, et similique harum pariatur, assumenda ratione
-                    voluptates nam quos id earum quasi ab asperiores eos facere
-                    saepe optio perferendis? Fugit, itaque!
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="course-block col-lg-4 col-md-6 col-sm-6">
-              <div
-                class="inner-box wow fadeInLeft"
-                data-wow-delay="0ms"
-                data-wow-duration="1500ms"
-              >
-                <div class="image">
-                  <a href="course-detail.html">
-                    <img src="images/calculating.png" alt="" />
-                  </a>
-                </div>
-                <div class="lower-content px-0">
-                  <h4>
-                    <a href="course-detail.html">Math Solver</a>
-                  </h4>
-                  <div class="uni-namdde">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Praesentium, et similique harum pariatur, assumenda ratione
-                    voluptates nam quos id earum quasi ab asperiores eos facere
-                    saepe optio perferendis? Fugit, itaque!
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="course-block col-lg-4 col-md-6 col-sm-6">
-              <div
-                class="inner-box wow fadeInUp"
-                data-wow-delay="0ms"
-                data-wow-duration="1500ms"
-              >
-                <div class="image">
-                  <a href="course-detail.html">
-                    <img src="images/essay.png" alt="" />
-                  </a>
-                </div>
-                <div class="lower-content px-0">
-                  <h4>
-                    <a href="course-detail.html">Essay Writing</a>
-                  </h4>
-                  <div class="uni-namdde">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Praesentium, et similique harum pariatur, assumenda ratione
-                    voluptates nam quos id earum quasi ab asperiores eos facere
-                    saepe optio perferendis? Fugit, itaque!
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="course-block col-lg-4 col-md-6 col-sm-6">
-              <div
-                class="inner-box wow fadeInRight"
-                data-wow-delay="0ms"
-                data-wow-duration="1500ms"
-              >
-                <div class="image">
-                  <a href="course-detail.html">
-                    <img src="images/live.png" alt="" />
-                  </a>
-                </div>
-                <div class="lower-content px-0">
-                  <h4>
-                    <a href="course-detail.html">Live Session</a>
-                  </h4>
-                  <div class="uni-namdde">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Praesentium, et similique harum pariatur, assumenda ratione
-                    voluptates nam quos id earum quasi ab asperiores eos facere
-                    saepe optio perferendis? Fugit, itaque!
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

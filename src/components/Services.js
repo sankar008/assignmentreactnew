@@ -1,9 +1,24 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import * as API from "../api/index";
 const Services = () => {
+  const [tableData, setTableData] = useState([]);
+  const getdetailsData = async () => {
+    const header = localStorage.getItem("_tokenCode");
+    try {
+      const response = await API.allServices();
+      console.log("response", response);
+      setTableData(response.data.data);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    console.log("services pagew");
+
+    getdetailsData();
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
-      
       <section class="courses-section">
         <div
           class="pattern-layer"
@@ -23,10 +38,8 @@ const Services = () => {
           data-paroller-type="foreground"
           data-paroller-direction="horizontal"
         ></div>
-       
-        <div >
-        
-        </div>
+
+        <div></div>
         <div class="auto-container">
           <div class="sec-title centered">
             <h2>
@@ -187,7 +200,7 @@ const Services = () => {
               </div>
             </div>
           </div>
-          
+
           <div class="row clearfix">
             <div className="col-md-12 text-center">
               <div class="btn-box">
