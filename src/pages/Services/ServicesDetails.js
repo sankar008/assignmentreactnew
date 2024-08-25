@@ -140,7 +140,7 @@ const ServicesDetails = () => {
             </div>
 
             <div class="info-column col-lg-4 col-md-12 col-sm-12">
-              <div class="inner-column">
+              <div class="inner-column mt-1">
                 <div class="price">
                   $9.99 <i>$129.99</i> <span>92% of</span>
                 </div>
