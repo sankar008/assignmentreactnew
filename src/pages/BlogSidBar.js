@@ -94,13 +94,23 @@ const BlogSidBar = ({ tableData, blogCata }) => {
                         <img src={IMG + item.image} alt="" />
                         <Link
                           to={`/blog-details/${item.slug}`}
+                          state={{
+                            allBlog: tableData,
+                            allCatagori: blogCata,
+                          }}
                           class="overlay-box"
                         >
                           <span class="icon fa fa-link"></span>
                         </Link>
                       </figure>
                       <div class="text">
-                        <Link to={`/blog-details/${item.slug}`}>
+                        <Link
+                          state={{
+                            allBlog: tableData,
+                            allCatagori: blogCata,
+                          }}
+                          to={`/blog-details/${item.slug}`}
+                        >
                           {item.title}
                         </Link>
                       </div>

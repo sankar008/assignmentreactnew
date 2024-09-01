@@ -11,6 +11,7 @@ import OrderaType from "../components/OrderaType";
 import BlogSidBar from "./BlogSidBar";
 const BlogDetails = () => {
   const loaction = useLocation();
+  console.log("loaction.state.allBlog", loaction.state.allBlog);
 
   const param = useParams();
 
@@ -82,48 +83,44 @@ const BlogDetails = () => {
                   responsiveClass={true}
                   autoplaySpeed={5000}
                 >
-                  <div class="item">
-                    <div class="sidebar-widget popular-posts">
-                      <div class="widget-content">
-                        <article class="post">
-                          <figure class="post-thumb">
-                            <img
-                              src="images/resource/post-thumb-3.jpg"
-                              alt=""
-                            />
-                            <a href="#" class="overlay-box">
-                              <span class="icon fa fa-link"></span>
-                            </a>
-                          </figure>
-                          <div class="text">
-                            <a href="#">Is Baking a Good career? 15 Reasons </a>
-                          </div>
-                          <div class="post-info">Admin, 10 Feb 2023</div>
-                        </article>
+                  {loaction.state.allBlog.map((item, index) => (
+                    <div class="item">
+                      <div class="sidebar-widget popular-posts">
+                        <div class="widget-content">
+                          <article class="post">
+                            <figure class="post-thumb">
+                              <img src={IMG + item.image} alt="" />
+                              <Link
+                                to={`/blog-details/${item.slug}`}
+                                state={{
+                                  allBlog: loaction.state.allBlog,
+                                  allCatagori: blogCata,
+                                }}
+                                class="overlay-box"
+                              >
+                                <span class="icon fa fa-link"></span>
+                              </Link>
+                            </figure>
+                            <div class="text">
+                              <Link
+                                to={`/blog-details/${item.slug}`}
+                                state={{
+                                  allBlog: loaction.state.allBlog,
+                                  allCatagori: blogCata,
+                                }}
+                              >
+                                {item.title}
+                              </Link>
+                            </div>
+                            <div class="post-info">
+                              Admin,
+                              {moment(item.createdAt).format("MMMM Do YYYY")}
+                            </div>
+                          </article>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="item">
-                    <div class="sidebar-widget popular-posts">
-                      <div class="widget-content">
-                        <article class="post">
-                          <figure class="post-thumb">
-                            <img
-                              src="images/resource/post-thumb-3.jpg"
-                              alt=""
-                            />
-                            <a href="#" class="overlay-box">
-                              <span class="icon fa fa-link"></span>
-                            </a>
-                          </figure>
-                          <div class="text">
-                            <a href="#">Is Baking a Good career? 15 Reasons </a>
-                          </div>
-                          <div class="post-info">Admin, 10 Feb 2023</div>
-                        </article>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </OwlCarousel>
               </div>
             </div>
@@ -184,7 +181,13 @@ const BlogDetails = () => {
                         />
 
                         <div class="card-body">
-                          <p>{blogData.description}</p>
+                          <p>
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: blogData.description,
+                              }}
+                            />
+                          </p>
                         </div>
                       </div>
                     </div>

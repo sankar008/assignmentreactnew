@@ -1,6 +1,6 @@
 export const CURRENCY = "$";
 export const TIMEZONE = "America/Los_Angeles";
-export const IMG = "http://document.apibag.in/";
+export const IMG = "http://document.apibag.in/images/";
 export const NOIMG =
   "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg";
 // ? ====== BASE URL ======

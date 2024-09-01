@@ -1,8 +1,10 @@
-import { Accordion } from "react-bootstrap-accordion";
+// import { Accordion } from "react-bootstrap-accordion";
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router";
 import * as FAPI from "../../api/index";
+import * as API from "../../api/index";
 import { Link } from "react-router-dom";
+import * as Accordion from "@radix-ui/react-accordion";
 const ServicesDetails = () => {
   const loaction = useLocation();
 
@@ -11,7 +13,8 @@ const ServicesDetails = () => {
   const [blogCata, setBlogCata] = useState([]);
 
   const [blogData, setBlogData] = useState([]);
-  console.log("blogData", blogData);
+
+  const [subcataData, setSubcataData] = useState([]);
 
   const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
@@ -22,12 +25,23 @@ const ServicesDetails = () => {
       setBlogData(response.data.data);
       const cataresponse = await FAPI.allServicesCata();
       console.log("cataresponse", cataresponse);
+      const subCatars = await API.catagoriBySubcatagori();
+
+      console.log("subCatars", subCatars);
 
       setBlogCata(cataresponse.data.data);
     } catch (error) {}
   };
 
-  console.log("blogData", blogData);
+  const catagoriyWais = async (data) => {
+    console.log("data", data);
+
+    try {
+      const response = await API.catagoriBySubcatagori(data);
+      console.log("response", response);
+      setSubcataData(response.data.data);
+    } catch (error) {}
+  };
 
   useEffect(() => {
     getdetailsData();
@@ -145,20 +159,46 @@ const ServicesDetails = () => {
                   $9.99 <i>$129.99</i> <span>92% of</span>
                 </div>
                 <h5>All Categories</h5>
+                <Accordion.Root
+                  className="AccordionRoot"
+                  type="single"
+                  defaultValue="item-1"
+                  collapsible
+                >
+                  <Accordion.Item className="AccordionItem" value="item-1">
+                    <Accordion.AccordionTrigger>
+                      Is it accessible?
+                    </Accordion.AccordionTrigger>
+                    <Accordion.AccordionContent>
+                      Yes. It adheres to the WAI-ARIA design pattern.
+                    </Accordion.AccordionContent>
+                  </Accordion.Item>
+                  <Accordion.Item className="AccordionItem" value="item-2">
+                    <Accordion.AccordionTrigger>
+                      Is it accessible?
+                    </Accordion.AccordionTrigger>
+                    <Accordion.AccordionContent>
+                      Yes. It adheres to the WAI-ARIA design pattern.
+                    </Accordion.AccordionContent>
+                  </Accordion.Item>
+                </Accordion.Root>
                 {blogCata.map((item, index) => (
-                  <Accordion
-                    title={
-                      item.name +
-                      `  -----------------------  (${item.serviceCount})`
-                    }
-                  >
-                    <ul class="level-list">
-                      <li>Sub Catagori</li>
-                      <li>Sub Catagori</li>
-                      <li>Sub Catagori</li>
-                      <li>Sub Catagori</li>
-                    </ul>
-                  </Accordion>
+                  <div key={index} onClick={() => catagoriyWais(item._id)}>
+                    {/* <Accordion
+                      title={
+                        item.name +
+                        `  -----------------------  (${item.serviceCount})`
+                      }
+                    >
+                      <ul class="level-list">
+                        {subcataData.map((item, index) => (
+                          <li key={index}>
+                            <Link to="#">{item.name}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </Accordion> */}
+                  </div>
                 ))}
 
                 <div class="btns-box">

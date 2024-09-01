@@ -148,7 +148,7 @@ const Header = ({ tableData }) => {
                             <NavLink to="/how-it-work">How Its Work</NavLink>
                           </li>
                           <li className="has-sub">
-                            <NavLink href="">Services</NavLink>
+                            <NavLink to="/services">Servicess</NavLink>
                             <ul>
                               {tableData.map((item, index) => (
                                 <li
