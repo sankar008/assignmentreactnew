@@ -3,43 +3,40 @@ import { Link, NavLink } from "react-router-dom";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import * as API from "../api/index";
+import * as FAPI from "../api/index";
 import NavbarDropdown from "./MultiMenu";
 const Header = ({ tableData }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropDown, setDropDown] = React.useState(false);
   const [isMegaMenu, setIsMegaMenu] = React.useState([]);
 
+  const [allCataData, setAllCataData] = React.useState([]);
+
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
-  const catagoriWisesub = async (data) => {
-    const response = await API.catagoriBySubcatagori(data);
+  const catagoriWisesub = async (data, id) => {
+    console.log("data", data, id);
+
+    const response = await API.catagoriBySubcatagori(id);
     console.log("response", response);
     setIsMegaMenu(response.data.data);
   };
 
-  const menuRef = useRef(null);
+  const getdetailsData = async () => {
+    const header = localStorage.getItem("_tokenCode");
+    try {
+      const cataresponse = await FAPI.allServicesCata();
+      console.log("cataresponse", cataresponse);
+      setAllCataData(cataresponse.data.data);
+      const subCatars = await API.catagoriBySubcatagori();
+
+      console.log("subCatars", subCatars);
+    } catch (error) {}
+  };
 
   useEffect(() => {
-    // const mm = new Mmenu(menuRef.current, {
-    //   extensions: ["theme-dark", "pagedim-black"],
-    //   setSelected: true,
-    //   counters: true,
-    //   iconPanels: true,
-    //   navbars: [
-    //     {
-    //       position: "top",
-    //       content: ["searchfield"],
-    //     },
-    //     {
-    //       position: "top",
-    //       content: ["prev", "title", "close"],
-    //     },
-    //   ],
-    // });
-    // return () => {
-    //   mm.API.close();
-    // };
+    getdetailsData();
   }, []);
   return (
     <div>
@@ -62,16 +59,21 @@ const Header = ({ tableData }) => {
           <div class="header-upper">
             <div class="outer-container clearfix">
               <div className="row">
-                <div className="col-md-3">
+                <div className="col-md-3 col-9">
                   <div class="pull-left logo-box">
                     <div class="logo">
                       <a href="#">logo</a>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-9">
+                <div className="col-md-9 col-3">
                   <div class="stellarnav">
-                    <NavbarDropdown />
+                    <NavbarDropdown
+                      allCataData={allCataData}
+                      catagoriWisesub={catagoriWisesub}
+                      isMegaMenu={isMegaMenu}
+                      toggleDrawer={toggleDrawer}
+                    />
                   </div>
                 </div>
               </div>

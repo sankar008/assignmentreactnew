@@ -282,6 +282,9 @@
     margin: 0px;
     text-align: left;
   }
+  .mobile-nav-toggler {
+    display: block;
+  }
   .banner-section .image-column .inner-column {
     margin-bottom: 30px;
     margin-top: 1rem;
@@ -2342,6 +2345,9 @@
     font-size: 13px;
   }
   .freeQuot {
+    display: block;
+  }
+  .mobile-nav-toggler {
     display: block;
   }
 }

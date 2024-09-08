@@ -1,5 +1,5 @@
 export const CURRENCY = "$";
-export const IMG = "http://document.apibag.in/";
+export const IMG = "http://document.apibag.in/images/";
 export const TIMEZONE = "Asia/Calcutta";
 
 // ? ====== BASE URL ======

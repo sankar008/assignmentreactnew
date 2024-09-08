@@ -12,9 +12,19 @@ import {
 } from "mdb-react-ui-kit";
 import { NavLink } from "react-router-dom";
 
-export default function NavbarDropdown() {
+export default function NavbarDropdown({
+  allCataData,
+  catagoriWisesub,
+  isMegaMenu,
+  toggleDrawer,
+}) {
+  console.log("isMegaMenu", isMegaMenu);
+
   return (
     <MDBNavbar expand="lg" light bgColor="light">
+      <div class="mobile-nav-toggler" onClick={toggleDrawer}>
+        <span class="icon flaticon-menu"></span>
+      </div>
       <MDBContainer fluid>
         <MDBNavbarNav>
           <MDBNavbarItem>
@@ -29,40 +39,24 @@ export default function NavbarDropdown() {
                 Services
               </MDBDropdownToggle>
               <MDBDropdownMenu>
-                <MDBDropdownItem>
-                  <NavLink to="#">Action</NavLink>
-                </MDBDropdownItem>
-                <MDBDropdownItem>
-                  <NavLink to="#">Another action</NavLink>
-                </MDBDropdownItem>
-                <MDBDropdownItem>
-                  <NavLink to="#">Submenu &raquo;</NavLink>
-                  <ul className="dropdown-menu dropdown-submenu">
-                    <MDBDropdownItem>
-                      <NavLink to="#">Submenu item 1</NavLink>
-                    </MDBDropdownItem>
-                    <MDBDropdownItem>
-                      <NavLink to="#">Submenu item 2</NavLink>
-                    </MDBDropdownItem>
-                    <MDBDropdownItem>
-                      <NavLink to="#">Submenu item 3 &raquo;</NavLink>
-                      <ul className="dropdown-menu dropdown-submenu">
-                        <MDBDropdownItem>
-                          <NavLink to="#">Multi level 1</NavLink>
-                        </MDBDropdownItem>
-                        <MDBDropdownItem>
-                          <NavLink to="#">Multi level 2</NavLink>
-                        </MDBDropdownItem>
-                      </ul>
-                    </MDBDropdownItem>
-                    <MDBDropdownItem>
-                      <NavLink to="#">Submenu item 4</NavLink>
-                    </MDBDropdownItem>
-                    <MDBDropdownItem>
-                      <NavLink to="#">Submenu item 5</NavLink>
-                    </MDBDropdownItem>
-                  </ul>
-                </MDBDropdownItem>
+                {allCataData.map((item, index) => (
+                  <MDBDropdownItem
+                    key={index}
+                    onMouseEnter={() => catagoriWisesub(true, item._id)}
+                    onMouseLeave={() => catagoriWisesub(false, item._id)}
+                  >
+                    <NavLink to="#">{item.name} &raquo;</NavLink>
+                    <ul className="dropdown-menu dropdown-submenu">
+                      {isMegaMenu === undefined
+                        ? ""
+                        : isMegaMenu.map((item, index) => (
+                            <MDBDropdownItem key={index}>
+                              <NavLink to="#">{item.name}</NavLink>
+                            </MDBDropdownItem>
+                          ))}
+                    </ul>
+                  </MDBDropdownItem>
+                ))}
               </MDBDropdownMenu>
             </MDBDropdown>
           </MDBNavbarItem>

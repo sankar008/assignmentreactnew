@@ -134,12 +134,13 @@ const Blog = () => {
                                   </td>
                                   <td class="text-bold-500 w-25">
                                     <div
+                                      className="description"
                                       dangerouslySetInnerHTML={{
                                         __html: item.description,
                                       }}
                                     />
                                   </td>
-                                  <td class="text-bold-500 w-25">
+                                  <td class="text-bold-500 w-50">
                                     <img
                                       className="w-25s"
                                       src={IMG + item.image}
