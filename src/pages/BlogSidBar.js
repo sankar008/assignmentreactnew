@@ -1,14 +1,31 @@
 import moment from "moment-timezone";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { IMG } from "../api/constant";
+import * as API from "../api/index";
+const BlogSidBar = ({ tableData, blogCata, setTableData, onRefreshPage }) => {
+  const location = useLocation();
+  const basePath = location.pathname.split("/").slice(0, 2).join("/");
+  console.log(basePath);
 
-const BlogSidBar = ({ tableData, blogCata }) => {
+  const handelarServicesData = async (data) => {
+    try {
+      const response = await API.blogCataWishData(data);
+      console.log("responsesss", response);
+      setTableData(response.data.data);
+    } catch (error) {}
+  };
   return (
     <>
       <div class="sidebar-side col-lg-3 col-md-12 col-sm-12">
         <aside class="sidebar sticky-top">
-          <div class="sidebar-widget links-widget">
+          <div
+            class={
+              basePath === "/blog-details"
+                ? "d-none"
+                : "sidebar-widget links-widget"
+            }
+          >
             <div class="sidebar-title">
               <h4>All Categories</h4>
             </div>
@@ -23,7 +40,10 @@ const BlogSidBar = ({ tableData, blogCata }) => {
                         key={index}
                         className="d-flex justify-content-between"
                       >
-                        <Link to="#">
+                        <Link
+                          onClick={() => handelarServicesData(item._id)}
+                          to="#"
+                        >
                           {item.useFor === "1" ? item.name : ""}{" "}
                         </Link>
                         <span className="countBlog">({item.blogCount})</span>
@@ -44,7 +64,10 @@ const BlogSidBar = ({ tableData, blogCata }) => {
               ) : (
                 <>
                   {tableData.map((item, index) => (
-                    <article class="post">
+                    <article
+                      class="post"
+                      onClick={() => onRefreshPage(item.slug)}
+                    >
                       <figure class="post-thumb">
                         <img src={IMG + item.image} alt="" />
                         <Link

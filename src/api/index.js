@@ -170,7 +170,15 @@ export const blog_details = async (data) => {
     return e.response;
   }
 };
-
+export const blogCataWishData = async (data) => {
+  try {
+    const url = c.BLOG + "/category/" + data;
+    const res = await axios.get(url);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
 export const allServices = async () => {
   try {
     const url = c.SERVICES;
@@ -194,6 +202,16 @@ export const allServicesCata = async () => {
 export const services_details = async (data) => {
   try {
     const url = c.SERVICES + "/slug/" + data;
+    const res = await axios.get(url);
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const services_cataWishData = async (data) => {
+  try {
+    const url = c.SERVICES + "/subcategory/" + data;
     const res = await axios.get(url);
     return res;
   } catch (e) {

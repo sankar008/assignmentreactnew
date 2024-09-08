@@ -11,7 +11,7 @@ import OrderaType from "../components/OrderaType";
 import BlogSidBar from "./BlogSidBar";
 const BlogDetails = () => {
   const loaction = useLocation();
-  console.log("loaction.state.allBlog", loaction.state.allBlog);
+  const [difBlog, setDifBlog] = useState("");
 
   const param = useParams();
 
@@ -20,10 +20,10 @@ const BlogDetails = () => {
   const [blogData, setBlogData] = useState([]);
   console.log("blogData", blogData);
 
-  const getdetailsData = async () => {
+  const getdetailsData = async (data) => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const response = await FAPI.blog_details(param.slug);
+      const response = await FAPI.blog_details(param.slug ? param.slug : data);
       setBlogData(response.data.data[0]);
       const cataresponse = await FAPI.catagori_listing();
       console.log("cataresponse", cataresponse);
@@ -32,12 +32,14 @@ const BlogDetails = () => {
     } catch (error) {}
   };
 
-  console.log("blogData", blogData);
+  const onRefreshPage = (data) => {
+    getdetailsData(data);
+  };
 
   useEffect(() => {
     getdetailsData();
     window.scrollTo(0, 0);
-  }, []);
+  }, [param.slug]);
   return (
     <>
       <div
@@ -197,6 +199,7 @@ const BlogDetails = () => {
             </div>
 
             <BlogSidBar
+              onRefreshPage={onRefreshPage}
               tableData={loaction.state.allBlog}
               blogCata={blogCata}
             />

@@ -407,6 +407,18 @@ a.nav-link.collapsed,
   overflow: hidden;
   margin-top: 1px;
 }
+.AccordionItem button {
+  border: 1px solid #43b97e;
+  padding: 6px;
+  display: flex;
+  width: 100%;
+  text-align: left;
+  background: #43b97e;
+  color: #fff;
+  justify-content: space-between;
+  font-weight: 500;
+  text-transform: capitalize;
+}
 
 .AccordionItem:first-child {
   margin-top: 0;
@@ -427,6 +439,10 @@ a.nav-link.collapsed,
 
 .AccordionHeader {
   display: flex;
+}
+.accBody {
+  border: 1px solid #43b97e;
+  padding: 6px 6px 6px 18px;
 }
 
 .AccordionTrigger {
@@ -490,4 +506,32 @@ a.nav-link.collapsed,
   to {
     height: 0;
   }
+}
+.level-list li a {
+  color: #333;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+.blog-classic img {
+  height: 200px !important;
+  object-fit: cover;
+}
+.catablog img {
+  height: 100px !important;
+}
+.dropdown-menu li {
+  position: relative;
+}
+.dropdown-menu .dropdown-submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: -7px;
+}
+.dropdown-menu .dropdown-submenu-left {
+  right: 100%;
+  left: auto;
+}
+.dropdown-menu > li:hover > .dropdown-submenu {
+  display: block;
 }

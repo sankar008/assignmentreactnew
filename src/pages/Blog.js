@@ -24,12 +24,18 @@ const Blog = () => {
     try {
       const response = await API.all_blog();
       setTableData(response.data.data);
+      console.log("response", response);
+
       const cataresponse = await API.catagori_listing();
       console.log("cataresponse", cataresponse);
       setBlogCata(cataresponse.data.data);
     } catch (error) {}
   };
 
+  console.log("tableData", tableData);
+  const onRefreshPage = (data) => {
+    getdetailsData(data);
+  };
   useEffect(() => {
     getdetailsData();
     window.scrollTo(0, 0);
@@ -262,30 +268,12 @@ const Blog = () => {
                   responsiveClass={true}
                   autoplaySpeed={5000}
                 >
-                  {/* <div class="item">
-                    <div class="blog-classic mt-0">
-                      <div class="news-block-two">
-                        <div class="inner-box">
-                          <div class="image">
-                            <Link to="#">
-                              <img src="{IMG + item.image}" alt="" />
-                            </Link>
-                          </div>
-                          <div class="lower-content p-2">
-                            <h2 class="fa">
-                              <Link to="#">dgsdgadgfa</Link>
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> */}
                   {tableData.map((item, index) => (
                     <div class="item" key={index}>
                       <div class="blog-classic mt-0">
                         <div class="news-block-two">
                           <div class="inner-box">
-                            <div class="image">
+                            <div class="image catablog">
                               <Link
                                 to={`/blog-details/${item.slug}`}
                                 state={{
@@ -484,7 +472,12 @@ const Blog = () => {
               </div>
             </div>
 
-            <BlogSidBar tableData={tableData} blogCata={blogCata} />
+            <BlogSidBar
+              onRefreshPage={onRefreshPage}
+              setTableData={setTableData}
+              tableData={tableData}
+              blogCata={blogCata}
+            />
           </div>
         </div>
       </div>

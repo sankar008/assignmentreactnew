@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import * as API from "../api/index";
+import NavbarDropdown from "./MultiMenu";
 const Header = ({ tableData }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropDown, setDropDown] = React.useState(false);
@@ -60,12 +61,22 @@ const Header = ({ tableData }) => {
         <header class="main-header">
           <div class="header-upper">
             <div class="outer-container clearfix">
-              <div class="pull-left logo-box">
-                <div class="logo">
-                  <a href="#">logo</a>
+              <div className="row">
+                <div className="col-md-3">
+                  <div class="pull-left logo-box">
+                    <div class="logo">
+                      <a href="#">logo</a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-9">
+                  <div class="stellarnav">
+                    <NavbarDropdown />
+                  </div>
                 </div>
               </div>
-              <div class="nav-outer clearfix">
+
+              <div class="nav-outer d-none clearfix">
                 <nav class="main-menu navbar-expand-md">
                   <div
                     class="navbar-collapse collapse clearfix"
@@ -139,53 +150,6 @@ const Header = ({ tableData }) => {
                           </div>
                         </div>
                       </li>
-                      <div class="stellarnav">
-                        <ul>
-                          <li class="current dropdown">
-                            <NavLink to="/">Home</NavLink>
-                          </li>
-                          <li class="dropdown">
-                            <NavLink to="/how-it-work">How Its Work</NavLink>
-                          </li>
-                          <li className="has-sub">
-                            <NavLink to="/services">Servicess</NavLink>
-                            <ul>
-                              {tableData.map((item, index) => (
-                                <li
-                                  className="has-sub"
-                                  key={index}
-                                  onMouseOver={() => catagoriWisesub(item._id)}
-                                >
-                                  <Link to="#">{item.name}</Link>
-                                  <ul>
-                                    {isMegaMenu.map((secound, index) => (
-                                      <li className="has-sub" key={index}>
-                                        <Link to="#">{secound.name}</Link>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </li>
-                              ))}
-                            </ul>
-                          </li>
-
-                          <li class="dropdown">
-                            <Link to="/benifits">Benefits </Link>
-                          </li>
-                          <li class="dropdown">
-                            <Link to="/review">Review</Link>
-                          </li>
-                          <li class="dropdown">
-                            <Link to="/faq">Faq</Link>
-                          </li>
-                          <li class="dropdown ">
-                            <NavLink to="/about-us">About</NavLink>
-                          </li>
-                          <li>
-                            <NavLink to="/blog">Blog</NavLink>
-                          </li>
-                        </ul>
-                      </div>
 
                       {/* <li>
                     <a href="contact.html">Contact</a>

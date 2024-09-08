@@ -43,6 +43,13 @@ const ServicesDetails = () => {
     } catch (error) {}
   };
 
+  const handelarServicesData = async (data) => {
+    try {
+      const response = await API.services_cataWishData(data);
+      console.log("responsesss", response);
+    } catch (error) {}
+  };
+
   useEffect(() => {
     getdetailsData();
     window.scrollTo(0, 0);
@@ -165,41 +172,34 @@ const ServicesDetails = () => {
                   defaultValue="item-1"
                   collapsible
                 >
-                  <Accordion.Item className="AccordionItem" value="item-1">
-                    <Accordion.AccordionTrigger>
-                      Is it accessible?
-                    </Accordion.AccordionTrigger>
-                    <Accordion.AccordionContent>
-                      Yes. It adheres to the WAI-ARIA design pattern.
-                    </Accordion.AccordionContent>
-                  </Accordion.Item>
-                  <Accordion.Item className="AccordionItem" value="item-2">
-                    <Accordion.AccordionTrigger>
-                      Is it accessible?
-                    </Accordion.AccordionTrigger>
-                    <Accordion.AccordionContent>
-                      Yes. It adheres to the WAI-ARIA design pattern.
-                    </Accordion.AccordionContent>
-                  </Accordion.Item>
-                </Accordion.Root>
-                {blogCata.map((item, index) => (
-                  <div key={index} onClick={() => catagoriyWais(item._id)}>
-                    {/* <Accordion
-                      title={
-                        item.name +
-                        `  -----------------------  (${item.serviceCount})`
-                      }
+                  {blogCata.map((item, index) => (
+                    <Accordion.Item
+                      key={index}
+                      onClick={() => catagoriyWais(item._id)}
+                      className="AccordionItem"
+                      value={item._id}
                     >
-                      <ul class="level-list">
-                        {subcataData.map((item, index) => (
-                          <li key={index}>
-                            <Link to="#">{item.name}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </Accordion> */}
-                  </div>
-                ))}
+                      <Accordion.AccordionTrigger>
+                        <span>{item.name} </span>{" "}
+                        <span>({item.serviceCount})</span>
+                      </Accordion.AccordionTrigger>
+                      <Accordion.AccordionContent className="accBody">
+                        <ul class="level-list">
+                          {subcataData.map((item, index) => (
+                            <li key={index}>
+                              <Link
+                                to="#"
+                                onClick={() => handelarServicesData(item._id)}
+                              >
+                                {item.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </Accordion.AccordionContent>
+                    </Accordion.Item>
+                  ))}
+                </Accordion.Root>
 
                 <div class="btns-box">
                   <Link to="/" class="theme-btn enrol-btn">
