@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, NavLink, useLocation, useParams } from "react-router-dom";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import * as API from "../api/index";
 import * as FAPI from "../api/index";
+import * as Accordion from "@radix-ui/react-accordion";
 import NavbarDropdown from "./MultiMenu";
 const Header = ({ tableData }) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -11,6 +12,13 @@ const Header = ({ tableData }) => {
   const [isMegaMenu, setIsMegaMenu] = React.useState([]);
 
   const [allCataData, setAllCataData] = React.useState([]);
+  const loaction = useLocation();
+
+  const param = useParams();
+
+  const [blogData, setBlogData] = useState([]);
+
+  const [subcataData, setSubcataData] = useState([]);
 
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
@@ -35,9 +43,28 @@ const Header = ({ tableData }) => {
     } catch (error) {}
   };
 
+  const catagoriyWais = async (data) => {
+    console.log("data", data);
+
+    try {
+      const response = await API.catagoriBySubcatagori(data);
+      console.log("response", response);
+      setSubcataData(response.data.data);
+    } catch (error) {}
+  };
+
+  const handelarServicesData = async (data) => {
+    try {
+      const response = await API.services_cataWishData(data);
+      console.log("responsesss", response);
+    } catch (error) {}
+  };
+
   useEffect(() => {
     getdetailsData();
+    window.scrollTo(0, 0);
   }, []);
+
   return (
     <div>
       <div className="freeQuot">
@@ -204,68 +231,6 @@ const Header = ({ tableData }) => {
           id="navbarSupportedContent"
         >
           <ul class="navigation clearfix">
-            <li class="dropdown has-mega-menu">
-              <a href="#">
-                <span>
-                  Courses <i class="fa fa-arrow-down"></i>
-                </span>
-              </a>
-              <div class="mega-menu d-none">
-                <div class="upper-box">
-                  <div class="page-links-box">
-                    <a href="course.html" class="link">
-                      <span class="icon flaticon-bullhorn"></span>
-                      Marketing
-                    </a>
-                    <a href="course-2.html" class="link">
-                      <span class="icon flaticon-cyclist"></span>
-                      Lifestyle
-                    </a>
-                    <a href="course-3.html" class="link">
-                      <span class="icon flaticon-bar-chart"></span>
-                      Business
-                    </a>
-                    <a href="course-4.html" class="link">
-                      <span class="icon flaticon-software"></span>
-                      Software
-                    </a>
-                    <a href="course-3.html" class="link">
-                      <span class="icon flaticon-atom"></span>Science
-                    </a>
-                    <a href="course.html" class="link">
-                      <span class="icon flaticon-webpage"></span>IT Management
-                    </a>
-                    <a href="course-2.html" class="link">
-                      <span class="icon flaticon-language"></span>
-                      Language
-                    </a>
-                    <a href="course-3.html" class="link">
-                      <span class="icon flaticon-team"></span>Human Resources
-                    </a>
-                    <a href="course-4.html" class="link">
-                      <span class="icon flaticon-healthcare"></span>
-                      Health Care
-                    </a>
-                  </div>
-                </div>
-                <div class="lower-box">
-                  <h3>Become an Instructor</h3>
-                  <div class="text">
-                    Top instructors from around the Neque convallis a cras
-                    semper auctor. <br /> Libero id faucibus nisl tincidunt
-                    egetnvallis{" "}
-                  </div>
-                  <div class="btn-box">
-                    <a href="#" class="theme-btn btn-style-five">
-                      Start teaching today
-                    </a>
-                  </div>
-                  <div class="side-icon">
-                    <img src="images/resource/mega-menu-icon.png" alt="" />
-                  </div>
-                </div>
-              </div>
-            </li>
             <li class="current dropdown">
               <NavLink to="/" onClick={() => setIsOpen(false)}>
                 Home
@@ -286,21 +251,42 @@ const Header = ({ tableData }) => {
                 ></span>
               </Link>
               <ul className={dropDown ? "submenuMO" : "d-none"}>
-                <li>
-                  <Link to="#" onClick={() => setIsOpen(false)}>
-                    Sub 1
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#" onClick={() => setIsOpen(false)}>
-                    Sub 1
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#" onClick={() => setIsOpen(false)}>
-                    Sub 1
-                  </Link>
-                </li>
+                <Accordion.Root
+                  className="AccordionRoot"
+                  type="single"
+                  defaultValue="item-1"
+                  collapsible
+                >
+                  {allCataData.map((item, index) => (
+                    <Accordion.Item
+                      key={index}
+                      onClick={() => catagoriyWais(item._id)}
+                      className="AccordionItem"
+                      value={item._id}
+                    >
+                      <Accordion.AccordionTrigger>
+                        <span>{item.name} </span>{" "}
+                        <span className="dataSerCount">
+                          ({item.serviceCount})
+                        </span>
+                      </Accordion.AccordionTrigger>
+                      <Accordion.AccordionContent className="accBody">
+                        <ul class="level-list">
+                          {subcataData.map((item, index) => (
+                            <li key={index}>
+                              <Link
+                                to="#"
+                                onClick={() => handelarServicesData(item._id)}
+                              >
+                                {item.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </Accordion.AccordionContent>
+                    </Accordion.Item>
+                  ))}
+                </Accordion.Root>
               </ul>
             </li>
             <li class="dropdown">

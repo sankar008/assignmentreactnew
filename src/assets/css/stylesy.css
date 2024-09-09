@@ -521,6 +521,10 @@ a.nav-link.collapsed,
 }
 .dropdown-menu li {
   position: relative;
+  padding: 15px;
+}
+.dropdown-menu li a {
+  padding: 0;
 }
 .dropdown-menu .dropdown-submenu {
   display: none;

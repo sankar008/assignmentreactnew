@@ -2306,9 +2306,32 @@
   .submenuMO {
     display: block;
     padding-left: 1.5rem;
-    height: 115px;
-    overflow-y: scroll;
-    background-color: #eef1f1;
+    height: auto;
+    /* overflow-y: scroll; */
+    background-color: #efefef;
+    padding: 10px 5px 10px 25px;
+  }
+
+  .submenuMO .AccordionItem button {
+    border-bottom: 1px solid #ccc !important;
+    padding: 6px 0 !important;
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: transparent !important;
+    color: #4b4b4b;
+    justify-content: space-between;
+    font-weight: 500;
+    text-transform: capitalize;
+    border: none;
+  }
+  .submenuMO .dataSerCount {
+    display: inline-block;
+    margin-left: 9rem;
+  }
+  .submenuMO .accBody {
+    border: none !important;
+    padding: 6px 6px 6px 0px !important;
   }
   .arrowDwn {
     display: flex !important;
