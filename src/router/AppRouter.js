@@ -27,16 +27,29 @@ import "react-toastify/dist/ReactToastify.css";
 import ForgotPassword from "../pages/ForgotPassword";
 import * as API from "../api/index";
 import ServicesDetails from "../pages/Services/ServicesDetails";
+import SubServices from "../pages/Services/SubServices";
 const AppRouter = () => {
   const param = useParams();
   const [tableData, setTableData] = useState([]);
-
+  const [servicesData, setServicesData] = useState([]);
   const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.catagori_listing();
       const mainData = response.data.data.filter((item) => item.useFor === "2");
       setTableData(mainData);
+    } catch (error) {}
+  };
+
+  const services_sub = async (data) => {
+    console.log("data", data);
+
+    try {
+      const fresponse = await API.services_cataWishData(data);
+      console.log("fresponse", fresponse);
+      if (fresponse.data.success === 1) {
+        setServicesData(fresponse.data.data);
+      }
     } catch (error) {}
   };
 
@@ -49,11 +62,18 @@ const AppRouter = () => {
     <>
       <ToastContainer />
       <BrowserRouter>
-        <Header tableData={tableData} />
+        <Header tableData={tableData} services_sub={services_sub} />
         <div className="mainWarpr">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/services" element={<ServicesS />} />
+            <Route
+              path="/services"
+              element={<ServicesS servicesData={servicesData} />}
+            />
+            <Route
+              path="/service"
+              element={<SubServices servicesData={servicesData} />}
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
 

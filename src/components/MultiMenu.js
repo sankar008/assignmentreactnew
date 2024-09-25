@@ -10,16 +10,16 @@ import {
   MDBDropdownItem,
   MDBDropdownLink,
 } from "mdb-react-ui-kit";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 
 export default function NavbarDropdown({
   allCataData,
   catagoriWisesub,
   isMegaMenu,
   toggleDrawer,
+  services_sub,
 }) {
-  console.log("isMegaMenu", isMegaMenu);
-
+  const navigate = useNavigate();
   return (
     <MDBNavbar expand="lg" light bgColor="light">
       <div class="mobile-nav-toggler" onClick={toggleDrawer}>
@@ -35,7 +35,11 @@ export default function NavbarDropdown({
           </MDBNavbarItem>
           <MDBNavbarItem>
             <MDBDropdown>
-              <MDBDropdownToggle tag="a" className="nav-link">
+              <MDBDropdownToggle
+                tag="a"
+                className="nav-link"
+                onClick={() => navigate("/services")}
+              >
                 Services
               </MDBDropdownToggle>
               <MDBDropdownMenu>
@@ -51,7 +55,12 @@ export default function NavbarDropdown({
                         ? ""
                         : isMegaMenu.map((item, index) => (
                             <MDBDropdownItem key={index}>
-                              <NavLink to="#">{item.name}</NavLink>
+                              <NavLink
+                                onClick={() => services_sub(item._id)}
+                                to="/service"
+                              >
+                                {item.name}
+                              </NavLink>
                             </MDBDropdownItem>
                           ))}
                     </ul>

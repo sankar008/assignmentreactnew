@@ -553,3 +553,11 @@ a.nav-link.collapsed,
 .mobile-nav-toggler {
   display: none;
 }
+.course-block .inner-box .image img {
+  height: 100px;
+  object-fit: contain;
+}
+.uni-namdde {
+  height: 150px;
+  overflow: hidden;
+}

@@ -6,7 +6,7 @@ import * as API from "../api/index";
 import * as FAPI from "../api/index";
 import * as Accordion from "@radix-ui/react-accordion";
 import NavbarDropdown from "./MultiMenu";
-const Header = ({ tableData }) => {
+const Header = ({ tableData, services_sub }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropDown, setDropDown] = React.useState(false);
   const [isMegaMenu, setIsMegaMenu] = React.useState([]);
@@ -24,10 +24,10 @@ const Header = ({ tableData }) => {
     setIsOpen((prevState) => !prevState);
   };
   const catagoriWisesub = async (data, id) => {
-    console.log("data", data, id);
+    //console.log("data", data, id);
 
     const response = await API.catagoriBySubcatagori(id);
-    console.log("response", response);
+    //  console.log("response", response);
     setIsMegaMenu(response.data.data);
   };
 
@@ -35,20 +35,20 @@ const Header = ({ tableData }) => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const cataresponse = await FAPI.allServicesCata();
-      console.log("cataresponse", cataresponse);
+      // console.log("cataresponse", cataresponse);
       setAllCataData(cataresponse.data.data);
       const subCatars = await API.catagoriBySubcatagori();
 
-      console.log("subCatars", subCatars);
+      //  console.log("subCatars", subCatars);
     } catch (error) {}
   };
 
   const catagoriyWais = async (data) => {
-    console.log("data", data);
+    //console.log("data", data);
 
     try {
       const response = await API.catagoriBySubcatagori(data);
-      console.log("response", response);
+      // console.log("response", response);
       setSubcataData(response.data.data);
     } catch (error) {}
   };
@@ -56,7 +56,7 @@ const Header = ({ tableData }) => {
   const handelarServicesData = async (data) => {
     try {
       const response = await API.services_cataWishData(data);
-      console.log("responsesss", response);
+      //console.log("responsesss", response);
     } catch (error) {}
   };
 
@@ -100,6 +100,7 @@ const Header = ({ tableData }) => {
                       catagoriWisesub={catagoriWisesub}
                       isMegaMenu={isMegaMenu}
                       toggleDrawer={toggleDrawer}
+                      services_sub={services_sub}
                     />
                   </div>
                 </div>

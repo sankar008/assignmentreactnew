@@ -1,31 +1,10 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import { IMG } from "../../api/constant";
+import OrderaType from "../../components/OrderaType";
 import { Typewriter } from "react-simple-typewriter";
-import Banner from "../components/Banner";
-import OrderFrom from "../components/OrderFrom";
-import Services from "../pages/Services";
-import * as API from "../api/index";
-import { IMG } from "../api/constant";
-import { Link, useLocation, useParams } from "react-router-dom";
-import OrderaType from "../components/OrderaType";
-const ServicesS = ({ servicesData }) => {
-  const location = useLocation();
 
-  const [tableData, setTableData] = useState([]);
-  const getdetailsData = async () => {
-    const header = localStorage.getItem("_tokenCode");
-    try {
-      const response = await API.allServices();
-      if (response.data.success === 1) {
-        setTableData(response.data.data);
-      }
-    } catch (error) {}
-  };
-
-  useEffect(() => {
-    getdetailsData();
-    window.scrollTo(0, 0);
-  }, [location.tableData]);
+const SubServices = ({ servicesData }) => {
   return (
     <>
       <div
@@ -151,37 +130,43 @@ const ServicesS = ({ servicesData }) => {
               dolor in reprehenderit in
             </div>
           </div>
-          {console.log("servicesData", servicesData)}
           <div class="row clearfix">
-            {tableData.map((item, index) => (
-              <div class="course-block col-lg-4 col-md-6 col-sm-6" key={index}>
+            {servicesData.length === 0 ? (
+              <h2 className="text-center">No Data Found</h2>
+            ) : (
+              servicesData.map((item, index) => (
                 <div
-                  class="inner-box wow fadeInLeft"
-                  data-wow-delay="0ms"
-                  data-wow-duration="1500ms"
+                  class="course-block col-lg-4 col-md-6 col-sm-6"
+                  key={index}
                 >
-                  <div class="image">
-                    <Link to={`/services-details/${item.slug}`}>
-                      <img src={IMG + item.image} alt="" />
-                    </Link>
-                  </div>
-                  <div class="lower-content px-0">
-                    <h4>
+                  <div
+                    class="inner-box wow fadeInLeft"
+                    data-wow-delay="0ms"
+                    data-wow-duration="1500ms"
+                  >
+                    <div class="image">
                       <Link to={`/services-details/${item.slug}`}>
-                        {item.title}
+                        <img src={IMG + item.image} alt="" />
                       </Link>
-                    </h4>
-                    <div class="uni-namdde">
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: item.description,
-                        }}
-                      />
+                    </div>
+                    <div class="lower-content px-0">
+                      <h4>
+                        <Link to={`/services-details/${item.slug}`}>
+                          {item.title}
+                        </Link>
+                      </h4>
+                      <div class="uni-namdde">
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: item.description,
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </section>
@@ -189,4 +174,4 @@ const ServicesS = ({ servicesData }) => {
   );
 };
 
-export default ServicesS;
+export default SubServices;
