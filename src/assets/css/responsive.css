@@ -1904,6 +1904,90 @@
     border-bottom: 0px;
     text-decoration: underline;
   }
+  .isDacktop {
+    display: none;
+  }
+  .forMobile {
+    display: block;
+  }
+
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+  }
+
+  .menu-icon span {
+    background-color: white;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background-color: #444;
+    padding: 2rem 1rem;
+    transition: right 0.3s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu ul {
+    list-style-type: none;
+  }
+
+  .nav-menu ul li {
+    margin-bottom: 1rem;
+  }
+
+  .nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  #sidebar {
+    display: none;
+  }
+  .EZDrawer .sidebar-wrapper {
+    left: auto !important;
+  }
 }
 
 @media only screen and (max-width: 479px) {
@@ -1986,6 +2070,90 @@
   .event-detail-section .info-column .inner-column {
     padding: 25px 25px 35px;
   }
+  .isDacktop {
+    display: none;
+  }
+  .forMobile {
+    display: block;
+  }
+
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+  }
+
+  .menu-icon span {
+    background-color: white;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background-color: #444;
+    padding: 2rem 1rem;
+    transition: right 0.3s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu ul {
+    list-style-type: none;
+  }
+
+  .nav-menu ul li {
+    margin-bottom: 1rem;
+  }
+
+  .nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  #sidebar {
+    display: none;
+  }
+  .EZDrawer .sidebar-wrapper {
+    left: auto !important;
+  }
 }
 
 @media only screen and (max-width: 1140px) {
@@ -2000,6 +2168,90 @@
 
   .testimonial-block-five .inner-box .text {
     font-size: 20px;
+  }
+  .isDacktop {
+    display: none;
+  }
+  .forMobile {
+    display: block;
+  }
+
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+  }
+
+  .menu-icon span {
+    background-color: white;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background-color: #444;
+    padding: 2rem 1rem;
+    transition: right 0.3s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu ul {
+    list-style-type: none;
+  }
+
+  .nav-menu ul li {
+    margin-bottom: 1rem;
+  }
+
+  .nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  #sidebar {
+    display: none;
+  }
+  .EZDrawer .sidebar-wrapper {
+    left: auto !important;
   }
 }
 
@@ -2023,6 +2275,90 @@
   .study-section .image-column .hotline {
     left: 15px;
     bottom: 15px;
+  }
+  .isDacktop {
+    display: none;
+  }
+  .forMobile {
+    display: block;
+  }
+
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+  }
+
+  .menu-icon span {
+    background-color: white;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background-color: #444;
+    padding: 2rem 1rem;
+    transition: right 0.3s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu ul {
+    list-style-type: none;
+  }
+
+  .nav-menu ul li {
+    margin-bottom: 1rem;
+  }
+
+  .nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  #sidebar {
+    display: none;
+  }
+  .EZDrawer .sidebar-wrapper {
+    left: auto !important;
   }
 }
 
@@ -2053,6 +2389,90 @@
   .banner-section-six .content-boxed .inner-column h1 span::before,
   .footer-style-three .icon-layer-four {
     display: none;
+  }
+  .isDacktop {
+    display: none;
+  }
+  .forMobile {
+    display: block;
+  }
+
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+  }
+
+  .menu-icon span {
+    background-color: white;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background-color: #444;
+    padding: 2rem 1rem;
+    transition: right 0.3s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu ul {
+    list-style-type: none;
+  }
+
+  .nav-menu ul li {
+    margin-bottom: 1rem;
+  }
+
+  .nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  #sidebar {
+    display: none;
+  }
+  .EZDrawer .sidebar-wrapper {
+    left: auto !important;
   }
 }
 
@@ -2095,6 +2515,90 @@
   .footer-style-three .upper-box .title-column .text br,
   .testimonial-section-five .pattern-layer-two {
     display: none;
+  }
+  .isDacktop {
+    display: none;
+  }
+  .forMobile {
+    display: block;
+  }
+
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+  }
+
+  .menu-icon span {
+    background-color: white;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background-color: #444;
+    padding: 2rem 1rem;
+    transition: right 0.3s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu ul {
+    list-style-type: none;
+  }
+
+  .nav-menu ul li {
+    margin-bottom: 1rem;
+  }
+
+  .nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  #sidebar {
+    display: none;
+  }
+  .EZDrawer .sidebar-wrapper {
+    left: auto !important;
   }
 }
 
@@ -2372,5 +2876,90 @@
   }
   .mobile-nav-toggler {
     display: block;
+  }
+  .isDacktop {
+    display: none;
+  }
+  .forMobile {
+    display: block;
+  }
+
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+  }
+
+  .menu-icon span {
+    background-color: white;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background-color: #444;
+    padding: 2rem 1rem;
+    transition: right 0.3s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu ul {
+    list-style-type: none;
+  }
+
+  .nav-menu ul li {
+    margin-bottom: 1rem;
+  }
+
+  .nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  #sidebar {
+    display: none;
+  }
+  .EZDrawer .sidebar-wrapper {
+    left: auto !important;
+    width: 250px !important;
   }
 }

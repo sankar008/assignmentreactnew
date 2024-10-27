@@ -91,8 +91,8 @@ const ServicesList = () => {
                     visible={true}
                   />
                 ) : (
-                  <div class="table-responsive">
-                    <table class="table table-striped mb-0">
+                  <div class="table-responsives">
+                    <table class="mb-0 table table-responsive table-striped">
                       <thead>
                         <tr>
                           <th>No.</th>
@@ -122,6 +122,7 @@ const ServicesList = () => {
                                   </td>
                                   <td class="text-bold-500 w-25">
                                     <div
+                                      className="decription"
                                       dangerouslySetInnerHTML={{
                                         __html: item.description,
                                       }}

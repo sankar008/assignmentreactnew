@@ -561,3 +561,34 @@ a.nav-link.collapsed,
   height: 150px;
   overflow: hidden;
 }
+.decription h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 15px !important;
+  text-align: left;
+  max-height: 3.6em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.2em;
+  color: #fff;
+}
+.decription {
+  text-align: left;
+  max-height: 3.6em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.2em;
+}
+.isDacktop {
+  display: block;
+}
+.forMobile {
+  display: none;
+}
