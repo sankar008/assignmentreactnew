@@ -119,6 +119,7 @@ const SidBar = ({ isOpen, setdarkMode, darkMode }) => {
                 <span>Services</span>
               </NavLink>
             </li>
+
             {/* <li class="sidebar-item">
               <NavLink to="#" className="sidebar-link">
                 <i class="bi bi-person-fill"></i>
@@ -171,6 +172,12 @@ const SidBar = ({ isOpen, setdarkMode, darkMode }) => {
               <NavLink to="/author/blog" className="sidebar-link">
                 <i class="bi bi-collection-fill"></i>
                 <span>Manage blog </span>
+              </NavLink>
+            </li>
+            <li class="sidebar-item">
+              <NavLink to="/author/expert" className="sidebar-link">
+                <i class="bi bi-person-fill"></i>
+                <span>Manage Expert</span>
               </NavLink>
             </li>
             {/* <li class="sidebar-item">

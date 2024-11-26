@@ -136,6 +136,67 @@ export const subcategori_delete = async (data, header, apiType) => {
   }
 };
 
+// ? **** TEACHER
+export const add_teacher = async (data, header) => {
+  try {
+    const url = c.URL + "/teacher";
+    const res = await axios.post(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const edit_teacher = async (data, header) => {
+  try {
+    const url = c.URL + "/teacher";
+    const res = await axios.patch(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const all_teacher = async (header) => {
+  try {
+    const url = c.URL + "/teacher";
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const byid_teacher = async (data, header) => {
+  try {
+    const url = c.URL + "/teacher/" + data;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const delete_teacher = async (data, header) => {
+  try {
+    const url = c.URL + "/teacher/" + data;
+    const res = await axios.delete(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
 // ? SUB-CATAGORIS
 
 export const add_blog = async (data, header) => {
@@ -195,7 +256,6 @@ export const edit_services = async (data, header) => {
   }
 };
 export const edit_blog = async (data, header) => {
-  console.log("data", data);
   try {
     const url = c.BLOG;
     const res = await axios.patch(url, data, {

@@ -17,6 +17,8 @@ import AddBlog from "../page/Blog/AddBlog";
 import AddServices from "../page/Services/AddServices";
 import ServicesList from "../page/Services/ServicesList";
 import Subcategory from "../page/Blog/Subcategory";
+import Expart from "../page/Expart/Expart";
+import AddExpert from "../page/Expart/AddExpert";
 const AdminRoute = () => {
   const [notification, setNotification] = useState([]);
   const socket = io(SOCEKT);
@@ -83,6 +85,9 @@ const AdminRoute = () => {
                 <Route path="/author/services" element={<ServicesList />} />
                 <Route path="/author/services/add" element={<AddServices />} />
                 <Route path="/author/services/edit" element={<AddServices />} />
+                <Route path="/author/expert" element={<Expart />} />
+                <Route path="/author/expert/add" element={<AddExpert />} />
+                <Route path="/author/expert/edit" element={<AddExpert />} />
               </Routes>
             </div>
           </>
