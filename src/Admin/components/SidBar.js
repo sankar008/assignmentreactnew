@@ -180,6 +180,12 @@ const SidBar = ({ isOpen, setdarkMode, darkMode }) => {
                 <span>Manage Expert</span>
               </NavLink>
             </li>
+            <li class="sidebar-item">
+              <NavLink to="/author/assignment" className="sidebar-link">
+                <i class="bi bi-collection-fill"></i>
+                <span>Assignment</span>
+              </NavLink>
+            </li>
             {/* <li class="sidebar-item">
               <NavLink to="#" className="sidebar-link">
                 <i class="bi bi-collection-fill"></i>

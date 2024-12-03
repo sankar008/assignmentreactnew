@@ -89,6 +89,18 @@ export const catagori_listing = async (header, apiType) => {
   }
 };
 
+export const assignmentByid = async (data, header) => {
+  try {
+    const url = c.URL + "/assignment/" + data;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
 export const catagori_listing_sub = async (header) => {
   try {
     const url = c.BLOG_CATEGORY;
@@ -307,6 +319,18 @@ export const delete_services = async (data, header) => {
 export const all_services = async (header) => {
   try {
     const url = c.SERVICES;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const all_assignment = async (header) => {
+  try {
+    const url = c.URL + "/assignment";
     const res = await axios.get(url, {
       headers: JSON.parse(header),
     });

@@ -261,6 +261,8 @@ img {
   margin-bottom: 25px;
 }
 
+
+
 .list-style-one li:last-child {
   margin-bottom: 0px;
 }
@@ -18769,14 +18771,14 @@ img {
   color: #ddd;
 }
 
-.text_input{
+.text_input {
   width: 100%;
   margin-bottom: 30px;
   position: relative;
   margin-top: 20px;
 }
 
-.text_input input{
+.text_input input {
   height: 42px;
   border-radius: 6px;
   border: 1px solid #ddd;
@@ -18785,16 +18787,15 @@ img {
   /* color: #ddd; */
 }
 
-.page_button{
+.page_button {
   background-color: #333333;
   color: antiquewhite;
   border-radius: 6px;
   padding: 4px 10px 9px 10px;
   line-height: 0.5;
   font-size: 25px;
-
 }
-.page_input{
+.page_input {
   border: 1px solid #ddd;
   margin-top: 2px;
   border-radius: 5px;
@@ -18802,7 +18803,7 @@ img {
   padding: 5px;
 }
 
-.wordcount{
+.wordcount {
   font-size: 25px;
   padding: 12px;
 }
@@ -18833,9 +18834,6 @@ img {
   margin: 20px 0px 30px;
 }
 
-
-
-
 .sign_up_field input {
   width: 100%;
   border: 1px solid #ddd;
@@ -18843,18 +18841,16 @@ img {
   height: 42px;
   padding-left: 40px;
 }
-.OTP_field{
+.OTP_field {
   width: 45%;
   position: relative;
   margin: 20px 0px 30px;
-   display:  flex ;
-   align-items: center;
-   justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-
-.sign_uplft_otp{
+.sign_uplft_otp {
   margin-top: 62px;
 }
 
@@ -18864,7 +18860,7 @@ img {
   margin-bottom: 12px;
 }
 
-.otp-input-container input{
+.otp-input-container input {
   width: 3rem !important;
 }
 
@@ -18881,14 +18877,6 @@ img {
 .otp-input:focus {
   border-color: #007bff; /* Adjust the border color when focused as needed */
 }
-
-
-
-
-
-
-
-
 
 .sign_icon {
   position: absolute;
@@ -19006,7 +18994,6 @@ img {
   align-items: center;
   gap: 10px;
   justify-content: center;
-
 }
 .icon_with_timer strong {
   border-bottom: 1px solid #ddd;
@@ -19247,7 +19234,6 @@ img {
   margin: 60px 0px 0px 0px;
 }
 
-
 /* .all_button_group {
 }
 
@@ -19271,7 +19257,6 @@ img {
   border: 1px solid blue;
 } */
 
-
 .radioButtonLabel {
   display: flex;
   align-items: center;
@@ -19291,7 +19276,8 @@ img {
   padding: 10px;
   border: 1px solid #06c;
   border-radius: 5px;
-  margin-bottom: 10px;}
+  margin-bottom: 10px;
+}
 
 .hiddenRadioInput {
   opacity: 0;
@@ -19303,19 +19289,19 @@ img {
   background-color: #00AD51;
   color: #fff;
 } */
-.mainContainer{
-display: flex;
-flex-direction: row;
+.mainContainer {
+  display: flex;
+  flex-direction: row;
 }
 
-.file-uploader-wrapper{
+.file-uploader-wrapper {
   padding: 10px;
   height: 268px;
   border-radius: 6px;
   border: 1px dashed #ddd;
 }
 
-.previewViewContainer{
+.previewViewContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19323,64 +19309,63 @@ flex-direction: row;
   /* //justify-content: space-between; */
 }
 
-.fileNameText{
+.fileNameText {
   font-size: 13px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    /* height: 45px; */
-    width: 360px;
-    margin-top: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* height: 45px; */
+  width: 360px;
+  margin-top: 10px;
 }
 
-.flexcontainer{
+.flexcontainer {
   display: flex;
   flex-direction: row;
 }
 
-.nameContainer{
+.nameContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.removeButton{
+.removeButton {
   width: 3%;
   height: 22%;
   cursor: pointer;
 }
 
-.pdficon{
- width: 15%;
- margin: auto;
- /* display: flex; */
+.pdficon {
+  width: 15%;
+  margin: auto;
+  /* display: flex; */
 }
 
-.excelicon{
-
+.excelicon {
   width: 7%;
   margin: auto 19px;
 }
 
-.docicon{
+.docicon {
   width: 7%;
   margin: auto 19px;
 }
 
-.zipicon{
+.zipicon {
   width: 7%;
   margin: auto 20px;
 }
 
-.previewImages{
+.previewImages {
   width: 7%;
-    margin: auto 19px;
+  margin: auto 19px;
 }
 
 .modal .modal-content {
   margin-top: 166px !important;
 }
-.danger{
+.danger {
   border-color: red;
 }

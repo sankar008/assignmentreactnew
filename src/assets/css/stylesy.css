@@ -592,3 +592,113 @@ h6 {
 .forMobile {
   display: none;
 }
+:root {
+  --primary-color: #6c5ce7;
+  --secondary-color: #a29bfe;
+  --background-color: #f9f9f9;
+  --text-color: #2d3436;
+  --card-background: #ffffff;
+}
+
+.assignment-card {
+  background-color: var(--card-background);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.assignment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.assignment-header {
+  margin-bottom: 20px;
+}
+
+.assignment-title {
+  font-size: 24px !important;
+  color: var(--primary-color) !important;
+  margin-bottom: 10px !important;
+}
+
+.assignment-due-date {
+  font-size: 16px;
+  color: var(--secondary-color);
+  display: block;
+}
+
+.assignment-description {
+  margin-bottom: 30px;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.assignment-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.status-label {
+  font-weight: 600;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.status-value {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.submit-button {
+  display: block;
+  width: 50%;
+  padding: 15px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .assignment-card {
+    padding: 20px;
+  }
+
+  .assignment-title {
+    font-size: 20px;
+  }
+
+  .assignment-description {
+    font-size: 14px;
+  }
+
+  .assignment-status {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-value {
+    margin-top: 5px;
+  }
+}
+.list-container {
+  border-radius: 8px;
+  padding: 20px 20px 20px 0;
+}
