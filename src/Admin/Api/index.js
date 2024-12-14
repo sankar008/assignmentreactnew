@@ -208,6 +208,19 @@ export const delete_teacher = async (data, header) => {
     return e.response;
   }
 };
+// ?*** Job Assing
+
+export const jobAssing = async (data, header) => {
+  try {
+    const url = c.URL + "/job/assing";
+    const res = await axios.post(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
 
 // ? SUB-CATAGORIS
 

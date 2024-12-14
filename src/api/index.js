@@ -218,3 +218,15 @@ export const services_cataWishData = async (data) => {
     return e.response;
   }
 };
+
+export const jobANswer = async (data, header) => {
+  try {
+    const url = c.URL + "/job/answer";
+    const res = await axios.post(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};

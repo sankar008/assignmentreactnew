@@ -28,6 +28,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 import * as API from "../api/index";
 import ServicesDetails from "../pages/Services/ServicesDetails";
 import SubServices from "../pages/Services/SubServices";
+import Solutions from "../pages/Solutions";
 const AppRouter = () => {
   const param = useParams();
   const [tableData, setTableData] = useState([]);
@@ -92,6 +93,7 @@ const AppRouter = () => {
             <Route path="/order" element={<Orderpage />} />
             <Route path="/orders" element={<OrderNew />} />
             <Route path="/account" element={<UserDashboard />} />
+            <Route path="/solutions/:id" element={<Solutions />} />
           </Routes>
         </div>
         <Footer />

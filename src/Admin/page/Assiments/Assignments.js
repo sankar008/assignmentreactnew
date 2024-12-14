@@ -31,6 +31,8 @@ const Assignments = () => {
     } catch (error) {}
   };
 
+  const jobAssing = () => {};
+
   useEffect(() => {
     getdetailsData();
   }, []);
@@ -118,11 +120,19 @@ const Assignments = () => {
                                   <td>
                                     <div class="buttons">
                                       <Link
+                                        to="#"
+                                        onClick={() => jobAssing(item._id)}
+                                      >
+                                        <span class="btn icon btn-primary">
+                                          <i class="bi bi-send"></i>
+                                        </span>
+                                      </Link>
+                                      <Link
                                         to="/author/assignment-details"
                                         state={{ dataId: item._id }}
                                       >
                                         <span class="btn icon btn-primary">
-                                          <i class="bi bi-pencil"></i>
+                                          <i class="bi bi-eye"></i>
                                         </span>
                                       </Link>
                                       <button
