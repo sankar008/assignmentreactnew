@@ -2,19 +2,34 @@ import React, { useState } from "react";
 import * as API from "../../Api/index";
 import { useEffect } from "react";
 import { useLocation } from "react-router";
+import Select from "react-select";
 import moment from "moment-timezone";
 import { MESSAGE } from "../../../helpers/commonData";
 const AssignMentsDetails = () => {
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
   const location = useLocation();
   const [tableData, setTableData] = useState([]);
   const [expert, setExpert] = useState([]);
   const [expertId, setExpertId] = useState("");
+  const [selectedOption, setSelectedOption] = useState(null);
+  console.log("selectedOption", selectedOption);
+
   const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
       const response = await API.assignmentByid(location.state.dataId, header);
       const eresponse = await API.all_teacher(header);
-      setExpert(eresponse.data.data);
+      const transformedArray = eresponse?.data?.data.map((item) => ({
+        value: item._id,
+        label: item.name,
+      }));
+      console.log("eresponse", eresponse);
+
+      setExpert(transformedArray);
       setTableData(response.data.data);
       console.log("response", response);
     } catch (error) {}
@@ -77,7 +92,13 @@ const AssignMentsDetails = () => {
         </div>
         <div className="">
           <label>Assign expert</label>
-          <select
+          <Select
+            isMulti
+            defaultValue={selectedOption}
+            onChange={setSelectedOption}
+            options={expert}
+          />
+          {/* <select
             onChange={(e) => setExpertId(e.target.value)}
             className="form-control w-50"
           >
@@ -85,7 +106,7 @@ const AssignMentsDetails = () => {
             {expert.map((item, index) => (
               <option value={item._id}>{item.name}</option>
             ))}
-          </select>
+          </select> */}
         </div>
         <div class="assignment-status">
           <span class="status-label">Status:</span>
