@@ -21,6 +21,8 @@ import Expart from "../page/Expart/Expart";
 import AddExpert from "../page/Expart/AddExpert";
 import Assignments from "../page/Assiments/Assignments";
 import AssignmentDetails from "../page/Assiments/AssignMentsDetails";
+import AddGroup from "../page/Group/AddGroup";
+import Group from "../page/Group/Group";
 const AdminRoute = () => {
   const [notification, setNotification] = useState([]);
   const socket = io(SOCEKT);
@@ -87,6 +89,10 @@ const AdminRoute = () => {
                 <Route path="/author/services" element={<ServicesList />} />
                 <Route path="/author/services/add" element={<AddServices />} />
                 <Route path="/author/services/edit" element={<AddServices />} />
+                <Route path="/author/group/add" element={<AddGroup />} />
+                <Route path="/author/group/edit" element={<AddGroup />} />
+                <Route path="/author/group" element={<Group />} />
+
                 <Route path="/author/expert" element={<Expart />} />
                 <Route path="/author/expert/add" element={<AddExpert />} />
                 <Route path="/author/expert/edit" element={<AddExpert />} />

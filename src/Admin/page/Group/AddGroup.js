@@ -8,7 +8,6 @@ import { async } from "react-input-emoji";
 import { MESSAGE } from "../../../helpers/commonData";
 import { IMG } from "../../Api/constant";
 import { Edit } from "react-feather";
-import Select from "react-select";
 const initialData = {
   name: "",
   emailId: "",
@@ -17,16 +16,15 @@ const initialData = {
   qualification: "",
 };
 
-const AddExpert = () => {
+const AddGroup = () => {
   const location = useLocation();
   const [formData, setFormData] = useState(initialData);
-  const [expert, setExpert] = useState([]);
+  const [tableData, setTableData] = useState([]);
   const [imageData, setImageData] = useState("");
   const [editorData, setEditorData] = useState("");
-  const [selectedOption, setSelectedOption] = useState(null);
   const navigate = useNavigate();
 
-  console.log("selectedOption", selectedOption);
+  console.log("formData", formData);
 
   const imageUploading = (e) => {
     let images = e.target.files[0];
@@ -40,16 +38,9 @@ const AddExpert = () => {
   const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
-      const eresponse = await API.group_list(header);
-      console.log("eresponse", eresponse);
-      const transformedArray = eresponse?.data?.data.map((item) => ({
-        value: item._id,
-        label: item.name,
-      }));
-
-      setExpert(transformedArray);
-      const response = await API.byid_teacher(location.state.dataId, header);
+      const response = await API.byid_group(location.state.dataId, header);
       console.log("response", response);
+
       setFormData(response.data.data);
     } catch (error) {}
   };
@@ -62,39 +53,28 @@ const AddExpert = () => {
   const dataSubmit = async () => {
     const header = localStorage.getItem("_tokenCode");
     console.log("ocalStorage.getItem,", localStorage.getItem("_userId"));
-    const valuesArray = selectedOption.map((item) => item.value);
     try {
       if (location.state === null) {
         const reqObj = {
-          name: formData.name,
-          emailId: formData.emailId,
-          mobileNo: formData.mobileNo,
-          address: formData.address,
-          qualification: formData.qualification,
-          groupId: valuesArray,
+          groupNmae: formData.name,
         };
         console.log("reqObj", reqObj);
-        const response = await API.add_teacher(reqObj, header);
+        const response = await API.add_group(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {
-          navigate("/author/expert");
+          navigate("/author/group");
           MESSAGE(response.data.msg, 1);
         }
       } else {
         const reqObj = {
-          name: formData.name,
-          emailId: formData.emailId,
-          mobileNo: formData.mobileNo,
-          address: formData.address,
-          qualification: formData.qualification,
+          groupNmae: formData.name,
           id: location.state.dataId,
-          status: formData.status,
         };
         console.log("reqObj", reqObj);
-        const response = await API.edit_teacher(reqObj, header);
+        const response = await API.edit_group(reqObj, header);
         console.log("response", response);
-        if (response.data.success === 1) {
-          navigate("/author/expert");
+        if (response.data.sucess === 1) {
+          navigate("/author/group");
           MESSAGE(response.data.msg, 1);
         }
       }
@@ -108,7 +88,7 @@ const AddExpert = () => {
     <>
       <section class="section">
         <div class="page-heading">
-          <h3>{location.state === null ? "Add Expert" : "Edit Expert"}</h3>
+          <h3>{location.state === null ? "Add Group" : "Edit Group"}</h3>
         </div>
         <div class="card">
           <div class="card-body">
@@ -126,7 +106,7 @@ const AddExpert = () => {
                   />
                 </div>
               </div>
-              <div class="col-md-6">
+              {/* <div class="col-md-6">
                 <div class="form-group">
                   <label for="basicInput">Email</label>
                   <input
@@ -195,23 +175,11 @@ const AddExpert = () => {
                     placeholder="Address"
                   ></textarea>
                 </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="disabledInput">Group</label>
-                  <Select
-                    isMulti
-                    defaultValue={selectedOption}
-                    onChange={setSelectedOption}
-                    options={expert}
-                  />
-                </div>
-              </div>
+              </div> */}
 
               <div className="buttons customBtn mt-3">
                 <button class="btn btn-primary" onClick={dataSubmit}>
-                  {location.state === null ? "Add Expert" : "Update Expert"}
+                  {location.state === null ? "Add Group" : "Update Group"}
                   <div class="icon dripicons dripicons-arrow-right"></div>
                 </button>
               </div>
@@ -223,4 +191,4 @@ const AddExpert = () => {
   );
 };
 
-export default AddExpert;
+export default AddGroup;

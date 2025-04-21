@@ -43,11 +43,11 @@ const AssignMentsDetails = () => {
         teacherId: expertId,
       };
       console.log("reqObj", reqObj);
-      const response = await API.jobAssing(reqObj, header);
-      console.log("response", response);
-      if (response.data.success === 1) {
-        MESSAGE(response.data.data, 1);
-      }
+      // const response = await API.jobAssing(reqObj, header);
+      // console.log("response", response);
+      // if (response.data.success === 1) {
+      //   MESSAGE(response.data.data, 1);
+      // }
     } catch (error) {}
   };
   useEffect(() => {

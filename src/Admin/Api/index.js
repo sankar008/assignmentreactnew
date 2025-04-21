@@ -148,6 +148,55 @@ export const subcategori_delete = async (data, header, apiType) => {
   }
 };
 
+// ??? GROUP
+export const add_group = async (data, header) => {
+  try {
+    const url = c.URL + "/group";
+    const res = await axios.post(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const group_list = async (header) => {
+  try {
+    const url = c.URL + "/group";
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const byid_group = async (data, header) => {
+  try {
+    const url = c.URL + "/group/" + data;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+export const edit_group = async (data, header) => {
+  try {
+    const url = c.URL + "/group/" + data.id;
+    const res = await axios.patch(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
 // ? **** TEACHER
 export const add_teacher = async (data, header) => {
   try {
