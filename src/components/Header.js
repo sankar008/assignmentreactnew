@@ -6,10 +6,11 @@ import * as API from "../api/index";
 import * as FAPI from "../api/index";
 import * as Accordion from "@radix-ui/react-accordion";
 import NavbarDropdown from "./MultiMenu";
-const Header = ({ tableData, services_sub }) => {
+const Header = ({ tableData, services_sub, notification = [] }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropDown, setDropDown] = React.useState(false);
   const [isMegaMenu, setIsMegaMenu] = React.useState([]);
+  const [showNotifications, setShowNotifications] = React.useState(false);
 
   const [allCataData, setAllCataData] = React.useState([]);
   const loaction = useLocation();
@@ -86,14 +87,95 @@ const Header = ({ tableData, services_sub }) => {
           <div class="header-upper">
             <div class="outer-container clearfix">
               <div className="row">
-                <div className="col-md-3 col-9">
+                <div className="col-md-3 col-7">
                   <div class="pull-left logo-box">
                     <div class="logo">
                       <a href="#">logo</a>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-9 col-3">
+                <div className="col-md-1 col-2 d-flex align-items-center justify-content-center">
+                  <div className="notification-wrapper" style={{ position: "relative" }}>
+                    <Link 
+                      to="#" 
+                      className="notification-icon"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setShowNotifications(!showNotifications);
+                      }}
+                      style={{
+                        fontSize: "24px",
+                        color: "#333",
+                        position: "relative",
+                        display: "inline-block"
+                      }}
+                    >
+                      🔔
+                      {notification && notification.length > 0 && (
+                        <span 
+                          className="notification-badge"
+                          style={{
+                            position: "absolute",
+                            top: "-8px",
+                            right: "-8px",
+                            background: "#ff4444",
+                            color: "white",
+                            borderRadius: "50%",
+                            padding: "2px 6px",
+                            fontSize: "12px",
+                            fontWeight: "bold"
+                          }}
+                        >
+                          {notification.length}
+                        </span>
+                      )}
+                    </Link>
+                    {showNotifications && (
+                      <div 
+                        className="notification-dropdown"
+                        style={{
+                          position: "absolute",
+                          top: "100%",
+                          right: "0",
+                          background: "white",
+                          border: "1px solid #ddd",
+                          borderRadius: "4px",
+                          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+                          minWidth: "280px",
+                          maxHeight: "400px",
+                          overflowY: "auto",
+                          zIndex: 1000,
+                          marginTop: "10px"
+                        }}
+                      >
+                        <div style={{ padding: "12px 16px", borderBottom: "1px solid #eee" }}>
+                          <h5 style={{ margin: 0, fontSize: "16px", fontWeight: "bold" }}>
+                            Notifications
+                          </h5>
+                        </div>
+                        {notification && notification.length > 0 ? (
+                          notification.map((item, index) => (
+                            <div 
+                              key={index}
+                              style={{
+                                padding: "12px 16px",
+                                borderBottom: "1px solid #f0f0f0",
+                                cursor: "pointer"
+                              }}
+                            >
+                              <p style={{ margin: 0, fontSize: "14px" }}>{item.message}</p>
+                            </div>
+                          ))
+                        ) : (
+                          <div style={{ padding: "20px", textAlign: "center", color: "#999" }}>
+                            No notifications
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="col-md-8 col-3">
                   <div class="stellarnav">
                     <NavbarDropdown
                       allCataData={allCataData}
