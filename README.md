@@ -2,6 +2,21 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Recent Updates
+
+### User Notification System ✨
+A real-time notification system has been added for users using Socket.IO. Key features:
+- 🔔 Bell icon with notification badge in the header
+- Real-time updates via Socket.IO
+- Dropdown menu to view notifications
+- Consistent with admin panel implementation
+
+**Documentation:**
+- [Notification System](./NOTIFICATION_SYSTEM.md) - Technical documentation
+- [Visual Guide](./NOTIFICATION_VISUAL_GUIDE.md) - UI and architecture diagrams
+- [Admin/User Comparison](./ADMIN_USER_NOTIFICATION_COMPARISON.md) - Consistency analysis
+- [Implementation Summary](./IMPLEMENTATION_SUMMARY.md) - Complete overview
+
 ## Available Scripts
 
 In the project directory, you can run:
