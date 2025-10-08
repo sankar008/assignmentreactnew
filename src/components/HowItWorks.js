@@ -143,7 +143,7 @@ const HowItWorks = () => {
                             <div class="listar-feature-item-title listar-feature-counter-added">
                               <span>
                                 <span>03</span>
-                                Payment {" "}
+                                Payment{" "}
                               </span>
                             </div>
 
@@ -201,7 +201,6 @@ const HowItWorks = () => {
                     </div>
                     <div class="listar-feature-fix-bottom-padding listar-fix-feature-arrow-button-height"></div>
                   </div>
-
                 </div>
               </div>
             </div>
