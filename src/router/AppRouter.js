@@ -29,10 +29,15 @@ import * as API from "../api/index";
 import ServicesDetails from "../pages/Services/ServicesDetails";
 import SubServices from "../pages/Services/SubServices";
 import Solutions from "../pages/Solutions";
+import { io } from "socket.io-client";
+import { SOCEKT } from "../api/constant";
 const AppRouter = () => {
   const param = useParams();
   const [tableData, setTableData] = useState([]);
   const [servicesData, setServicesData] = useState([]);
+  const [notification, setNotification] = useState([]);
+  const socket = io(SOCEKT);
+
   const getdetailsData = async () => {
     const header = localStorage.getItem("_tokenCode");
     try {
@@ -54,16 +59,27 @@ const AppRouter = () => {
     } catch (error) {}
   };
 
+  const notificationrender = () => {
+    socket.emit("notification", {
+      id: localStorage.getItem("_userId"),
+    });
+  };
+
   useEffect(() => {
     getdetailsData();
     window.scrollTo(0, 0);
+
+    socket.on("receiveNotification", (data) => {
+      setNotification(data.notification);
+    });
+    notificationrender();
   }, []);
 
   return (
     <>
       <ToastContainer />
       <BrowserRouter>
-        <Header tableData={tableData} services_sub={services_sub} />
+        <Header tableData={tableData} services_sub={services_sub} notification={notification} />
         <div className="mainWarpr">
           <Routes>
             <Route path="/" element={<Home />} />
